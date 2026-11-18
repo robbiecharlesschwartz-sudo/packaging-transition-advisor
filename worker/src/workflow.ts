@@ -259,16 +259,31 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
         const group = groups[g];
         const out = await step.do(`write-${g + 1}`, STEP_CFG, async () => {
           const ps = Object.fromEntries(group.map((s) => [s.id, (sectionN[s.id] ?? []).map((n) => byN.get(n)!).filter(Boolean)]));
-          const { data, model } = await llmJson<{ sections: any[] }>(env, {
+          const call = (tier: 'quality' | 'fast') => llmJson<{ sections: any[] }>(env, {
             ...writerPrompt(wf, group, ps, ctx.profile, ctx.question, {
               alternatives: altText,
               calculator: group.some((s) => s.kind === 'cost') ? calcText : undefined,
               suppliers: group.some((s) => s.kind === 'sourcing') ? supplierText : undefined,
             }),
             maxTokens: 8192,
-            tier: 'quality',
+            tier,
           });
-          return { sections: data.sections ?? [], model };
+          // An empty writer output for a section that has passages is a model failure, not an evidence gap:
+          // retry once on the other routing tier before letting the report mark it as a gap (eval R10).
+          const empty = (secs: any[]) => group.some((s) => (ps[s.id] ?? []).length > 0 && (() => {
+            const d = secs.find((x: any) => x?.id === s.id);
+            return !d || (!(d.claims ?? []).length && !Object.values(d.data ?? {}).some((v: any) => Array.isArray(v) && v.length));
+          })());
+          let { data, model } = await call('quality');
+          let retried = false;
+          if (empty(data.sections ?? [])) {
+            retried = true;
+            try {
+              const r = await call('fast');
+              if (!empty(r.data.sections ?? []) || (r.data.sections ?? []).length > (data.sections ?? []).length) ({ data, model } = r);
+            } catch { /* keep first result */ }
+          }
+          return { sections: data.sections ?? [], model, retried };
         });
         model = out.model;
         for (const s of group) {
