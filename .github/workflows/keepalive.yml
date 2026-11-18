@@ -1,0 +1,18 @@
+name: keepalive
+# Cloudflare free projects do not pause, so this is an uptime check rather than a keep-alive ping:
+# it fails (and GitHub emails the owner) if the demo or its API stops responding.
+on:
+  schedule: [{ cron: '17 */12 * * *' }]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Health and meta endpoints respond
+        env:
+          URL: ${{ secrets.WORKER_URL || 'https://packaging-transition-advisor.pta-worker.workers.dev' }}
+        run: |
+          curl -fsS "$URL/api/health"
+          curl -fsS "$URL/api/meta" | python3 -c "import sys,json;m=json.load(sys.stdin);assert m['chunks']>0, m;print('chunks',m['chunks'])"
+          curl -fsS "$URL/" | grep -q "Packaging Transition Advisor"

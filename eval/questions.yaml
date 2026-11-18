@@ -1,0 +1,172 @@
+# 45 hand-written evaluation questions (brief section 12).
+# expect.all: groups of alternatives (regex, case-insensitive); every group must appear in the answer for "exact",
+#             at least half for "partial". expect.docs: documents that should be retrieved (any = recall hit).
+# expect.gap: the corpus cannot answer; a correct response is an honest Evidence Gap with no invented figures.
+# Cost questions are scored by comparing the worker's numbers to the hand-checked Python calculator.
+# Sourcing questions are scored on supplier names in the computed shortlist.
+
+regulatory:
+  - id: R1
+    q: Which US states have enacted packaging extended producer responsibility (EPR) laws?
+    expect: {all: [Oregon, Colorado, California, Maine, Minnesota, Maryland, Washington], docs: [or-rma-deq, co-epr-cdphe, ca-sb54-calrecycle, me-epr-dep, me-statute-2146, mn-statute-115a144, md-sb901, wa-recycling-reform, wa-rra-overview, psi-epr-tracker]}
+  - id: R2
+    q: When did Oregon's packaging producer responsibility program start, and for what period was the first producer fee schedule set?
+    states: [OR]
+    expect: {all: ['July', '2025'], docs: [or-rma-deq, or-caa-annual-2025, or-caa-plan-2026-amend, or-producers-page]}
+  - id: R3
+    q: When must producers first pay producer responsibility dues under Colorado's packaging program?
+    states: [CO]
+    expect: {all: ['January 2026|2026'], docs: [co-epr-cdphe]}
+  - id: R4
+    q: By what date must a producer responsibility organization submit its stewardship plan under Minnesota's Packaging Waste and Cost Reduction Act?
+    states: [MN]
+    expect: {all: ['October 1, 2028|2028'], docs: [mn-statute-115a144]}
+  - id: R5
+    q: When do statewide, consistent curbside recycling services begin under Washington's Recycling Reform Act?
+    states: [WA]
+    expect: {all: ['2030'], docs: [wa-recycling-reform, wa-rra-overview]}
+  - id: R6
+    q: What does Oregon's Senate Bill 543 prohibit?
+    states: [OR]
+    expect: {all: ['polystyrene|foam', 'PFAS'], docs: [or-eps-ban]}
+  - id: R7
+    q: Which expanded polystyrene foam products are banned in Washington, and since when?
+    states: [WA]
+    expect: {all: ['2024', 'packing peanuts|loose fill|food service|cooler'], docs: [wa-plastic-bans]}
+  - id: R8
+    q: What minimum post-consumer recycled content must covered product packaging in Washington contain by 2036?
+    states: [WA]
+    expect: {all: ['50 ?(percent|%)'], docs: [wa-recycled-content]}
+  - id: R9
+    q: Under California SB 343, when may a product or package display the chasing arrows recycling symbol?
+    states: [CA]
+    expect: {all: ['recycl', 'collect|sort|statewide|material characterization'], docs: [ca-sb343-calrecycle, ca-sb343-text]}
+  - id: R10
+    q: What flat fee may a low-volume producer pay under Maine's packaging stewardship program?
+    states: [ME]
+    expect: {all: ['\$?500'], docs: [me-statute-2146, me-epr-dep]}
+
+end_of_life:
+  - id: E1
+    q: Does New York City's curbside composting program accept products labeled compostable?
+    states: [NY]
+    expect: {all: ['compostable', 'accept|yes|can'], docs: [nyc-dsny-composting]}
+  - id: E2
+    q: Can plastic bags labeled recyclable go in Denver's recycling cart?
+    states: [CO]
+    expect: {all: ['not|no'], docs: [denver-recycling]}
+  - id: E3
+    q: Does Houston's curbside recycling program accept film and flexible plastics such as cracker bags?
+    states: [TX]
+    expect: {all: ['film|flexible', 'not|no'], docs: [houston-recycling]}
+  - id: E4
+    q: What does EPA report as the recycling rate for containers and packaging in the United States?
+    expect: {all: ['percent|%', 'container'], docs: [epa-ff-containers-packaging]}
+  - id: E5
+    q: What does EPA report about recycling of PET bottles and jars?
+    expect: {all: ['PET', 'percent|%|recycl'], docs: [epa-ff-plastics, epa-ff-containers-packaging]}
+  - id: E6
+    q: How much corrugated packaging is recycled in the United States according to EPA?
+    expect: {all: ['corrugated', 'percent|%'], docs: [epa-ff-paper, epa-ff-containers-packaging]}
+
+claims:
+  - id: C1
+    q: When can a marketer make an unqualified "recyclable" claim under the FTC Green Guides?
+    expect: {all: ['substantial majority', '60'], docs: [ftc-green-guides, ftc-green-guides-review-2022]}
+  - id: C2
+    q: How should a compostable claim be handled if municipal or institutional composting facilities are not available to a substantial majority of consumers?
+    expect: {all: ['qualif'], docs: [ftc-green-guides]}
+  - id: C3
+    q: What did the SEC charge Keurig with regarding its K-Cup pods?
+    expect: {all: ['recycl', 'inaccurate|misleading|statements'], docs: [sec-keurig-2024]}
+  - id: C4
+    q: How should a multi-layer package with only one recyclable layer qualify a "recyclable" claim under the Green Guides?
+    expect: {all: ['qualif|disclos', 'layer|portion|component'], docs: [ftc-green-guides]}
+  - id: C5
+    q: What does the EU directive on empowering consumers for the green transition say about generic environmental claims?
+    markets: [EU]
+    expect: {all: ['generic environmental claim', 'prohibit|ban|unfair|recogni[sz]ed excellent'], docs: [eu-ecgt-directive]}
+
+alternatives:
+  - id: A1
+    q: Why is multilayer flexible food packaging hard to recycle, and what redesign direction is proposed?
+    expect: {all: ['mono-?material|polyolefin', 'sort|recycl'], docs: [oa-pmc8624454, oa-pmc10007551]}
+  - id: A2
+    q: Can paper packaging be coated to improve its water or grease barrier, and with what?
+    expect: {all: ['polyvinyl alcohol|PVOH|PVA|wax'], docs: [oa-pmc8072764, oa-pmc9099909]}
+  - id: A3
+    q: Is PLA compostable, and under what conditions does it degrade?
+    expect: {all: ['PLA|polylactic', 'industrial|compost'], docs: [oa-pmc9033233, oa-pmc7664184, oa-pmc8424513, oa-pmc9563026]}
+  - id: A4
+    q: What are the main challenges of bottle-to-bottle PET recycling for food-contact use?
+    expect: {all: ['contamina|decontamin|food contact|food-contact'], docs: [oa-pmc9231234, fda-recycled-plastics]}
+  - id: A5
+    q: What are PFAS used for in food packaging, and what has FDA said about grease-proofing uses?
+    expect: {all: ['grease'], docs: [fda-pfas-food-contact, oa-pmc10993423]}
+
+competitor:
+  - id: P1
+    q: What is Ball Corporation's largest product line?
+    expect: {all: ['aluminum beverage'], docs: [sec-10k-ball]}
+  - id: P2
+    q: How many corrugated products plants does Packaging Corporation of America operate?
+    expect: {all: ['91'], docs: [sec-10k-pca]}
+  - id: P3
+    q: What material does Graphic Packaging make its cups and bowls from?
+    expect: {all: ['paperboard'], docs: [sec-10k-graphic-packaging]}
+
+trick:
+  - id: T1
+    q: What is the 2026 EPR fee per pound for PET bottles in Texas?
+    states: [TX]
+    expect: {gap: true}
+  - id: T2
+    q: What was Amcor's 2026 revenue from compostable packaging?
+    expect: {gap: true}
+  - id: T3
+    q: What are Japan's packaging extended producer responsibility fee rates?
+    expect: {gap: true}
+  - id: T4
+    q: What will California's SB 54 producer fee per pound for paper packaging be in 2030?
+    states: [CA]
+    expect: {gap: true}
+  - id: T5
+    q: What does a 10 x 13 inch paper mailer cost from Uline?
+    expect: {gap: true}
+
+cost:
+  - id: K1
+    profile: ecommerce_mailer
+    note: poly mailer vs paper mailer, 7 EPR states
+  - id: K2
+    profile: cosmetics_bottle
+    note: PET bottle vs rPET / glass / aluminum / refill, nationwide
+  - id: K3
+    profile: snack_pouch
+    note: multilayer pouch vs mono-material film / coated paper
+  - id: K4
+    profile_inline: {package_type: rigid bottle, current_material: PET, unit_weight_g: 28, sales_states: [OR], candidate_alternatives: [glass]}
+    note: OR fee on a 28 g PET bottle = 0.028 kg x 12 cents/lb x 2.2046 = $0.0074
+  - id: K5
+    profile_inline: {package_type: corrugated box, current_material: corrugated, dimensions: {l_cm: 30, w_cm: 20, h_cm: 15}, sales_states: [CO], candidate_alternatives: [molded_fiber]}
+    note: no unit weight or thickness; current weight must be reported as a gap, not invented
+  - id: K6
+    profile_inline: {package_type: mailer, current_material: LDPE/LLDPE, unit_weight_g: 25, dimensions: {l_cm: 33, w_cm: 25}, sales_states: [OR, CA], annual_units: 500000, candidate_alternatives: [paper_kraft]}
+    note: OR fee applies, CA enacted but no fees yet
+
+sourcing:
+  - id: S1
+    profile_inline: {package_type: rigid bottle, current_material: PET, sales_states: [OH, PA], candidate_alternatives: [glass]}
+    expect: {suppliers: ['O-I Glass']}
+  - id: S2
+    profile_inline: {package_type: can, current_material: steel, sales_states: [TX], candidate_alternatives: [aluminum]}
+    expect: {suppliers: ['Ball', 'Crown']}
+  - id: S3
+    profile_inline: {package_type: corrugated box, current_material: corrugated, sales_states: [GA], candidate_alternatives: [corrugated]}
+    expect: {suppliers: ['Smurfit Westrock', 'Packaging Corporation of America']}
+  - id: S4
+    profile_inline: {package_type: folding carton, current_material: PET, sales_states: [IL], candidate_alternatives: [paperboard]}
+    expect: {suppliers: ['Graphic Packaging']}
+  - id: S5
+    profile_inline: {package_type: flexible pouch/film, current_material: multilayer laminate, sales_states: [CA], candidate_alternatives: [pla_film]}
+    expect: {suppliers: [], gap: true}

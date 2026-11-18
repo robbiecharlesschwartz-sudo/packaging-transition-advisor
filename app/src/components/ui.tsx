@@ -18,9 +18,9 @@ export function Cites({ ns }: { ns?: number[] }) {
 }
 
 const STATUS_STYLE: Record<Status, string> = {
-  Grounded: 'bg-primary-soft text-primary',
-  Partial: 'bg-accent-soft text-accent',
-  'Evidence Gap': 'border border-dashed border-sub text-sub',
+  Grounded: 'pill-ok',
+  Partial: 'pill-warn',
+  'Evidence Gap': 'pill-gap',
 };
 const STATUS_TIP: Record<Status, string> = {
   Grounded: 'Every claim is supported by a retrieved passage',
@@ -30,20 +30,20 @@ const STATUS_TIP: Record<Status, string> = {
 
 export function StatusBadge({ s }: { s?: Status }) {
   if (!s) return null;
-  return <span className={`chip ${STATUS_STYLE[s]}`} title={STATUS_TIP[s]}>{s}</span>;
+  return <span className={`chip gap-1 ${STATUS_STYLE[s]}`} title={STATUS_TIP[s]}><span className="h-1.5 w-1.5 rounded-full bg-current" />{s}</span>;
 }
 
 export function ClaimList({ claims }: { claims: Claim[] }) {
   if (!claims.length) return null;
   return (
-    <ul className="space-y-2">
+    <ul className="space-y-1.5">
       {claims.map((c, i) => (
-        <li key={i} className="flex gap-2 text-body">
-          <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+        <li key={i} className="flex gap-2 text-[13.5px] leading-5">
+          <span className="mt-[7px] h-[5px] w-[5px] shrink-0 rounded-full bg-primary" aria-hidden />
           <span>
             {c.text}
             <Cites ns={c.cites} />
-            {c.verdict === 'partial' && <span className="ml-1 chip bg-accent-soft text-accent" title={c.note}>partly supported</span>}
+            {c.verdict === 'partial' && <span className="ml-1 chip pill-warn" title={c.note}>partial</span>}
           </span>
         </li>
       ))}
@@ -54,9 +54,9 @@ export function ClaimList({ claims }: { claims: Claim[] }) {
 export function Gaps({ gaps, title = 'Not covered by the evidence' }: { gaps: string[]; title?: string }) {
   if (!gaps.length) return null;
   return (
-    <div className="mt-4 rounded-md border border-dashed border-line bg-muted/50 p-3">
+    <div className="mt-3 rounded-[6px] border border-dashed border-line bg-raised/50 p-2.5">
       <div className="label">{title}</div>
-      <ul className="list-disc space-y-1 pl-5 text-sm2 text-sub">{gaps.map((g, i) => <li key={i}>{g}</li>)}</ul>
+      <ul className="list-[square] space-y-0.5 pl-4 text-[12.5px] text-sub">{gaps.map((g, i) => <li key={i}>{g}</li>)}</ul>
     </div>
   );
 }

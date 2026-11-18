@@ -5,8 +5,8 @@ import { range, usd } from '../../lib/format';
 import type { Passage } from '../../lib/types';
 
 const C = { ink: 'rgb(var(--ink))', sub: 'rgb(var(--sub))', line: 'rgb(var(--line))', primary: 'rgb(var(--primary))', accent: 'rgb(var(--accent))' };
-const SERIES = ['#0072B2', '#E69F00', '#009E73', '#CC79A7', '#D55E00', '#56B4E9'];
-const tip = { contentStyle: { background: 'rgb(var(--surface))', border: '1px solid rgb(var(--line))', borderRadius: 8, fontSize: 12, color: 'rgb(var(--ink))' } };
+const SERIES = ['rgb(var(--g1))', 'rgb(var(--g3))', 'rgb(var(--g2))', 'rgb(var(--g4))', 'rgb(var(--g2))', 'rgb(var(--g3))'];
+const tip = { contentStyle: { background: 'rgb(var(--surface))', border: '1px solid rgb(var(--strong))', borderRadius: 0, fontSize: 12, color: 'rgb(var(--ink))' } };
 
 /** Range bars (low–high per unit) for each option: the visual equivalent of the cost table's total line. */
 export function CostRangeChart({ options }: { options: any[] }) {
@@ -22,8 +22,8 @@ export function CostRangeChart({ options }: { options: any[] }) {
           <XAxis type="number" tickFormatter={(v) => usd(v)} stroke={C.sub} fontSize={11} label={{ value: 'USD per unit', position: 'insideBottom', offset: -2, fill: C.sub, fontSize: 11 }} />
           <YAxis type="category" dataKey="name" width={190} stroke={C.sub} fontSize={11} />
           <Tooltip {...tip} formatter={(v: any) => (Array.isArray(v) ? `${usd(v[0])} – ${usd(v[1])}` : usd(v))} />
-          <Bar dataKey="range" radius={4} barSize={18}>
-            {data.map((d, i) => <Cell key={i} fill={d.current ? C.sub : SERIES[i % SERIES.length]} />)}
+          <Bar dataKey="range" barSize={14}>
+            {data.map((d, i) => <Cell key={i} fill={d.current ? 'rgb(var(--g4))' : 'rgb(var(--g1))'} stroke="rgb(var(--g1))" />)}
           </Bar>
         </BarChart>
       </ResponsiveContainer>
@@ -49,8 +49,8 @@ export function CostStackChart({ options, states }: { options: any[]; states: st
           <YAxis type="category" dataKey="name" width={190} stroke={C.sub} fontSize={11} />
           <Tooltip {...tip} formatter={(v: any) => usd(v)} />
           <Legend wrapperStyle={{ fontSize: 12 }} />
-          <Bar dataKey="material" name="Material" stackId="a" fill={SERIES[0]} barSize={18} />
-          <Bar dataKey="epr" name="EPR fee (highest sales state)" stackId="a" fill={SERIES[1]} radius={[0, 4, 4, 0]} barSize={18} />
+          <Bar dataKey="material" name="Material" stackId="a" fill={SERIES[0]} barSize={14} />
+          <Bar dataKey="epr" name="EPR fee (highest sales state)" stackId="a" fill={SERIES[3]} barSize={14} />
         </BarChart>
       </ResponsiveContainer>
     </figure>
@@ -87,7 +87,7 @@ export function PpiChart({ series, labels, fallback }: { series: string[]; label
           <YAxis stroke={C.sub} fontSize={11} domain={['auto', 'auto']} label={{ value: 'index', angle: -90, position: 'insideLeft', fill: C.sub, fontSize: 11 }} />
           <Tooltip {...tip} formatter={(v: any) => Number(v).toFixed(1)} />
           <Legend wrapperStyle={{ fontSize: 11 }} />
-          {series.map((s, i) => <Line key={s} type="monotone" dataKey={s} name={labels[s] ?? s} stroke={SERIES[i % SERIES.length]} dot={false} strokeWidth={2} />)}
+          {series.map((s, i) => <Line key={s} type="linear" dataKey={s} name={labels[s] ?? s} stroke="rgb(var(--g1))" strokeDasharray={['', '6 3', '2 2', '10 3 2 3', '1 3'][i % 5]} dot={false} strokeWidth={1.6} />)}
         </LineChart>
       </ResponsiveContainer>
       <div className="text-xs2 text-sub">Source: US Bureau of Labor Statistics, Producer Price Index (series {series.join(', ')}).</div>
@@ -109,7 +109,7 @@ export function EvidenceCharts({ passages }: { passages: Passage[] }) {
         <ResponsiveContainer width="100%" height={200}>
           <PieChart>
             <Pie data={rel} dataKey="value" nameKey="name" innerRadius={50} outerRadius={80} paddingAngle={2}>
-              {rel.map((r, i) => <Cell key={r.name} fill={r.name === 'primary' ? SERIES[2] : r.name === 'secondary' ? SERIES[1] : SERIES[i % 6]} />)}
+              {rel.map((r) => <Cell key={r.name} fill={r.name === 'primary' ? 'rgb(var(--g1))' : r.name === 'secondary' ? 'rgb(var(--g3))' : 'rgb(var(--g4))'} stroke="rgb(var(--surface))" />)}
             </Pie>
             <Tooltip {...tip} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
@@ -123,7 +123,7 @@ export function EvidenceCharts({ passages }: { passages: Passage[] }) {
             <XAxis type="number" allowDecimals={false} stroke={C.sub} fontSize={11} />
             <YAxis type="category" dataKey="name" width={100} stroke={C.sub} fontSize={11} />
             <Tooltip {...tip} />
-            <Bar dataKey="value" name="passages" fill={SERIES[0]} radius={4} barSize={14} />
+            <Bar dataKey="value" name="passages" fill={SERIES[0]} barSize={12} />
           </BarChart>
         </ResponsiveContainer>
       </figure>

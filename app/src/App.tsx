@@ -12,9 +12,9 @@ import type { Meta, Profile, Run, Step } from './lib/types';
 type Tab = 'brief' | 'how' | 'sources';
 
 function useTheme() {
-  const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'));
+  const [dark, setDark] = useState(() => !document.documentElement.classList.contains('light'));
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark);
+    document.documentElement.classList.toggle('light', !dark);
     try { localStorage.setItem('pta-theme', dark ? 'dark' : 'light'); } catch { /* storage may be blocked */ }
   }, [dark]);
   return [dark, setDark] as const;
@@ -45,11 +45,11 @@ export function App({ embed = false }: { embed?: boolean }) {
   const [meta, setMeta] = useState<Meta | null>(null);
   const [mode, setMode] = useState<'live' | 'replay'>(embed ? 'replay' : 'replay');
   const [run, setRun] = useState<Run | null>(null);
-  const [tab, setTab] = useState<Tab>('brief');
+  const [tab, setTab] = useState<Tab>(() => (new URLSearchParams(window.location.search).get('tab') as Tab) ?? 'brief');
   const [error, setError] = useState<string | null>(null);
   const [panelOpen, setPanelOpen] = useState(!embed);
   const [evidence, setEvidence] = useState<{ ns: number[]; focus?: number; label?: string } | null>(null);
-  const [example, setExample] = useState(EXAMPLES[0].slug);
+  const [example, setExample] = useState(() => new URLSearchParams(window.location.search).get('example') ?? EXAMPLES[0].slug);
   const replay = useReplay();
   const poll = useRef<number | null>(null);
 
@@ -95,27 +95,28 @@ export function App({ embed = false }: { embed?: boolean }) {
   const o = run?.output ?? null;
   const busy = !!run && (run.status === 'running' || run.status === 'queued');
   const needs = meta?.workflows.find((w) => w.id === run?.workflow_id)?.needs ?? { cost: !!o?.sections.some((s) => s.kind === 'cost'), sourcing: !!o?.sections.some((s) => s.kind === 'sourcing') };
+  const evidenceCol = tab !== 'how';
   const show = useCallback((ns: number[], focus?: number, label?: string) => setEvidence({ ns, focus, label }), []);
 
   return (
     <EvidenceCtx.Provider value={{ show }}>
       <div className="min-h-screen">
         {/* Header */}
-        <header className="no-print sticky top-0 z-20 border-b border-line bg-surface/95 backdrop-blur">
-          <div className="mx-auto flex max-w-[1600px] flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
-            <div className="flex items-center gap-2">
-              <img src="/favicon.svg" alt="" className="h-7 w-7" />
-              <div>
-                <div className="font-serif text-[18px] font-semibold leading-5">Packaging Transition Advisor</div>
-                <div className="text-xs2 text-sub">Cited research on moving to sustainable packaging · US first</div>
+        <header className="no-print sticky top-0 z-20 border-b border-line bg-surface">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2">
+            <div className="flex items-center gap-2.5">
+              <img src="/favicon.svg" alt="" className="h-6 w-6" />
+              <div className="leading-tight">
+                <div className="text-[14px] font-semibold">Packaging Transition Advisor</div>
+                <div className="kicker normal-case tracking-normal">RAG research agent · cited · US-first</div>
               </div>
             </div>
             <div className="ml-auto flex flex-wrap items-center gap-2 text-xs2 text-sub">
               <span>Corpus last updated: <b className="text-ink">{dateLabel(meta?.corpus_updated ?? o?.corpus_updated ?? null)}</b>{meta ? ` · ${meta.documents_excluding_news} documents` : ''}</span>
               {!embed && (
-                <div className="flex overflow-hidden rounded-md border border-line" role="tablist" aria-label="Mode">
+                <div className="flex gap-1 rounded-[8px] border border-line bg-surface p-1" role="tablist" aria-label="Mode">
                   {(['replay', 'live'] as const).map((m) => (
-                    <button key={m} role="tab" aria-selected={mode === m} className={`px-3 py-1.5 text-xs2 font-semibold ${mode === m ? 'bg-primary text-white dark:text-bg' : 'bg-surface text-ink'}`} onClick={() => setMode(m)}>
+                    <button key={m} role="tab" aria-selected={mode === m} className={`h-7 rounded-[6px] px-3 text-[12px] font-medium ${mode === m ? 'bg-primary text-white' : 'text-sub hover:bg-raised hover:text-ink'}`} onClick={() => setMode(m)}>
                       {m === 'replay' ? 'Replay examples' : 'Live run'}
                     </button>
                   ))}
@@ -124,17 +125,17 @@ export function App({ embed = false }: { embed?: boolean }) {
               <button className="btn-ghost px-2 py-1.5" onClick={() => setDark(!dark)} aria-label="Toggle dark mode"><Icon name={dark ? 'sun' : 'moon'} /></button>
             </div>
           </div>
-          <div className="border-t border-line bg-accent-soft/50 px-4 py-1.5 text-center text-xs2 text-accent">
-            Research aid, not legal or financial advice. Estimates are order-of-magnitude. Every claim links to its source passage.
+          <div className="kicker border-t border-line px-4 py-1 normal-case tracking-normal">
+            Research aid, not legal or financial advice · Estimates are order-of-magnitude · Every claim links to its source passage
           </div>
         </header>
 
-        <div className={`mx-auto grid max-w-[1600px] gap-4 px-4 py-4 ${panelOpen ? 'lg:grid-cols-[320px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)_360px]' : 'xl:grid-cols-[minmax(0,1fr)_360px]'}`}>
+        <div className={`grid min-h-[calc(100vh-74px)] ${panelOpen ? (evidenceCol ? 'lg:grid-cols-[300px_minmax(0,1fr)] xl:grid-cols-[300px_minmax(0,1fr)_380px]' : 'lg:grid-cols-[300px_minmax(0,1fr)]') : evidenceCol ? 'xl:grid-cols-[minmax(0,1fr)_380px]' : ''}`}>
           {/* Left panel */}
           {panelOpen && (
-            <aside className="no-print card h-fit p-4 lg:sticky lg:top-[112px] lg:max-h-[calc(100vh-128px)] lg:overflow-y-auto">
+            <aside className="no-print border-b border-line p-4 lg:sticky lg:top-[74px] lg:h-[calc(100vh-74px)] lg:overflow-y-auto lg:border-b-0 lg:border-r">
               <div className="mb-3 flex items-center justify-between">
-                <div className="font-serif text-h2 font-semibold">{mode === 'live' ? 'Package profile' : 'Example runs'}</div>
+                <div className="text-[13px] font-semibold">{mode === 'live' ? 'Package profile' : 'Example runs'}</div>
                 <button className="btn-ghost px-2 py-1 text-xs2" onClick={() => setPanelOpen(false)}>Hide</button>
               </div>
               {mode === 'live' ? (
@@ -143,7 +144,7 @@ export function App({ embed = false }: { embed?: boolean }) {
                 <div className="space-y-2">
                   <p className="text-sm2 text-sub">Saved, complete runs of the real pipeline. Replaying uses no LLM quota.</p>
                   {EXAMPLES.map((e) => (
-                    <button key={e.slug} className={`w-full rounded-md border p-3 text-left text-sm2 ${example === e.slug ? 'border-primary bg-primary-soft' : 'border-line hover:bg-muted'}`} onClick={() => loadExample(e.slug)}>
+                    <button key={e.slug} className={`w-full border p-2.5 text-left text-[13px] ${example === e.slug ? 'border-strong bg-primary text-white' : 'border-line hover:border-strong'}`} onClick={() => loadExample(e.slug)}>
                       <div className="font-semibold">{e.label}</div>
                     </button>
                   ))}
@@ -154,13 +155,13 @@ export function App({ embed = false }: { embed?: boolean }) {
           )}
 
           {/* Center */}
-          <main className="min-w-0 space-y-4">
+          <main className="min-w-0 space-y-3 p-3">
             {!panelOpen && <button className="no-print btn-ghost" onClick={() => setPanelOpen(true)}>Show {mode === 'live' ? 'profile form' : 'examples'}</button>}
             {error && <div className="card border-danger/40 p-3 text-sm2 text-danger" role="alert">{error}</div>}
-            {run && <div className="no-print card p-3"><ProgressStrip steps={run.steps} status={run.status} /></div>}
+            {run && <div className="no-print card p-2"><ProgressStrip steps={run.steps} status={run.status} /></div>}
             {!run && !error && (
               <div className="card p-6">
-                <h1 className="mb-2 font-serif text-h1 font-semibold">What happens if we move our packaging to a sustainable alternative?</h1>
+                <h1 className="mb-2 text-h1 font-semibold">What happens if we move our packaging to a sustainable alternative?</h1>
                 <p className="text-sub">Ask a question or describe a package. The agent searches a curated, dated library of public documents (laws, agency data, recycling program lists, open-access research, SEC filings, price statistics), keeps the relevant passages, and writes a brief where every sentence is cited. When the documents do not cover something, it says so.</p>
               </div>
             )}
@@ -168,9 +169,9 @@ export function App({ embed = false }: { embed?: boolean }) {
             {o && (
               <>
                 <div className="no-print flex flex-wrap items-center gap-2">
-                  <div className="flex overflow-hidden rounded-md border border-line" role="tablist">
+                  <div className="flex gap-1 rounded-[8px] border border-line bg-surface p-1" role="tablist">
                     {([['brief', 'Brief'], ['how', 'How this answer was made'], ['sources', 'Sources']] as const).map(([t, l]) => (
-                      <button key={t} role="tab" aria-selected={tab === t} className={`px-3 py-1.5 text-sm2 font-medium ${tab === t ? 'bg-ink text-bg' : 'bg-surface text-ink'}`} onClick={() => setTab(t)}>{l}</button>
+                      <button key={t} role="tab" aria-selected={tab === t} className={`h-8 rounded-[6px] px-3 text-[12.5px] font-medium ${tab === t ? 'bg-primary text-white' : 'text-sub hover:bg-raised hover:text-ink'}`} onClick={() => setTab(t)}>{l}</button>
                     ))}
                   </div>
                   <div className="ml-auto flex gap-2">
@@ -183,8 +184,8 @@ export function App({ embed = false }: { embed?: boolean }) {
                 {/* Print cover page */}
                 <div className="print-only">
                   <div style={{ minHeight: '90vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <div className="text-sm2 uppercase tracking-widest text-sub">Sustainable packaging transition brief</div>
-                    <h1 className="mt-3 font-serif text-[40px] font-semibold leading-tight">{o.profile?.company_description ?? o.question ?? o.workflow.name}</h1>
+                    <div className="kicker">Sustainable packaging transition brief</div>
+                    <h1 className="mt-3 text-[34px] font-semibold leading-tight">{o.profile?.company_description ?? o.question ?? o.workflow.name}</h1>
                     <div className="mt-4 text-body">{o.profile ? `${o.profile.package_type ?? ''} · current material: ${o.profile.current_material ?? 'n/a'} · sales: ${(o.profile.sales_states ?? []).join(', ') || 'nationwide'}` : ''}</div>
                     <div className="mt-8 text-sm2 text-sub">{o.workflow.name} · generated {dateLabel(o.generated_at)} · corpus updated {dateLabel(o.corpus_updated)}</div>
                     <div className="mt-2 text-sm2 text-sub">Research aid, not legal or financial advice. Estimates are order-of-magnitude.</div>
@@ -192,11 +193,13 @@ export function App({ embed = false }: { embed?: boolean }) {
                 </div>
 
                 {tab === 'brief' && (
-                  <div className="space-y-4">
-                    {o.question && <div className="card p-4"><span className="label">Question</span><div className="font-serif text-h2">{o.question}</div></div>}
+                  <div className="space-y-3">
+                    {o.question && <div className="card p-3"><span className="label">Question</span><div className="text-[16px] font-semibold">{o.question}</div></div>}
                     {o.sections.length > 2 && <div className="print-page"><KpiTiles o={o} /></div>}
-                    {o.sections.map((s, i) => <SectionCard key={s.id} s={s} o={o} index={i + 1} />)}
-                    <SourcesList o={o} />
+                    <div className="print-grid grid gap-3 xl:grid-cols-2">
+                      {o.sections.map((s, i) => <SectionCard key={s.id} s={s} o={o} index={i + 1} />)}
+                      <SourcesList o={o} />
+                    </div>
                   </div>
                 )}
                 {tab === 'how' && (
@@ -213,13 +216,13 @@ export function App({ embed = false }: { embed?: boolean }) {
           </main>
 
           {/* Evidence drawer */}
-          <div className={`no-print ${evidence ? 'fixed inset-y-0 right-0 z-30 w-full max-w-md bg-bg p-2 shadow-2xl xl:static xl:z-auto xl:w-auto xl:max-w-none xl:p-0 xl:shadow-none' : 'hidden xl:block'}`}>
-            <div className="card h-full xl:sticky xl:top-[112px] xl:max-h-[calc(100vh-128px)]">
+          {evidenceCol && <div className={`no-print ${evidence ? 'fixed inset-y-0 right-0 z-30 w-full max-w-md border-l border-strong bg-bg xl:static xl:z-auto xl:w-auto xl:max-w-none' : 'hidden xl:block'} xl:border-l xl:border-line`}>
+            <div className="h-full bg-surface xl:sticky xl:top-[74px] xl:h-[calc(100vh-74px)]">
               <EvidenceDrawer passages={o?.passages ?? []} ns={evidence?.ns ?? []} focus={evidence?.focus} label={evidence?.label} onClose={() => setEvidence(null)} />
             </div>
-          </div>
+          </div>}
         </div>
-        <footer className="no-print mx-auto max-w-[1600px] px-4 pb-8 text-xs2 text-sub">
+        <footer className="no-print border-t border-line px-4 py-3 text-xs2 text-sub">
           Built on Cloudflare free tier (Workers, Workflows, D1, Vectorize, Workers AI) with Gemini for writing. Sources are public documents; link-only sources show metadata only.{' '}
           <a className="underline" href="https://github.com/robbiecharlesschwartz-sudo/packaging-transition-advisor" target="_blank" rel="noreferrer">Source code</a>
         </footer>

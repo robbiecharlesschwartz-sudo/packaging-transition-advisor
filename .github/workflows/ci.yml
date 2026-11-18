@@ -1,0 +1,26 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Python deps
+        run: pip install -r requirements.txt
+      - name: Cost calculator tests (hand-checked cases)
+        run: python -m pytest -q cost/tests
+      - name: Worker typecheck + tests (TS calculator must match Python cases)
+        working-directory: worker
+        run: npm ci && npx tsc --noEmit && npx vitest run
+      - name: Front end build
+        working-directory: app
+        run: npm ci && npm run build
+      - name: Every price input and fee is cited
+        run: python -c "import json;c=json.load(open('cost/price_inputs.json'));bad=[i['id'] for i in c['inputs']+c['epr_fees'] if not i.get('chunk_id')];assert not bad, bad"

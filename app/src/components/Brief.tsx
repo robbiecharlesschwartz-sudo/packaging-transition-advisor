@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { range } from '../lib/format';
 import type { Output, Section } from '../lib/types';
-import { Card, ClaimList, Cites, EvidenceCtx, Gaps, Removed, SourceLine, StatusBadge } from './ui';
+import { ClaimList, Cites, EvidenceCtx, Gaps, Removed, SourceLine, StatusBadge } from './ui';
 import { CostRangeChart, CostStackChart, EvidenceCharts, PpiChart } from './viz/charts';
 import { StateMap, SupplierMap, Timeline } from './viz/maps';
 import { ClaimsRisk, CostTable, EolTable, FitMatrix, SupplierTable } from './viz/tables';
@@ -53,7 +53,7 @@ function SectionVisual({ s, o }: { s: Section; o: Output }) {
       return (
         <>
           <div className="mb-3 flex flex-wrap items-center gap-2 text-sm2">
-            <span className={`chip ${d.confidence === 'Medium' ? 'bg-primary-soft text-primary' : 'bg-accent-soft text-accent'}`}>Confidence: {d.confidence}</span>
+            <span className={`chip ${d.confidence === 'Medium' ? 'border-strong bg-primary text-white' : 'border-strong'}`}>Confidence: {d.confidence}</span>
             <span className="text-sub">{d.note}</span>
           </div>
           <CostTable d={d} inputN={inputN} />
@@ -82,7 +82,7 @@ function SectionVisual({ s, o }: { s: Section; o: Output }) {
       return (d.examples ?? []).length ? (
         <ul className="grid gap-3 md:grid-cols-2">
           {d.examples.map((e: any, i: number) => (
-            <li key={i} className="rounded-md border border-line p-3 text-sm2">
+            <li key={i} className="border border-line p-2.5 text-[12.5px]">
               <div className="font-semibold">{e.company} <span className="font-normal text-sub">{e.year ?? ''}</span></div>
               <div>{e.action}<Cites ns={e.cites} /></div>
             </li>
@@ -104,20 +104,22 @@ function SectionVisual({ s, o }: { s: Section; o: Output }) {
   }
 }
 
+const WIDE = new Set(['summary', 'regulatory', 'cost', 'sourcing', 'alternatives', 'gaps']);
+
 export function SectionCard({ s, o, index }: { s: Section; o: Output; index: number }) {
   const { show } = useContext(EvidenceCtx);
   return (
-    <section id={`sec-${s.id}`} className="card print-page scroll-mt-20 p-5 md:p-6">
-      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-        <div className="text-xs2 font-semibold uppercase tracking-wide text-sub">{index}. {s.title}</div>
+    <section id={`sec-${s.id}`} className={`card print-page scroll-mt-16 p-4 ${WIDE.has(s.kind) ? 'xl:col-span-2' : ''}`}>
+      <div className="mb-2 flex flex-wrap items-center justify-between gap-2 border-b border-line pb-2">
+        <div className="kicker"><span className="mr-1.5 text-primary">{String(index).padStart(2, '0')}</span>{s.title}</div>
         <div className="flex items-center gap-2">
+          {s.passages?.length > 0 && <button className="no-print text-[11px] font-medium text-primary hover:underline" onClick={() => show(s.passages, undefined, s.title)}>{s.passages.length} passages</button>}
           <StatusBadge s={s.status} />
-          {s.passages?.length > 0 && <button className="no-print text-xs2 text-primary underline" onClick={() => show(s.passages, undefined, s.title)}>{s.passages.length} passages</button>}
         </div>
       </div>
-      <h2 className="mb-4 font-serif text-h2 font-semibold">{s.takeaway}</h2>
+      <h2 className="mb-3 text-h2 font-semibold">{s.takeaway}</h2>
       {s.kind !== 'gaps' && <ClaimList claims={s.claims} />}
-      <div className={s.claims.length ? 'mt-5' : ''}><SectionVisual s={s} o={o} /></div>
+      <div className={s.claims.length ? 'mt-4' : ''}><SectionVisual s={s} o={o} /></div>
       {s.kind !== 'gaps' && s.kind !== 'cost' && <Gaps gaps={s.gaps} />}
       <Removed items={s.removed} />
     </section>
@@ -135,16 +137,16 @@ export function KpiTiles({ o }: { o: Output }) {
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
       {tiles.map((t) => (
-        <Card key={t.label} className="p-4">
+        <div key={t.label} className="card p-3">
           <div className="label">{t.label}</div>
-          <div className="font-serif text-[20px] font-semibold leading-7">{t.value}</div>
-          <div className="mt-1 text-xs2 text-sub">{t.sub}</div>
+          <div className="tabular text-[18px] font-semibold leading-6">{t.value}</div>
+          <div className="mt-0.5 text-xs2 text-sub">{t.sub}</div>
           {t.meter !== undefined && (
-            <div className="mt-2 h-1.5 w-full rounded-full bg-muted" role="meter" aria-valuenow={t.meter} aria-valuemin={0} aria-valuemax={100}>
-              <div className="h-1.5 rounded-full bg-primary" style={{ width: `${t.meter}%` }} />
+            <div className="mt-2 h-1 w-full rounded-full bg-muted" role="meter" aria-valuenow={t.meter} aria-valuemin={0} aria-valuemax={100}>
+              <div className="h-1 rounded-full bg-primary" style={{ width: `${t.meter}%` }} />
             </div>
           )}
-        </Card>
+        </div>
       ))}
     </div>
   );
@@ -153,11 +155,11 @@ export function KpiTiles({ o }: { o: Output }) {
 export function SourcesList({ o }: { o: Output }) {
   const cited = o.passages.filter((p) => p.cited);
   return (
-    <section id="sec-sources" className="card print-page p-5 md:p-6">
-      <div className="mb-3 text-xs2 font-semibold uppercase tracking-wide text-sub">Sources</div>
-      <h2 className="mb-4 font-serif text-h2 font-semibold">{cited.length} cited passages from {new Set(cited.map((p) => p.document_id)).size} documents</h2>
+    <section id="sec-sources" className="card print-page p-4 xl:col-span-2">
+      <div className="kicker mb-2 border-b border-line pb-2">Sources</div>
+      <h2 className="mb-3 text-h2 font-semibold">{cited.length} cited passages from {new Set(cited.map((p) => p.document_id)).size} documents</h2>
       <EvidenceCharts passages={o.passages} />
-      <ol className="mt-6 space-y-2 text-sm2">
+      <ol className="mt-4 grid gap-x-6 gap-y-1 text-[12.5px] lg:grid-cols-2">
         {cited.map((p) => (
           <li key={p.n} className="flex gap-2">
             <Cites ns={[p.n]} />

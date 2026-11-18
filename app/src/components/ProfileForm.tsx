@@ -9,12 +9,12 @@ const PRESETS: Record<string, Profile> = { 'Snack pouch': snack as Profile, 'Cos
 
 function Multi({ options, value, onChange, labels }: { options: string[]; value: string[]; onChange: (v: string[]) => void; labels?: Record<string, string> }) {
   return (
-    <div className="flex flex-wrap gap-1.5">
+    <div className="flex flex-wrap gap-1">
       {options.map((o) => {
         const on = value.includes(o);
         return (
           <button key={o} type="button" aria-pressed={on} onClick={() => onChange(on ? value.filter((x) => x !== o) : [...value, o])}
-            className={`rounded-full border px-2.5 py-1 text-xs2 ${on ? 'border-primary bg-primary text-white dark:text-bg' : 'border-line bg-surface text-ink hover:bg-muted'}`}>
+            className={`rounded-[4px] border px-1.5 py-0.5 text-[11px] ${on ? 'border-primary bg-primary text-white' : 'border-line bg-raised text-ink hover:border-sub'}`}>
             {labels?.[o] ?? o}
           </button>
         );
@@ -37,7 +37,7 @@ export function ProfileForm({ meta, busy, onRun }: { meta: Meta | null; busy: bo
   const nationwide = !states.length || states.includes('nationwide');
 
   return (
-    <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onRun(workflow, isFree ? null : p, question.trim() || null); }}>
+    <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); onRun(workflow, isFree ? null : p, question.trim() || null); }}>
       <div>
         <label className="label" htmlFor="wf">Workflow</label>
         <select id="wf" className="field" value={workflow} onChange={(e) => setWorkflow(e.target.value)}>

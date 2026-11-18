@@ -2,74 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens (RGB triplets). Contrast pairs checked for WCAG AA: ink/bg 15.8:1, sub/bg 6.1:1,
-   primary/white 6.3:1, accent text on accent-soft 5.2:1. Dark mode re-maps the same names. */
-:root {
-  --bg: 248 247 243;
-  --surface: 255 255 255;
-  --muted: 241 240 235;
-  --line: 222 220 212;
-  --ink: 28 34 43;
-  --sub: 84 92 104;
-  --primary: 31 111 74;
-  --primary-soft: 226 241 232;
-  --accent: 156 92 0;
-  --accent-soft: 253 240 214;
-  --danger: 176 42 42;
-  --ok: 31 111 74;
-  /* colorblind-safe map/chart palette (Okabe-Ito based) */
-  --map-none: 228 226 219;
-  --map-enacted: 230 159 0;
-  --map-fees: 0 114 178;
-  --map-ban: 204 121 167;
-  color-scheme: light;
-}
-.dark {
-  --bg: 17 20 24;
-  --surface: 25 29 35;
-  --muted: 33 38 46;
-  --line: 52 58 68;
-  --ink: 232 234 237;
-  --sub: 164 171 181;
-  --primary: 94 191 141;
-  --primary-soft: 24 52 39;
-  --accent: 240 178 84;
-  --accent-soft: 58 42 14;
-  --danger: 239 120 120;
-  --ok: 94 191 141;
-  --map-none: 58 63 72;
-  --map-enacted: 230 159 0;
-  --map-fees: 86 180 233;
-  --map-ban: 204 121 167;
+/* Shared RAG-app system: dark app shell, one blue accent, compact Inter, 6px radius, tinted status pills.
+   Dark is the default; light mode re-maps the same tokens. Contrast (dark): ink/bg 16:1, sub/bg 7:1, white/accent 4.9:1. */
+:root, .dark {
+  --bg: 11 11 13;
+  --surface: 20 20 23;
+  --raised: 27 27 31;
+  --muted: 33 33 38;
+  --line: 44 44 50;
+  --strong: 47 111 237;
+  --ink: 236 236 240;
+  --sub: 150 150 160;
+  --primary: 47 111 237;
+  --primary-soft: 28 42 74;
+  --accent: 47 111 237;
+  --accent-soft: 28 42 74;
+  --ok: 52 199 120;
+  --warn: 232 170 60;
+  --danger: 239 98 98;
+  --g1: 47 111 237;
+  --g2: 120 160 240;
+  --g3: 112 112 122;
+  --g4: 70 70 80;
+  --g5: 38 38 44;
   color-scheme: dark;
+}
+:root.light {
+  --bg: 246 246 248;
+  --surface: 255 255 255;
+  --raised: 250 250 252;
+  --muted: 240 240 243;
+  --line: 223 223 228;
+  --ink: 20 20 24;
+  --sub: 98 98 110;
+  --primary-soft: 228 236 253;
+  --accent-soft: 228 236 253;
+  --ok: 22 140 76;
+  --warn: 166 104 0;
+  --danger: 196 48 48;
+  --g3: 150 150 160;
+  --g4: 200 200 208;
+  --g5: 234 234 238;
+  color-scheme: light;
 }
 
 html, body { background: rgb(var(--bg)); color: rgb(var(--ink)); }
-body { font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 24px; -webkit-font-smoothing: antialiased; }
+body { font-family: Inter, system-ui, sans-serif; font-size: 13.5px; line-height: 20px; -webkit-font-smoothing: antialiased; }
+.tabular, .num { font-variant-numeric: tabular-nums; }
 
 @layer components {
-  .card { @apply bg-surface border border-line rounded-card; }
-  .chip { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs2 font-medium; }
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 text-sm2 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed; }
-  .btn-primary { @apply btn bg-primary text-white hover:opacity-90 dark:text-bg; }
-  .btn-ghost { @apply btn border border-line bg-surface text-ink hover:bg-muted; }
-  .field { @apply w-full rounded-md border border-line bg-surface px-3 py-2 text-sm2 text-ink placeholder:text-sub focus:outline-none focus:ring-2 focus:ring-primary/40; }
-  .label { @apply block text-xs2 font-semibold uppercase tracking-wide text-sub mb-1; }
-  .cite { @apply mx-0.5 inline-flex h-5 min-w-5 cursor-pointer items-center justify-center rounded bg-primary-soft px-1 align-text-top text-[11px] font-semibold text-primary hover:bg-primary hover:text-white; }
-  .tbl { @apply w-full border-collapse text-sm2; }
-  .tbl th { @apply border-b border-line px-3 py-2 text-left text-xs2 font-semibold uppercase tracking-wide text-sub; }
-  .tbl td { @apply border-b border-line px-3 py-2 align-top; }
-  .tbl tbody tr:nth-child(even) td { @apply bg-muted/60; }
-  .num { @apply text-right tabular-nums; }
+  .card { @apply rounded-[8px] border border-line bg-surface; }
+  .chip { @apply inline-flex items-center rounded-[4px] border border-line px-1.5 py-px text-[10.5px] font-medium; }
+  .pill-ok { @apply border-ok/40 bg-ok/10 text-ok; }
+  .pill-warn { @apply border-warn/40 bg-warn/10 text-warn; }
+  .pill-gap { @apply border-dashed border-line text-sub; }
+  .btn { @apply inline-flex h-8 items-center justify-center gap-1.5 rounded-[6px] border px-3 text-[12.5px] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40; }
+  .btn-primary { @apply btn border-primary bg-primary text-white hover:brightness-110; }
+  .btn-ghost { @apply btn border-line bg-raised text-ink hover:border-sub; }
+  .field { @apply h-8 w-full rounded-[6px] border border-line bg-raised px-2.5 text-[13px] text-ink placeholder:text-sub focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50; }
+  textarea.field { @apply h-auto py-1.5; }
+  .label { @apply mb-1 block text-[10.5px] font-semibold uppercase tracking-[0.06em] text-sub; }
+  .kicker { @apply text-[10.5px] font-semibold uppercase tracking-[0.06em] text-sub; }
+  .cite { @apply mx-px inline-flex h-[15px] min-w-[15px] cursor-pointer items-center justify-center rounded-[3px] bg-primary/15 px-[3px] align-[1px] text-[9.5px] font-semibold leading-none text-primary hover:bg-primary hover:text-white; }
+  .tbl { @apply w-full border-collapse text-[12.5px]; }
+  .tbl th { @apply border-b border-line px-2.5 py-2 text-left text-[10.5px] font-semibold uppercase tracking-[0.06em] text-sub; }
+  .tbl td { @apply border-b border-line/70 px-2.5 py-2 align-top; }
+  .tbl tbody tr:hover td { @apply bg-raised; }
+  .num { @apply text-right; }
+  .nav-item { @apply flex w-full items-center gap-2 rounded-[6px] px-2.5 py-1.5 text-left text-[13px] text-ink hover:bg-raised; }
+  .nav-item-active { @apply bg-primary text-white hover:bg-primary; }
 }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgb(var(--line)); border-radius: 8px; }
 
 .print-only { display: none; }
 @media print {
-  @page { size: letter; margin: 16mm 14mm; }
-  html, body { background: #fff !important; color: #111 !important; }
+  @page { size: letter; margin: 14mm 12mm; }
+  :root, .dark { --bg: 255 255 255; --surface: 255 255 255; --raised: 255 255 255; --muted: 245 245 245; --line: 210 210 215; --ink: 17 17 17; --sub: 90 90 90; --g3: 150 150 160; --g4: 200 200 208; --g5: 234 234 238; color-scheme: light; }
+  html, body { background: #fff !important; color: #111 !important; font-size: 11px; }
   .no-print { display: none !important; }
   .print-only { display: block !important; }
   .print-page { break-before: page; }
-  .card { border-color: #ddd !important; box-shadow: none !important; }
-  .dark { --bg: 255 255 255; --surface: 255 255 255; --ink: 20 20 20; --sub: 80 80 80; --line: 220 220 220; --muted: 245 245 245; }
+  .print-grid { display: block !important; }
 }

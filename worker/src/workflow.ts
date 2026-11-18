@@ -108,7 +108,7 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
         let provider = 'templates';
         try {
           const { data, model } = await llmJson<{ queries: { section: string; query: string }[]; alternatives: Alternative[] }>(
-            env, { ...plannerPrompt(wf, ctx.profile, ctx.question, hints), maxTokens: 2048 });
+            env, { ...plannerPrompt(wf, ctx.profile, ctx.question, hints), maxTokens: 2048, tier: 'fast' });
           provider = model;
           queries = (data.queries ?? []).filter((q) => searchable.some((s) => s.id === q.section) && q.query?.trim())
             .slice(0, 16).map((q) => ({ section: q.section, query: q.query.slice(0, 300), layers: sectionLayers(searchable.find((s) => s.id === q.section)!, wf) ?? 'all' }));
@@ -256,6 +256,7 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
               suppliers: group.some((s) => s.kind === 'sourcing') ? supplierText : undefined,
             }),
             maxTokens: 8192,
+            tier: 'quality',
           });
           return { sections: data.sections ?? [], model };
         });
@@ -325,7 +326,7 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
         try {
           const digest = sections.map((s) => `## ${s.title} [${s.status}]\n` + (s.claims.map((c) => `- ${c.text} [${c.cites.join(', ')}]`).join('\n') || '- (no supported claims)')
             + (s.kind === 'cost' && calcText ? `\nCALCULATOR OUTPUT:\n${calcText}` : '')).join('\n\n');
-          const { data } = await llmJson<any>(env, { ...summaryPrompt(wf, ctx.profile, ctx.question, digest), maxTokens: 3072 });
+          const { data } = await llmJson<any>(env, { ...summaryPrompt(wf, ctx.profile, ctx.question, digest), maxTokens: 3072, tier: 'quality' });
           nextQuestions = (data.next_questions ?? []).map(String).slice(0, 8);
           docsNeeded = (data.documents_needed ?? []).map(String).slice(0, 8);
           if (hasSummary) {

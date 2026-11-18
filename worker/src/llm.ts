@@ -12,7 +12,13 @@ export interface LlmCall {
   user: string;
   maxTokens?: number;
   temperature?: number;
+  /** 'fast' (planning, verification) tries the lite model first; 'quality' (writing) the main model. */
+  tier?: 'fast' | 'quality';
 }
+
+// Models that returned 429 recently are skipped (per isolate) so a run doesn't wait on an exhausted quota.
+const cooling = new Map<string, number>();
+const COOLDOWN_MS = 10 * 60 * 1000;
 
 class RetryableError extends Error {}
 
@@ -100,10 +106,13 @@ export async function llmJson<T>(env: Env, c: LlmCall): Promise<LlmResult<T>> {
     }
   }
   if (env.GEMINI_API_KEY) {
-    const models = [env.GEMINI_MODEL, ...(env.GEMINI_FALLBACK_MODELS || '').split(',')]
+    let models = [env.GEMINI_MODEL, ...(env.GEMINI_FALLBACK_MODELS || '').split(',')]
       .map((m) => m.trim())
       .filter(Boolean);
-    for (const m of models) {
+    if (c.tier === 'fast') models = [...models.filter((m) => m.includes('lite')), ...models.filter((m) => !m.includes('lite'))];
+    const now = Date.now();
+    const ready = models.filter((m) => (cooling.get(m) ?? 0) < now);
+    for (const m of ready.length ? ready : models) {
       for (let attempt = 0; attempt < 2; attempt++) {
         try {
           return tryParse(await gemini(env, m, c), 'gemini', m);
@@ -111,7 +120,10 @@ export async function llmJson<T>(env: Env, c: LlmCall): Promise<LlmResult<T>> {
           errors.push(String(e));
           if (!(e instanceof RetryableError) && !(e instanceof SyntaxError) && !String(e).includes('valid JSON')) break;
           if (String(e).includes('HTTP 404')) break;
-          if (String(e).includes('HTTP 429')) await new Promise((r) => setTimeout(r, 4000 * (attempt + 1)));
+          if (String(e).includes('HTTP 429')) {
+            cooling.set(m, Date.now() + COOLDOWN_MS);
+            break;
+          }
         }
       }
     }

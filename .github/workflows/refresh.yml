@@ -1,0 +1,35 @@
+name: refresh
+# Weekly full corpus refresh. Needs repo secrets WORKER_URL and ADMIN_TOKEN (see README > Setup).
+on:
+  schedule: [{ cron: '0 7 * * 1' }]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      WORKER_URL: ${{ secrets.WORKER_URL }}
+      ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+      BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+      SEC_USER_AGENT: packaging-transition-advisor research-script admin@example.org
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -r requirements.txt
+      - name: Check secrets
+        run: |
+          if [ -z "$WORKER_URL" ] || [ -z "$ADMIN_TOKEN" ]; then echo "::error::Set WORKER_URL and ADMIN_TOKEN repo secrets"; exit 1; fi
+      - name: Refresh corpus
+        run: python scripts/refresh.py
+      - name: Commit changelog and structured data
+        run: |
+          git config user.name "corpus-refresh-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add corpus/CHANGELOG.md corpus/sources.csv corpus/structured cost/price_inputs.json corpus/ingest_report.md
+          git diff --cached --quiet || git commit -m "Weekly corpus refresh $(date -u +%F)"
+          git push

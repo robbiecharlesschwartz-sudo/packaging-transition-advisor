@@ -112,6 +112,7 @@ export async function llmVerify(env: Env, items: Checkable[], byN: Map<number, N
         ...verifierPrompt(payload),
         maxTokens: 4096,
         temperature: 0,
+        tier: 'fast',
       });
       calls++;
       for (const v of data.verdicts ?? []) {

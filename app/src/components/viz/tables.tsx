@@ -2,10 +2,10 @@ import { grams, range } from '../../lib/format';
 import { Cites } from '../ui';
 
 const RATING: Record<string, string> = {
-  Strong: 'bg-primary text-white dark:text-bg',
-  Possible: 'bg-accent-soft text-accent',
-  Weak: 'bg-danger/15 text-danger',
-  Unknown: 'border border-dashed border-line text-sub',
+  Strong: 'pill-ok',
+  Possible: 'pill-warn',
+  Weak: 'border-danger/40 bg-danger/10 text-danger',
+  Unknown: 'pill-gap',
 };
 
 /** Alternatives x functional needs heatmap (Strong / Possible / Weak / Unknown). */
@@ -41,7 +41,7 @@ export function FitMatrix({ options, needs }: { options: any[]; needs: string[] 
 }
 
 const EOL: Record<string, [string, string]> = {
-  accepted: ['✓', 'text-primary'], limited: ['◐', 'text-accent'], not_accepted: ['✕', 'text-danger'], unknown: ['?', 'text-sub'],
+  accepted: ['●', 'text-ok'], limited: ['◐', 'text-warn'], not_accepted: ['○', 'text-danger'], unknown: ['?', 'text-sub'],
 };
 
 export function EolTable({ rows }: { rows: any[] }) {
@@ -72,7 +72,7 @@ export function EolTable({ rows }: { rows: any[] }) {
 export function ClaimsRisk({ safe, risky }: { safe: any[]; risky: any[] }) {
   if (!safe?.length && !risky?.length) return null;
   const Col = ({ title, items, tone }: { title: string; items: any[]; tone: string }) => (
-    <div className={`rounded-md border p-3 ${tone}`}>
+    <div className={`rounded-[8px] border p-3 ${tone}`}>
       <div className="label">{title} ({items.length})</div>
       <ul className="space-y-3 text-sm2">
         {items.map((c, i) => <li key={i}><div className="font-semibold">“{c.claim}”</div><div className="text-sub">{c.why}<Cites ns={c.cites} /></div></li>)}
@@ -81,8 +81,8 @@ export function ClaimsRisk({ safe, risky }: { safe: any[]; risky: any[] }) {
   );
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      <Col title="Claims that can be supported" items={safe ?? []} tone="border-primary/40 bg-primary-soft/40" />
-      <Col title="Risky claims" items={risky ?? []} tone="border-accent/40 bg-accent-soft/40" />
+      <Col title="Claims that can be supported" items={safe ?? []} tone="border-ok/30 bg-ok/5" />
+      <Col title="Risky claims" items={risky ?? []} tone="border-warn/30 bg-warn/5" />
     </div>
   );
 }
@@ -127,7 +127,7 @@ export function SupplierTable({ byAlt }: { byAlt: Record<string, any[]> }) {
                     <td>{r.nearest ? `${r.nearest.city}, ${r.nearest.state} (${r.nearest.km.toLocaleString('en-US')} km from ${r.nearest.to_state})` : `— (${r.us_plants} listed)`}</td>
                     <td>{r.scale_tier}</td>
                     <td className="text-sub">{r.cost_evidence}</td>
-                    <td><Cites ns={r.cites} />{r.inquiry_url && <a className="ml-1 text-xs2 text-primary underline" href={r.inquiry_url} target="_blank" rel="noreferrer">filing</a>}</td>
+                    <td><Cites ns={r.cites} />{r.inquiry_url && <a className="ml-1 text-xs2 underline" href={r.inquiry_url} target="_blank" rel="noreferrer">filing</a>}</td>
                   </tr>
                 ))}
               </tbody>
