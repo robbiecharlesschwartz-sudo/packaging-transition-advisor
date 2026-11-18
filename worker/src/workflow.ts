@@ -8,7 +8,7 @@ import { embed, hybridSearch, jurisdictionFilter, OPTIONAL_MARKETS } from './ret
 import { runSourcing } from './sourcing';
 import type { Alternative, NumberedPassage, PlanItem, Profile, SectionDef, SectionOut, WorkflowDef } from './types';
 import { nowIso } from './util';
-import { applyVerdicts, codeCheck, collectCheckables, llmVerify, numberAppears, significantNumbers, type Checkable } from './verify';
+import { applyVerdicts, codeCheck, collectCheckables, llmVerify, numberAppears, significantNumbers, stripCiteMarkers, type Checkable } from './verify';
 import { getWorkflow } from './workflows';
 
 const STEP_CFG = { retries: { limit: 2, delay: '5 seconds' as const, backoff: 'exponential' as const }, timeout: '5 minutes' as const };
@@ -262,8 +262,8 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
         model = out.model;
         for (const s of group) {
           const d = out.sections.find((x: any) => x?.id === s.id) ?? {};
-          drafts.push({ id: s.id, kind: s.kind, title: s.title, takeaway: String(d.takeaway ?? ''),
-            claims: Array.isArray(d.claims) ? d.claims.filter((c: any) => c?.text).map((c: any) => ({ text: String(c.text), cites: (c.cites ?? []).map(Number) })) : [],
+          drafts.push({ id: s.id, kind: s.kind, title: s.title, takeaway: stripCiteMarkers(String(d.takeaway ?? '')),
+            claims: Array.isArray(d.claims) ? d.claims.filter((c: any) => c?.text).map((c: any) => ({ text: stripCiteMarkers(String(c.text)), cites: (c.cites ?? []).map(Number) })) : [],
             data: d.data ?? {}, gaps: Array.isArray(d.gaps) ? d.gaps.map(String) : [], passages: sectionN[s.id] ?? [] });
         }
       }
@@ -278,8 +278,10 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
         const all: { s: SectionOut; items: Checkable[] }[] = [];
         for (const s of drafts) {
           const items = collectCheckables(s);
-          const extra = profileNums + ' ' + (s.kind === 'cost' ? calcText ?? '' : '') + ' ' + (s.kind === 'sourcing' ? supplierText ?? '' : '');
-          codeCheck(items, new Set(s.passages), byN, extra);
+          const tool = s.kind === 'cost' ? calcText : s.kind === 'sourcing' ? supplierText : undefined;
+          if (tool) items.forEach((i) => (i.extra = tool));
+          if (tool) items.forEach((i) => { if (!i.cites.length && s.passages.length) i.cites = [s.passages[0]]; });
+          codeCheck(items, new Set(passages.map((p) => p.n)), byN, profileNums);
           all.push({ s, items });
         }
         const flat = all.flatMap((x) => x.items);
@@ -328,11 +330,12 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
           docsNeeded = (data.documents_needed ?? []).map(String).slice(0, 8);
           if (hasSummary) {
             const allowed = new Set(usableClaims.flatMap((c) => c.cites));
-            summary = { id: 'summary', kind: 'summary', title: 'Summary', takeaway: String(data.takeaway ?? ''),
-              claims: (data.claims ?? []).filter((c: any) => c?.text).map((c: any) => ({ text: String(c.text), cites: (c.cites ?? []).map(Number) })),
+            summary = { id: 'summary', kind: 'summary', title: 'Summary', takeaway: stripCiteMarkers(String(data.takeaway ?? '')),
+              claims: (data.claims ?? []).filter((c: any) => c?.text).map((c: any) => ({ text: stripCiteMarkers(String(c.text)), cites: (c.cites ?? []).map(Number) })),
               gaps: [], passages: [...allowed] };
             const items = collectCheckables(summary);
-            codeCheck(items, allowed, byN, profileNums + ' ' + (calcText ?? ''));
+            if (calcText) items.forEach((i) => (i.extra = calcText));
+            codeCheck(items, allowed, byN, profileNums);
             await llmVerify(env, items, byN);
             applyVerdicts(summary, items);
           }

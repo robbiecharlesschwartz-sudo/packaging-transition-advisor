@@ -8,6 +8,8 @@ export interface Checkable {
   key: string; // section:path
   text: string;
   cites: number[];
+  /** deterministic material the claim may rely on besides passages (calculator output, supplier table) */
+  extra?: string;
   verdict?: 'supported' | 'partial' | 'unsupported';
   note?: string;
 }
@@ -18,9 +20,13 @@ function normalizeNum(s: string): string {
   return s.replace(/[$,%]/g, '').replace(/\.0+$/, '');
 }
 
-/** Numbers that matter: anything with a decimal, $, %, a comma, or 2+ digits. */
+export const stripCiteMarkers = (t: string) => t.replace(/\s*\[\d+(?:\s*[,;–-]\s*\d+)*\]/g, '').trim();
+
+/** Numbers that matter: anything with a decimal, $, %, a comma, or 2+ digits. Citation markers like [3] are
+ * ignored, and ISO dates are reduced to their year (passages write dates as "October 13, 2026"). */
 export function significantNumbers(text: string): string[] {
-  return (text.match(NUM_RX) ?? [])
+  const t = stripCiteMarkers(text).replace(/\b(\d{4})-\d{2}(?:-\d{2})?\b/g, '$1');
+  return (t.match(NUM_RX) ?? [])
     .filter((t) => /[.$%,]/.test(t) || t.replace(/\D/g, '').length >= 2)
     .map(normalizeNum)
     .filter((n) => n.length > 0);
@@ -40,7 +46,7 @@ export function numberAppears(n: string, haystack: string): boolean {
 
 function pushItem(out: Checkable[], key: string, text: string | undefined, cites: unknown) {
   if (!text || !String(text).trim()) return;
-  out.push({ key, text: String(text), cites: Array.isArray(cites) ? cites.map(Number).filter(Number.isFinite) : [] });
+  out.push({ key, text: stripCiteMarkers(String(text)), cites: Array.isArray(cites) ? cites.map(Number).filter(Number.isFinite) : [] });
 }
 
 export function collectCheckables(s: SectionOut): Checkable[] {
@@ -79,7 +85,7 @@ export function codeCheck(items: Checkable[], allowed: Set<number>, byN: Map<num
       continue;
     }
     it.cites = good;
-    const hay = good.map((n) => byN.get(n)?.content ?? '').join(' ') + ' ' + extraNumbers;
+    const hay = good.map((n) => { const p = byN.get(n); return `${p?.title ?? ''} ${p?.publisher ?? ''} ${p?.doc_date ?? ''} ${p?.content ?? ''}`; }).join(' ') + ' ' + extraNumbers + ' ' + (it.extra ?? '');
     const missing = significantNumbers(it.text).filter((n) => !numberAppears(n, hay));
     if (missing.length) {
       it.verdict = 'unsupported';
@@ -96,7 +102,10 @@ export async function llmVerify(env: Env, items: Checkable[], byN: Map<number, N
     const payload = batch.map((it, i) => ({
       id: i,
       text: it.text,
-      passages: it.cites.map((n) => `[${n}] ${(byN.get(n)?.content ?? '').slice(0, 1100)}`).join('\n'),
+      passages: it.cites.map((n) => {
+        const p = byN.get(n);
+        return `[${n}] (${p?.title ?? ''}, ${p?.publisher ?? ''}, ${p?.doc_date ?? 'n.d.'}) ${(p?.content ?? '').slice(0, 2600)}`;
+      }).join('\n') + (it.extra ? `\n[TOOL OUTPUT - deterministic calculator / supplier table; facts and numbers stated here count as supported]\n${it.extra}` : ''),
     }));
     try {
       const { data } = await llmJson<{ verdicts: { id: number; verdict: string; note?: string }[] }>(env, {

@@ -4,7 +4,7 @@ import type { NumberedPassage, Profile, SectionDef, WorkflowDef } from './types'
 // Section 11 of the brief: these rules go into every system prompt.
 export const RULES = `Rules (follow all of them):
 - Answer only from the numbered passages provided. If they do not support a claim, do not make it.
-- Cite every factual sentence with passage numbers in "cites" (e.g. [3, 7]). A claim with no cites will be deleted.
+- Cite every factual sentence with passage numbers in "cites" (e.g. [3, 7]). A claim with no cites will be deleted. Put numbers only in "cites", never inside "text".
 - Prefer primary sources; when sources conflict, state both with their dates.
 - Default to US federal and the selected US states. Mention other jurisdictions only if they were selected.
 - Never produce a number (price, fee, date, percentage, weight) unless it appears in a cited passage or in the CALCULATOR OUTPUT block.
@@ -82,7 +82,7 @@ Use material_key values from this list only: ${MATERIALS.map((m) => `${m.key} ($
   return { system, user };
 }
 
-export function passageBlock(ps: NumberedPassage[], maxChars = 1400): string {
+export function passageBlock(ps: NumberedPassage[], maxChars = 2600): string {
   return ps
     .map((p) => {
       const body = p.content.length > maxChars ? p.content.slice(0, maxChars) + ' ...' : p.content;
@@ -126,6 +126,7 @@ export function verifierPrompt(items: { id: number; text: string; passages: stri
 "supported": every fact in the claim (including each number, date, place and name) is stated in or directly implied by the passages.
 "partial": the main point is supported but a detail (a number, date, scope or qualifier) is not.
 "unsupported": the passages do not support the claim, or contradict it.
+A TOOL OUTPUT block (cost calculator or supplier table) is deterministic code output: numbers and supplier facts stated there count as supported.
 Return JSON: {"verdicts":[{"id":<number>,"verdict":"supported|partial|unsupported","note":"short reason"}]}`;
   const user = items
     .map((i) => `CLAIM ${i.id}: ${i.text}\nPASSAGES:\n${i.passages}`)
