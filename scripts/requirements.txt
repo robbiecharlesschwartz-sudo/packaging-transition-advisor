@@ -1,0 +1,9 @@
+requests
+pymupdf
+trafilatura
+pandas
+openpyxl
+pyyaml
+feedparser
+pytest
+python-dotenv
