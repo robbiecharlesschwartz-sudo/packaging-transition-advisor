@@ -101,7 +101,9 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
         const forced: Alternative[] = (ctx.profile?.candidate_alternatives ?? [])
           .map((k) => (MATERIAL_KEYS.includes(k) ? { name: materialByKey(k)!.label, material_key: k } : null))
           .filter(Boolean) as Alternative[];
-        const baseAlts = forced.length ? forced : defaultAlternatives(ctx.profile);
+        const curKey = currentMaterialKey(ctx.profile?.current_material, ctx.profile?.package_type);
+        const notCurrent = (a: Alternative) => a.material_key !== curKey;
+        const baseAlts = (forced.filter(notCurrent).length ? forced.filter(notCurrent) : defaultAlternatives(ctx.profile));
         const hints = Object.fromEntries(searchable.map((s) => [s.id, fillHint(s.query_hint, ctx.profile, ctx.question, baseAlts)]));
         let queries: PlanItem[] = [];
         let alternatives = baseAlts;
@@ -112,7 +114,8 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
           provider = model;
           queries = (data.queries ?? []).filter((q) => searchable.some((s) => s.id === q.section) && q.query?.trim())
             .slice(0, 16).map((q) => ({ section: q.section, query: q.query.slice(0, 300), layers: sectionLayers(searchable.find((s) => s.id === q.section)!, wf) ?? 'all' }));
-          const llmAlts = (data.alternatives ?? []).filter((a) => MATERIAL_KEYS.includes(a.material_key)).slice(0, 4);
+          const llmAlts = (data.alternatives ?? []).filter((a) => MATERIAL_KEYS.includes(a.material_key) && notCurrent(a)).slice(0, 4)
+            .map((a) => ({ ...a, name: !a.name || a.name === a.material_key || /_/.test(a.name) ? materialByKey(a.material_key)!.label : a.name }));
           if (!forced.length && llmAlts.length) alternatives = llmAlts;
         } catch (e) {
           provider = `templates (planner LLM failed: ${String(e).slice(0, 120)})`;
@@ -157,6 +160,13 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
           for (const r of retrieved.results.filter((x) => x.section === s.id))
             for (const h of r.hits) if (!ids.includes(h.chunk_id)) ids.push(h.chunk_id);
           perSection[s.id] = ids.slice(0, wf.top_k);
+        }
+        // the current material's producer-fee rows are cited passages for the product section
+        const cur = searchable.find((s) => s.kind === 'current');
+        if (cur && ctx.profile) {
+          const k = currentMaterialKey(ctx.profile.current_material, ctx.profile.package_type);
+          const feeChunks = (CATALOG.epr_fees as any[]).filter((f) => k && f.material_keys.includes(k)).map((f) => f.chunk_id).filter(Boolean);
+          perSection[cur.id] = [...new Set([...perSection[cur.id], ...feeChunks])];
         }
         // state-law rows behind the regulatory map are cited passages too
         const reg = searchable.find((s) => s.kind === 'regulatory');
@@ -266,6 +276,7 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
           drafts.push({ id: s.id, kind: s.kind, title: s.title, takeaway: stripCiteMarkers(String(d.takeaway ?? '')),
             claims: Array.isArray(d.claims) ? d.claims.filter((c: any) => c?.text).map((c: any) => ({ text: stripCiteMarkers(String(c.text)), cites: (c.cites ?? []).map(Number) })) : [],
             data: d.data ?? {}, gaps: Array.isArray(d.gaps) ? d.gaps.map(String) : [], passages: sectionN[s.id] ?? [] });
+          for (const o of drafts[drafts.length - 1].data?.options ?? []) if (!o.name || o.name === o.material_key || /_/.test(o.name)) o.name = materialByKey(o.material_key)?.label ?? o.name;
         }
       }
       const claimCount = drafts.reduce((a, s) => a + s.claims.length, 0);
@@ -279,7 +290,7 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
         const all: { s: SectionOut; items: Checkable[] }[] = [];
         for (const s of drafts) {
           const items = collectCheckables(s);
-          const tool = s.kind === 'cost' ? calcText : s.kind === 'sourcing' ? supplierText : undefined;
+          const tool = s.kind === 'cost' ? calcText : s.kind === 'sourcing' ? supplierText : s.kind === 'current' ? `USER PROFILE (facts the user stated about their own product):\n${profileText(ctx.profile, ctx.question)}` : undefined;
           if (tool) items.forEach((i) => (i.extra = tool));
           if (tool) items.forEach((i) => { if (!i.cites.length && s.passages.length) i.cites = [s.passages[0]]; });
           codeCheck(items, new Set(passages.map((p) => p.n)), byN, profileNums);
@@ -392,11 +403,13 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
         // KPIs
         const alt = final.find((s) => s.kind === 'alternatives');
         const opts: any[] = alt?.data?.options ?? [];
-        const rec = opts.find((o) => o.fit === 'Strong') ?? opts.find((o) => o.fit === 'Possible') ?? null;
+        const curKeyK = currentMaterialKey(ctx.profile?.current_material, ctx.profile?.package_type);
+        const altOpts = opts.filter((o) => o.material_key !== curKeyK);
+        const rec = altOpts.find((o) => o.fit === 'Strong') ?? altOpts.find((o) => o.fit === 'Possible') ?? null;
         let costChange: any = null;
         if (cost?.available) {
           const cur = cost.options.find((o: any) => o.is_current);
-          const target = cost.options.find((o: any) => rec && o.key === rec.material_key) ?? cost.options.find((o: any) => !o.is_current && o.total_per_unit);
+          const target = cost.options.find((o: any) => rec && o.key === rec.material_key && o.total_per_unit) ?? cost.options.find((o: any) => !o.is_current && o.total_per_unit);
           if (cur?.total_per_unit && target?.total_per_unit)
             costChange = { alternative: target.label, low: target.total_per_unit.low - cur.total_per_unit.high, high: target.total_per_unit.high - cur.total_per_unit.low, confidence: cost.confidence };
         }

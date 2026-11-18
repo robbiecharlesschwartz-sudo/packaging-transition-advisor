@@ -4,6 +4,7 @@ import { MATERIALS } from './catalog';
 import { CATALOG, LAWS } from './cost/run';
 import type { Env } from './env';
 import { listGeminiModels, llmJson } from './llm';
+import { profileText } from './prompts';
 import { refresh } from './refresh';
 import { hybridSearch, jurisdictionFilter } from './retrieval';
 import type { Profile } from './types';
@@ -128,6 +129,17 @@ async function handleApi(req: Request, env: Env, url: URL): Promise<Response> {
         out[m] = `${r.status} ${(await r.text()).slice(0, 160).replace(/\s+/g, ' ')}`;
       }
       return json(out);
+    }
+    if (p === '/api/admin/baseline') {
+      // Same model, same profile, no retrieval: the comparison point for docs/CASE_STUDY.md.
+      const b = (await req.json()) as { profile: Profile };
+      const r = await llmJson<any>(env, {
+        system: 'You are a sustainable-packaging strategy consultant. Answer from your own knowledge.',
+        user: `${profileText(cleanProfile(b.profile), null)}\n\nWrite a transition brief with these sections: Summary; Alternatives shortlist; Regulatory exposure by US state; End-of-life reality check; Green-claims risk; Supply chain and performance; Rough cost comparison (per unit); Sourcing options (named suppliers); Market and competitor context. Be specific (states, dates, fees, prices, companies). Return JSON {"sections":[{"title":"...","text":"..."}]}.`,
+        maxTokens: 6000,
+        tier: 'quality',
+      });
+      return json(r);
     }
     if (p === '/api/admin/refresh') return json(await refresh(env));
     if (p === '/api/admin/mark-example') {
