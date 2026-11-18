@@ -8,7 +8,7 @@ export function isAdmin(req: Request, env: Env): boolean {
   return !!env.ADMIN_TOKEN && !!tok && safeEqual(tok, env.ADMIN_TOKEN);
 }
 
-interface IngestDoc {
+export interface IngestDoc {
   id: string;
   title: string;
   publisher: string;
@@ -27,7 +27,7 @@ interface IngestDoc {
   chunk_count?: number;
 }
 
-interface IngestChunk {
+export interface IngestChunk {
   id: string;
   document_id: string;
   chunk_index: number;
@@ -50,6 +50,10 @@ interface IngestChunk {
  * `replace: true` (first batch of a document) removes that document's previous chunks first. */
 export async function ingest(req: Request, env: Env): Promise<Response> {
   const body = (await req.json()) as { document: IngestDoc; chunks: IngestChunk[]; replace?: boolean };
+  return ingestCore(env, body);
+}
+
+export async function ingestCore(env: Env, body: { document: IngestDoc; chunks: IngestChunk[]; replace?: boolean }): Promise<Response> {
   const d = body.document;
   if (!d?.id || !Array.isArray(body.chunks)) return err('document and chunks required');
   if (body.chunks.length > 50) return err('max 50 chunks per request');
@@ -60,7 +64,7 @@ export async function ingest(req: Request, env: Env): Promise<Response> {
     if (oldIds.length) {
       for (let i = 0; i < oldIds.length; i += 500) await env.VEC.deleteByIds(oldIds.slice(i, i + 500));
       await env.DB.batch([
-        env.DB.prepare('DELETE FROM chunks_fts WHERE chunk_id IN (SELECT id FROM chunks WHERE document_id = ?)').bind(d.id),
+        env.DB.prepare('DELETE FROM chunks_fts WHERE rowid IN (SELECT rowid FROM chunks WHERE document_id = ?)').bind(d.id),
         env.DB.prepare('DELETE FROM chunks WHERE document_id = ?').bind(d.id),
       ]);
     }
@@ -107,6 +111,7 @@ export async function ingest(req: Request, env: Env): Promise<Response> {
   const stmts: D1PreparedStatement[] = [];
   for (const c of body.chunks) {
     stmts.push(
+      env.DB.prepare('DELETE FROM chunks_fts WHERE rowid = (SELECT rowid FROM chunks WHERE id = ?)').bind(c.id),
       env.DB.prepare(
         `INSERT OR REPLACE INTO chunks (id,document_id,chunk_index,content,page,section,layer,jurisdiction,doc_date,
            license,material_tags,package_tags) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
@@ -114,9 +119,8 @@ export async function ingest(req: Request, env: Env): Promise<Response> {
         c.id, c.document_id, c.chunk_index, c.content, c.page ?? null, c.section ?? null, c.layer, c.jurisdiction,
         c.doc_date ?? null, c.license, JSON.stringify(c.material_tags), JSON.stringify(c.package_tags),
       ),
-      env.DB.prepare('DELETE FROM chunks_fts WHERE chunk_id = ?').bind(c.id),
-      env.DB.prepare('INSERT INTO chunks_fts (chunk_id,title,section,content) VALUES (?,?,?,?)').bind(
-        c.id, c.title, c.section ?? '', c.content,
+      env.DB.prepare('INSERT INTO chunks_fts (rowid,title,section,content) SELECT rowid, ?, ?, ? FROM chunks WHERE id = ?').bind(
+        c.title, c.section ?? '', c.content, c.id,
       ),
     );
   }
@@ -174,7 +178,7 @@ export async function deleteDoc(req: Request, env: Env): Promise<Response> {
   const ids = old.results.map((r) => r.id);
   for (let i = 0; i < ids.length; i += 500) await env.VEC.deleteByIds(ids.slice(i, i + 500));
   await env.DB.batch([
-    env.DB.prepare('DELETE FROM chunks_fts WHERE chunk_id IN (SELECT id FROM chunks WHERE document_id = ?)').bind(id),
+    env.DB.prepare('DELETE FROM chunks_fts WHERE rowid IN (SELECT rowid FROM chunks WHERE document_id = ?)').bind(id),
     env.DB.prepare('DELETE FROM chunks WHERE document_id = ?').bind(id),
     env.DB.prepare('DELETE FROM documents WHERE id = ?').bind(id),
   ]);
@@ -185,4 +189,13 @@ export async function deleteDoc(req: Request, env: Env): Promise<Response> {
 export async function hashes(env: Env): Promise<Response> {
   const r = await env.DB.prepare('SELECT id, content_hash FROM documents').all<{ id: string; content_hash: string }>();
   return json(Object.fromEntries(r.results.map((x) => [x.id, x.content_hash])));
+}
+
+/** POST /api/admin/recount: refresh cached corpus counters (run once after an ingest batch). */
+export async function recount(env: Env): Promise<Response> {
+  await env.DB.batch([
+    env.DB.prepare(`INSERT OR REPLACE INTO meta (key, value) VALUES ('chunk_count', (SELECT COUNT(*) FROM chunks))`),
+    env.DB.prepare(`INSERT OR REPLACE INTO meta (key, value) VALUES ('document_count', (SELECT COUNT(*) FROM documents))`),
+  ]);
+  return json({ ok: true });
 }

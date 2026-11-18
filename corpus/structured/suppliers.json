@@ -1,0 +1,352 @@
+[
+  {
+    "id": "aptargroup",
+    "company_name": "AptarGroup, Inc.",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/896622/000089662226000007/atr-20251231.htm",
+    "material_tags": [],
+    "product_tags": [
+      "other"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-aptargroup"
+    ],
+    "evidence": [
+      {
+        "what": "product line: n/a",
+        "chunk_id": "sec-10k-aptargroup::0000",
+        "quote": "design and manufacturing of drug and consumer product dosing, dispensing and protection technologies"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 1
+  },
+  {
+    "id": "ball",
+    "company_name": "Ball Corporation",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/9389/000110465926017410/ball-20251231x10k.htm",
+    "material_tags": [
+      "aluminum"
+    ],
+    "product_tags": [
+      "can",
+      "rigid bottle"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-ball"
+    ],
+    "evidence": [
+      {
+        "what": "product line: aluminum",
+        "chunk_id": "sec-10k-ball::0000",
+        "quote": "Our largest product line is aluminum beverage containers"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 18
+  },
+  {
+    "id": "crown",
+    "company_name": "Crown Holdings, Inc.",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/1219601/000162828026012904/cck-20251231.htm",
+    "material_tags": [
+      "aluminum",
+      "steel"
+    ],
+    "product_tags": [
+      "can"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-crown"
+    ],
+    "evidence": [
+      {
+        "what": "product line: aluminum, steel",
+        "chunk_id": "sec-10k-crown::0000",
+        "quote": "manufactures metal cans and ends (aluminum and steel)"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 57
+  },
+  {
+    "id": "graphic-packaging",
+    "company_name": "Graphic Packaging Holding Company",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/1408075/000140807526000009/gpk-20251231.htm",
+    "material_tags": [
+      "paperboard"
+    ],
+    "product_tags": [
+      "cup/lid",
+      "folding carton",
+      "tray/clamshell"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-graphic-packaging"
+    ],
+    "evidence": [
+      {
+        "what": "product line: paperboard",
+        "chunk_id": "sec-10k-graphic-packaging::0000",
+        "quote": "cups and bowls made primarily from recycled paperboard"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 53
+  },
+  {
+    "id": "greif",
+    "company_name": "Greif, Inc.",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/43920/000004392024000056/gef-20241031.htm",
+    "material_tags": [
+      "corrugated",
+      "paperboard"
+    ],
+    "product_tags": [
+      "corrugated box"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-greif"
+    ],
+    "evidence": [
+      {
+        "what": "product line: corrugated, paperboard",
+        "chunk_id": "sec-10k-greif::0000",
+        "quote": "We produce and sell containerboard, corrugated sheets, corrugated containers"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 1
+  },
+  {
+    "id": "international-paper",
+    "company_name": "International Paper Company",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/51434/000005143426000055/ip-20251231.htm",
+    "material_tags": [
+      "corrugated",
+      "paper_kraft",
+      "paperboard"
+    ],
+    "product_tags": [
+      "corrugated box"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-international-paper"
+    ],
+    "evidence": [
+      {
+        "what": "product line: corrugated, paperboard, paper_kraft",
+        "chunk_id": "sec-10k-international-paper::0000",
+        "quote": "We produce renewable fiber-based packaging products"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 0
+  },
+  {
+    "id": "o-i-glass",
+    "company_name": "O-I Glass, Inc.",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/812074/000110465926014319/oi-20251231x10k.htm",
+    "material_tags": [
+      "glass"
+    ],
+    "product_tags": [
+      "jar",
+      "rigid bottle"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-o-i-glass"
+    ],
+    "evidence": [
+      {
+        "what": "product line: glass",
+        "chunk_id": "sec-10k-o-i-glass::0000",
+        "quote": "leading manufacturers of glass containers"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 15
+  },
+  {
+    "id": "pca",
+    "company_name": "Packaging Corporation of America",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/75677/000119312526074129/pkg-20251231.htm",
+    "material_tags": [
+      "corrugated"
+    ],
+    "product_tags": [
+      "corrugated box"
+    ],
+    "certifications": [
+      "FSC",
+      "SFI"
+    ],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-pca"
+    ],
+    "evidence": [
+      {
+        "what": "product line: corrugated",
+        "chunk_id": "sec-10k-pca::0000",
+        "quote": "91 corrugated products plants"
+      },
+      {
+        "what": "certification: FSC",
+        "chunk_id": "sec-10k-pca::0003",
+        "quote": "ustainable Forestry Initiative® (SFI), the Programme for the Endorsement of Forest Certification (PEFC), as well as the Forest Stewardship Council® (FSC®) voluntary certification programs, and are certified under their chain of custody and fiber sourcing standards."
+      },
+      {
+        "what": "certification: SFI",
+        "chunk_id": "sec-10k-pca::0003",
+        "quote": "iber supply for the foreseeable future. 5 As part of our renewable virgin fiber sourcing efforts, we participate in the Sustainable Forestry Initiative® (SFI), the Programme for the Endorsement of Forest Certification (PEFC), as well as the Forest Stewardship Council® (F"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 0
+  },
+  {
+    "id": "sealed-air",
+    "company_name": "Sealed Air Corporation",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/1012100/000101210026000016/see-20251231.htm",
+    "material_tags": [
+      "multilayer_film",
+      "pe_film"
+    ],
+    "product_tags": [
+      "flexible pouch/film"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-sealed-air"
+    ],
+    "evidence": [
+      {
+        "what": "product line: multilayer_film, pe_film",
+        "chunk_id": "sec-10k-sealed-air::0007",
+        "quote": "CRYOVAC® brand Barrier Bags, CRYOVAC® brand Form-Fill-Seal Films"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 1
+  },
+  {
+    "id": "silgan",
+    "company_name": "Silgan Holdings Inc.",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/849869/000162828026012202/slgn-20251231.htm",
+    "material_tags": [
+      "aluminum",
+      "steel"
+    ],
+    "product_tags": [
+      "can"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-silgan"
+    ],
+    "evidence": [
+      {
+        "what": "product line: steel, aluminum",
+        "chunk_id": "sec-10k-silgan::0018",
+        "quote": "we manufacture steel and aluminum two-piece cans"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 0
+  },
+  {
+    "id": "smurfit-westrock",
+    "company_name": "Smurfit Westrock plc",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/2005951/000162828026012555/smur-20251231.htm",
+    "material_tags": [
+      "corrugated",
+      "paper_kraft",
+      "paperboard"
+    ],
+    "product_tags": [
+      "corrugated box",
+      "folding carton",
+      "mailer"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-smurfit-westrock"
+    ],
+    "evidence": [
+      {
+        "what": "product line: corrugated, paperboard",
+        "chunk_id": "sec-10k-smurfit-westrock::0001",
+        "quote": "Our main categories of packaging are corrugated containers, manufactured from containerboard; and consumer packaging, manufactured from paperboard"
+      },
+      {
+        "what": "product line: paper_kraft",
+        "chunk_id": "sec-10k-smurfit-westrock::0003",
+        "quote": "Other kraft paper has a large number of uses such as but not limited to paper bags"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 18
+  },
+  {
+    "id": "sonoco",
+    "company_name": "Sonoco Products Company",
+    "website": null,
+    "inquiry_url": "https://www.sec.gov/Archives/edgar/data/91767/000009176726000008/son-20251231.htm",
+    "material_tags": [
+      "aluminum",
+      "paperboard",
+      "steel"
+    ],
+    "product_tags": [
+      "can",
+      "other"
+    ],
+    "certifications": [],
+    "scale_tier": "large",
+    "source_doc_ids": [
+      "sec-10k-sonoco"
+    ],
+    "evidence": [
+      {
+        "what": "product line: paperboard",
+        "chunk_id": "sec-10k-sonoco::0002",
+        "quote": "Our rigid paper containers are manufactured from 100% recycled paperboard"
+      },
+      {
+        "what": "product line: steel, aluminum",
+        "chunk_id": "sec-10k-sonoco::0005",
+        "quote": "The principal raw materials used by the Company are recovered paper, paperboard, steel, and aluminum"
+      }
+    ],
+    "last_verified": "2026-11-18",
+    "us_plants_listed": 1
+  }
+]

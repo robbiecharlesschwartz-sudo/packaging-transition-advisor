@@ -1,0 +1,22 @@
+id: sourcing_search
+name: Sourcing search
+description: >-
+  Who makes each alternative, where their US plants are, certifications, scale, and public cost evidence, from
+  registries and SEC filings, never from model memory.
+needs: {cost: false, sourcing: true}
+top_k: 8
+filters: {layers: [suppliers, competitor], jurisdictions: selected}
+system_prompt: |
+  The supplier shortlist is computed from the suppliers table. Describe matches as "strong match on certification
+  and location", never "best supplier". Remind the reader to verify capability and pricing directly.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, sourcing, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: sourcing
+    kind: sourcing
+    title: Sourcing options
+    layers: [competitor, suppliers]
+    query_hint: "manufacturer plants products {alternatives} {package_type}; sustainable packaging lines; capacity"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}

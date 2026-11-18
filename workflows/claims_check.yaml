@@ -1,0 +1,19 @@
+id: claims_check
+name: Green-claims check
+description: Which on-pack environmental claims the company could and could not safely make, with the rule behind each.
+needs: {cost: false, sourcing: false}
+top_k: 10
+filters: {layers: [claims_rules, infrastructure], jurisdictions: selected}
+system_prompt: |
+  Phrase safe claims as example on-pack wording. For risky claims, name the rule and what substantiation is missing.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, claims, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: claims
+    kind: claims
+    title: Green-claims risk
+    layers: [claims_rules, infrastructure]
+    query_hint: "environmental marketing claims recyclable compostable recycled content {package_type} {alternatives}: substantiation, qualification, recycling symbol, chasing arrows"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}

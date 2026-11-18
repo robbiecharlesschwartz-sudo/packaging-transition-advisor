@@ -97,8 +97,8 @@ export async function hybridSearch(env: Env, query: string, filters: Filters, op
     env.VEC.query(vec, { topK: Math.min(n, 100), filter: vectorFilter(filters), returnMetadata: 'none' }),
     fq
       ? env.DB.prepare(
-          `SELECT f.chunk_id AS id, bm25(chunks_fts, 0.0, 2.0, 1.5, 1.0) AS s
-             FROM chunks_fts f JOIN chunks c ON c.id = f.chunk_id
+          `SELECT c.id AS id, bm25(chunks_fts, 2.0, 1.5, 1.0) AS s
+             FROM chunks_fts f JOIN chunks c ON c.rowid = f.rowid
             WHERE chunks_fts MATCH ?${where.length ? ' AND ' + where.join(' AND ') : ''}
             ORDER BY s LIMIT ?`,
         )

@@ -1,0 +1,222 @@
+[
+  {
+    "hs6": "390110",
+    "key": "PE_LD",
+    "desc": "Polyethylene, specific gravity < 0.94 (LDPE/LLDPE resin), primary forms",
+    "low": 0.85,
+    "high": 1.237,
+    "median": 1.045,
+    "periods": "2025-07 to 2026-05",
+    "n_months": 7
+  },
+  {
+    "hs6": "390120",
+    "key": "PE_HD",
+    "desc": "Polyethylene, specific gravity >= 0.94 (HDPE resin), primary forms",
+    "low": 0.892,
+    "high": 1.4,
+    "median": 1.006,
+    "periods": "2025-08 to 2026-06",
+    "n_months": 7
+  },
+  {
+    "hs6": "390210",
+    "key": "PP",
+    "desc": "Polypropylene resin, primary forms",
+    "low": 0.992,
+    "high": 1.193,
+    "median": 1.043,
+    "periods": "2025-07 to 2026-04",
+    "n_months": 10
+  },
+  {
+    "hs6": "390311",
+    "key": "EPS",
+    "desc": "Expansible polystyrene, primary forms",
+    "low": 1.775,
+    "high": 2.198,
+    "median": 1.799,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 9
+  },
+  {
+    "hs6": "390761",
+    "key": "PET",
+    "desc": "PET resin, viscosity number >= 78 ml/g (bottle grade)",
+    "low": 1.082,
+    "high": 1.167,
+    "median": 1.102,
+    "periods": "2025-07 to 2026-04",
+    "n_months": 10
+  },
+  {
+    "hs6": "392010",
+    "key": "PE_FILM",
+    "desc": "Plates, sheets, film of polymers of ethylene, non-cellular, not reinforced",
+    "low": 3.053,
+    "high": 3.47,
+    "median": 3.205,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "392020",
+    "key": "PP_FILM",
+    "desc": "Plates, sheets, film of polymers of propylene, non-cellular, not reinforced",
+    "low": 3.252,
+    "high": 3.719,
+    "median": 3.478,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 11
+  },
+  {
+    "hs6": "392190",
+    "key": "OTHER_FILM",
+    "desc": "Other plates, sheets, film, foil and strip of plastics (incl. laminates), not cellular",
+    "low": 5.015,
+    "high": 5.767,
+    "median": 5.458,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "481159",
+    "key": "PLASTIC_COATED_PAPER",
+    "desc": "Paper and paperboard coated, impregnated or covered with plastics (other)",
+    "low": 3.399,
+    "high": 3.764,
+    "median": 3.626,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "731021",
+    "key": "STEEL_CANS",
+    "desc": "Iron or steel cans closed by soldering or crimping, capacity < 50 litres",
+    "low": 4.087,
+    "high": 4.133,
+    "median": 4.133,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "392321",
+    "key": "PE_SACKS",
+    "desc": "Sacks and bags (including cones) of polymers of ethylene",
+    "low": 3.516,
+    "high": 3.534,
+    "median": 3.516,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "392330",
+    "key": "PLASTIC_BOTTLES",
+    "desc": "Carboys, bottles, flasks and similar articles of plastics",
+    "low": 4.464,
+    "high": 5.05,
+    "median": 4.772,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "480411",
+    "key": "KRAFTLINER",
+    "desc": "Kraftliner, uncoated, unbleached, in rolls or sheets",
+    "low": 0.804,
+    "high": 1.092,
+    "median": 0.963,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "480439",
+    "key": "KRAFT_PAPER",
+    "desc": "Other uncoated kraft paper and paperboard weighing 150 g/m2 or less",
+    "low": 1.814,
+    "high": 2.08,
+    "median": 1.973,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "481092",
+    "key": "MULTIPLY_BOARD",
+    "desc": "Multi-ply coated paper and paperboard",
+    "low": 0.916,
+    "high": 1.116,
+    "median": 1.089,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "481910",
+    "key": "CORRUGATED_BOXES",
+    "desc": "Cartons, boxes and cases of corrugated paper or paperboard",
+    "low": 2.033,
+    "high": 2.547,
+    "median": 2.18,
+    "periods": "2025-08 to 2026-06",
+    "n_months": 9
+  },
+  {
+    "hs6": "481920",
+    "key": "FOLDING_CARTONS",
+    "desc": "Folding cartons, boxes and cases of non-corrugated paper or paperboard",
+    "low": 3.252,
+    "high": 3.649,
+    "median": 3.488,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "481940",
+    "key": "PAPER_SACKS",
+    "desc": "Other sacks and bags of paper, including cones",
+    "low": 2.295,
+    "high": 2.774,
+    "median": 2.471,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 10
+  },
+  {
+    "hs6": "482370",
+    "key": "MOLDED_PULP",
+    "desc": "Moulded or pressed articles of paper pulp",
+    "low": 2.477,
+    "high": 2.756,
+    "median": 2.607,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "701090",
+    "key": "GLASS_CONTAINERS",
+    "desc": "Glass carboys, bottles, jars, pots and similar containers",
+    "low": 1.168,
+    "high": 1.211,
+    "median": 1.211,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  },
+  {
+    "hs6": "760711",
+    "key": "AL_FOIL",
+    "desc": "Aluminum foil, not backed, rolled but not further worked, <= 0.2 mm",
+    "low": 5.025,
+    "high": 6.215,
+    "median": 5.37,
+    "periods": "2025-08 to 2026-06",
+    "n_months": 10
+  },
+  {
+    "hs6": "761290",
+    "key": "AL_CONTAINERS",
+    "desc": "Aluminum casks, drums, cans, boxes and similar containers <= 300 litres",
+    "low": 9.142,
+    "high": 9.433,
+    "median": 9.433,
+    "periods": "2025-07 to 2026-06",
+    "n_months": 12
+  }
+]

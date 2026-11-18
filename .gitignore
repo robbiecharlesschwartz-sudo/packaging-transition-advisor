@@ -30,3 +30,6 @@ corpus/processed/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local secret drop-box (uploaded then deleted by scripts/upload_key_file.py)
+PASTE_KEY_HERE.txt

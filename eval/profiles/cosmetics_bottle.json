@@ -1,0 +1,13 @@
+{
+  "company_description": "Cosmetics company selling shampoo and body wash nationwide through retail and e-commerce.",
+  "product_category": "personal care/cosmetics",
+  "package_type": "rigid bottle",
+  "current_material": "PET",
+  "dimensions": {"volume_ml": 250},
+  "unit_weight_g": 28,
+  "annual_units": 2000000,
+  "sales_states": ["nationwide"],
+  "functional_needs": ["tamper-evident"],
+  "candidate_alternatives": ["rpet", "glass", "aluminum", "reuse_refill"],
+  "sourcing_preferences": {"us_made": true}
+}

@@ -1,0 +1,22 @@
+id: regulatory_scan
+name: Regulatory scan
+description: >-
+  State-by-state packaging law exposure (EPR status, fees, key dates, recycled-content mandates, material bans,
+  labeling rules), then federal, then optional markets.
+needs: {cost: false, sourcing: false}
+top_k: 10
+filters: {layers: [regulation, claims_rules], jurisdictions: selected}
+system_prompt: |
+  Cover each selected state in its own row. Distinguish "enacted" from "fees in effect". Give exact dates when the
+  passages state them. Federal rules (FTC Green Guides) come after the states.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, regulatory, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: regulatory
+    kind: regulatory
+    title: Regulatory exposure (US first)
+    layers: [regulation, claims_rules, prices]
+    query_hint: "packaging extended producer responsibility law {states}: producer registration, fees, dates, recycled content, bans on {current_material} {package_type}, labeling"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}

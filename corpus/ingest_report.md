@@ -3,21 +3,21 @@
 Generated 2026-11-18 by `scripts/chunk.py`.
 
 - Documents: **122**
-- Chunks: **3948** (~1,412,831 tokens)
+- Chunks: **3883** (~1,373,500 tokens)
 - Duplicate chunks dropped: 0
-- Vector capacity used: 1,516,032 of 5,000,000 stored dimensions (Vectorize free tier)
+- Vector capacity used: 1,491,072 of 5,000,000 stored dimensions (Vectorize free tier)
 
 ## Documents by layer
 
 | Layer | Documents | Chunks |
 |---|---:|---:|
 | claims_rules | 11 | 440 |
-| competitor | 14 | 466 |
+| competitor | 13 | 375 |
 | demand | 7 | 147 |
 | infrastructure | 21 | 131 |
-| materials | 14 | 605 |
+| materials | 14 | 608 |
 | news | 13 | 13 |
-| prices | 6 | 782 |
+| prices | 7 | 805 |
 | regulation | 36 | 1364 |
 
 ## Documents by jurisdiction

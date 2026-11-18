@@ -1,0 +1,23 @@
+id: cost_estimate
+name: Cost estimate
+description: >-
+  Rough, cited cost comparison of the current package vs. alternatives (unit weight, material cost, EPR fees by
+  state, freight delta, annual totals), computed in code from retrieved inputs.
+needs: {cost: true, sourcing: false}
+top_k: 8
+filters: {layers: [prices, materials, regulation], jurisdictions: selected}
+system_prompt: |
+  The calculator output is authoritative for every number. Explain what drives the difference, which inputs are
+  weakest, and what a supplier quote would need to confirm. Never introduce a number that is not in the calculator
+  output or a passage.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, cost, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: cost
+    kind: cost
+    title: Rough cost comparison
+    layers: [prices, materials]
+    query_hint: "producer fee schedule cents per pound {alternatives} {current_material}; price index; container weight per pound; scrap value"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}

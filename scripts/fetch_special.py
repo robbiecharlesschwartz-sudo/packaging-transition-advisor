@@ -6,7 +6,7 @@ and registers/updates its row in corpus/sources.csv with format=generated.
   python scripts/fetch_special.py sec        latest 10-K Items 1, 1A (filtered) and 2 for packaging converters
   python scripts/fetch_special.py rss        trade-press headlines + RSS summaries (no article text)
   python scripts/fetch_special.py ppi        BLS Producer Price Index series for packaging inputs
-  python scripts/fetch_special.py trade      US Census import unit values ($/kg) for packaging materials
+  python scripts/fetch_special.py trade      US import unit values ($/kg) for packaging materials (UN Comtrade)
   python scripts/fetch_special.py all
 """
 from __future__ import annotations
@@ -56,7 +56,7 @@ WIKI_PAGES = {
     "Aluminium": "aluminum", "Kraft_paper": "kraft paper", "Paperboard": "paperboard",
     "Corrugated_fiberboard": "corrugated", "Grammage": "paper grammage",
 }
-PROPERTY_RX = re.compile(r"[^.\n]{0,200}(?:g/cm3|g/cm³|kg/m3|kg/m³|g/m2|g/m²|grams per square met|gsm)[^.\n]{0,160}[.\n]?")
+PROPERTY_RX = re.compile(r".{0,160}(?:g/cm3|g/cm³|kg/m3|kg/m³|g/m2|g/m²|grams per square met|gsm).{0,120}")
 
 
 def wiki() -> None:
@@ -64,7 +64,7 @@ def wiki() -> None:
              "retrieved via the Wikimedia REST API. Text is CC BY-SA 4.0; each section names its article."]
     for page, label in WIKI_PAGES.items():
         r = http_get(f"https://en.wikipedia.org/api/rest_v1/page/html/{page}", ua=WIKI_UA)
-        text = trafilatura.html2txt(r.text) or ""
+        text = " ".join((trafilatura.html2txt(r.text) or "").split())
         hits = []
         for m in PROPERTY_RX.finditer(text):
             s = " ".join(m.group(0).split())
@@ -105,7 +105,7 @@ def mn() -> None:
 
 # --------------------------------------------------------------------------- SEC 10-K filings
 SEC_COMPANIES = {
-    "amcor": ("Amcor plc", 1748790), "sealed-air": ("Sealed Air Corporation", 1012100),
+    "sealed-air": ("Sealed Air Corporation", 1012100),
     "sonoco": ("Sonoco Products Company", 91767), "graphic-packaging": ("Graphic Packaging Holding Company", 1408075),
     "international-paper": ("International Paper Company", 51434), "ball": ("Ball Corporation", 9389),
     "crown": ("Crown Holdings, Inc.", 1219601), "o-i-glass": ("O-I Glass, Inc.", 812074),
@@ -123,18 +123,20 @@ def sec_text(html: str) -> str:
 
 
 def find_items(t: str) -> dict[str, str]:
-    """Return text of Items 1, 1A and 2 from a 10-K. Each heading also appears in the table of contents,
-    so for every item we take the occurrence that starts the longest span before the next item heading."""
+    """Return text of Items 1, 1A and 2 from a 10-K. Headings also appear in the table of contents, so every
+    item heading (1 through 7) is a boundary and each item takes the occurrence with the longest span."""
     rxs = [("1", r"item\s*1\.?\s*business"), ("1A", r"item\s*1a\.?\s*risk\s*factors"),
            ("1B", r"item\s*1b\.?\s*unresolved"), ("1C", r"item\s*1c\.?\s*cybersecurity"),
-           ("2", r"item\s*2\.?\s*properties"), ("3", r"item\s*3\.?\s*legal\s*proceedings")]
+           ("2", r"item\s*2\.?\s*properties"), ("3", r"item\s*3\.?\s*legal\s*proceedings"),
+           ("4", r"item\s*4\.?\s*mine\s*safety"), ("5", r"item\s*5\.?\s*market\s*for"),
+           ("7", r"item\s*7\.?\s*management"), ("8", r"item\s*8\.?\s*financial\s*statements")]
     occ = {k: [m.start() for m in re.finditer(rx, t, re.I)] for k, rx in rxs}
     every = sorted(p for v in occ.values() for p in v)
     out = {}
     for k in ("1", "1A", "2"):
         best = None
         for start in occ[k]:
-            nxt = next((p for p in every if p > start + 50), len(t))
+            nxt = next((p for p in every if p > start + 5), len(t))
             if best is None or nxt - start > best[1] - best[0]:
                 best = (start, nxt)
         if best:
@@ -297,6 +299,9 @@ HS_CODES = {
     "390770": ("PLA", "Poly(lactic acid) resin, primary forms"),
     "392010": ("PE_FILM", "Plates, sheets, film of polymers of ethylene, non-cellular, not reinforced"),
     "392020": ("PP_FILM", "Plates, sheets, film of polymers of propylene, non-cellular, not reinforced"),
+    "392190": ("OTHER_FILM", "Other plates, sheets, film, foil and strip of plastics (incl. laminates), not cellular"),
+    "481159": ("PLASTIC_COATED_PAPER", "Paper and paperboard coated, impregnated or covered with plastics (other)"),
+    "731021": ("STEEL_CANS", "Iron or steel cans closed by soldering or crimping, capacity < 50 litres"),
     "392321": ("PE_SACKS", "Sacks and bags (including cones) of polymers of ethylene"),
     "392330": ("PLASTIC_BOTTLES", "Carboys, bottles, flasks and similar articles of plastics"),
     "480411": ("KRAFTLINER", "Kraftliner, uncoated, unbleached, in rolls or sheets"),
@@ -312,76 +317,69 @@ HS_CODES = {
 }
 
 
-def trade(months: int = 12) -> None:
-    """Monthly US general-import value / quantity for each HS6 code where quantity is reported in kg."""
-    import requests
-    load_env()
-    ckey = os.environ.get("CENSUS_API_KEY", "").strip()
-    if not ckey:
-        raise RuntimeError("CENSUS_API_KEY not set (free key: https://api.census.gov/data/key_signup.html)")
-    probe = date.today().replace(day=1)
-    out_rows, parts = [], [
-        "US Census Bureau International Trade (imports) API: monthly general import customs value (USD) divided by "
-        "first-unit quantity (kg) gives an import unit value in $/kg. These are border prices for traded goods "
-        "(resin, film, finished packaging articles), not supplier quotes. Low/high = 10th/90th percentile of the "
-        "monthly values over the last 12 months available."]
-    # find the latest month with data (trade data lags ~2 months)
-    for back in range(1, 7):
-        y, m = probe.year, probe.month - back
+def _periods(n: int, lag_months: int) -> list[str]:
+    d = date.today().replace(day=1)
+    y, m = d.year, d.month - lag_months
+    out = []
+    for _ in range(n):
         while m <= 0:
             y, m = y - 1, m + 12
-        t = f"{y}-{m:02d}"
-        r = requests.get("https://api.census.gov/data/timeseries/intltrade/imports/hs",
-                         params={"get": "GEN_VAL_MO,GEN_QY1_MO,UNIT_QY1", "time": t, "I_COMMODITY": "390120",
-                                 "COMM_LVL": "HS6", "key": ckey}, timeout=60)
-        if r.status_code == 200 and r.text.strip().startswith("["):
-            latest = (y, m)
-            break
-    else:
-        raise RuntimeError("Census trade API returned no recent month")
-    periods = []
-    y, m = latest
-    for _ in range(months):
-        periods.append(f"{y}-{m:02d}")
+        out.append(f"{y}{m:02d}")
         m -= 1
-        if m == 0:
-            y, m = y - 1, 12
-    periods.reverse()
+    return sorted(out)
+
+
+def trade(months: int = 12) -> None:
+    """US import unit values ($/kg) per HS6 code from UN Comtrade's public preview API (no key needed).
+    Comtrade's US figures are reported by the US Census Bureau. Unit value = primary (CIF) value / net weight."""
+    import requests
+    rows, periods = [], []
+    url = "https://comtradeapi.un.org/public/v1/preview/C/M/HS"
+    for lag in (2, 3, 4, 5):  # trade data lags 2-5 months; find the latest month with data
+        periods = _periods(months, lag)
+        r = requests.get(url, params={"reporterCode": 842, "period": periods[-1], "cmdCode": ",".join(HS_CODES),
+                                      "flowCode": "M", "partnerCode": 0}, timeout=120)
+        if r.ok and r.json().get("data"):
+            break
+    for p in periods:  # the preview endpoint allows one period per request
+        for attempt in range(3):
+            r = requests.get(url, params={"reporterCode": 842, "period": p, "cmdCode": ",".join(HS_CODES),
+                                          "flowCode": "M", "partnerCode": 0}, timeout=120)
+            if r.ok:
+                rows += r.json().get("data", [])
+                break
+            time.sleep(5 * (attempt + 1))
+        time.sleep(1.5)
+    if not rows:
+        raise RuntimeError("Comtrade preview API returned no data")
+    out_rows, parts = [], [
+        "US general imports by HS6 code, monthly, from the UN Comtrade database (US data as reported by the US Census "
+        "Bureau), retrieved through the Comtrade public preview API. Import unit value = customs value (CIF, USD) "
+        "divided by net weight (kg). These are border prices for traded goods (resin, film, finished packaging "
+        "articles), not supplier quotes. Low/high = 10th/90th percentile of the monthly unit values."]
     for hs, (key, desc) in HS_CODES.items():
-        vals = []
-        for t in periods:
-            r = requests.get("https://api.census.gov/data/timeseries/intltrade/imports/hs",
-                             params={"get": "GEN_VAL_MO,GEN_QY1_MO,UNIT_QY1", "time": t, "I_COMMODITY": hs,
-                                     "COMM_LVL": "HS6", "key": ckey}, timeout=60)
-            if r.status_code != 200 or not r.text.strip().startswith("["):
-                continue
-            hdr, *data = r.json()
-            for row in data:
-                rec = dict(zip(hdr, row))
-                if rec.get("UNIT_QY1", "").upper() != "KG":
-                    continue
-                val, qty = float(rec["GEN_VAL_MO"] or 0), float(rec["GEN_QY1_MO"] or 0)
-                if qty > 0 and val > 0:
-                    vals.append((t, val / qty, val, qty))
-            time.sleep(0.15)
+        vals = sorted([(x["period"], x["primaryValue"] / x["netWgt"]) for x in rows
+                       if x["cmdCode"] == hs and (x.get("netWgt") or 0) > 0 and (x.get("primaryValue") or 0) > 0])
         if len(vals) < 3:
-            print(f"trade: {hs} {key}: skipped (unit not kg or no data)")
+            print(f"trade: {hs} {key}: skipped ({len(vals)} months with weight)")
             continue
-        uv = sorted(v[1] for v in vals)
+        uv = sorted(v for _, v in vals)
         q = statistics.quantiles(uv, n=10)
         low, high, med = q[0], q[-1], statistics.median(uv)
+        span = f"{vals[0][0][:4]}-{vals[0][0][4:]} to {vals[-1][0][:4]}-{vals[-1][0][4:]}"
         out_rows.append({"hs6": hs, "key": key, "desc": desc, "low": round(low, 3), "high": round(high, 3),
-                         "median": round(med, 3), "periods": f"{periods[0]}..{periods[-1]}", "n_months": len(vals)})
-        monthly = "; ".join(f"{t}: ${u:.2f}/kg" for t, u, _, _ in vals)
-        parts.append(f"## HS {hs} {desc}\nImport unit value over {periods[0]} to {periods[-1]}: median ${med:.2f}/kg, "
+                         "median": round(med, 3), "periods": span, "n_months": len(vals)})
+        monthly = "; ".join(f"{p[:4]}-{p[4:]}: ${u:.2f}/kg" for p, u in vals)
+        parts.append(f"## HS {hs} {desc}\nUS import unit value {span}: median ${med:.2f}/kg, "
                      f"10th-90th percentile range ${low:.2f}-${high:.2f}/kg ({len(vals)} months). Monthly: {monthly}.")
         print(f"trade: {hs} {key:16} ${low:.2f}-{high:.2f}/kg")
     write_json(STRUCTURED / "trade_unit_values.json", out_rows)
-    save_generated("census-trade-unit-values", "\n\n".join(parts), dict(
-        title=f"Import unit values for packaging materials, {periods[0]} to {periods[-1]} (US Census trade data)",
-        publisher="US Census Bureau, International Trade", source_url="https://www.census.gov/foreign-trade/data/index.html",
+    span = f"{periods[0][:4]}-{periods[0][4:]} to {periods[-1][:4]}-{periods[-1][4:]}"
+    save_generated("trade-unit-values", "\n\n".join(parts), dict(
+        title=f"US import unit values for packaging materials, {span} (UN Comtrade / US Census data)",
+        publisher="UN Comtrade (US Census Bureau data)", source_url="https://comtradeplus.un.org/",
         layer="prices", jurisdiction="US", doc_date=today(), reliability="primary", license="public_domain",
-        notes="computed from Census International Trade API: value / quantity (kg)"))
+        notes="computed: import value / net weight per HS6 code; official trade statistics"))
 
 
 def main() -> int:

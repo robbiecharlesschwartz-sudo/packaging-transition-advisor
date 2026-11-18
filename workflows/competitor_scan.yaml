@@ -1,0 +1,19 @@
+id: competitor_scan
+name: Competitor scan
+description: What comparable brands and packaging converters have done, with cited examples from filings, reports and news.
+needs: {cost: false, sourcing: false}
+top_k: 10
+filters: {layers: [competitor, news, demand], jurisdictions: selected}
+system_prompt: |
+  Each example names the company, what it did, and when. Prefer filings over press.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, market, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: market
+    kind: competitor
+    title: Market and competitor context
+    layers: [competitor, news, demand]
+    query_hint: "{product_category} brands and packaging converters moving to recyclable, recycled-content, paper or reusable packaging; retailer requirements"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}

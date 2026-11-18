@@ -1,0 +1,17 @@
+id: free_question
+name: Free question (core research agent)
+description: >-
+  Ask anything about sustainable packaging. The agent searches the corpus, keeps the relevant passages and writes a
+  short cited answer, or says the corpus does not cover it.
+needs: {cost: false, sourcing: false}
+top_k: 8
+filters: {layers: all, jurisdictions: selected}
+system_prompt: |
+  Answer the user's question directly in 3 to 8 cited sentences. If the passages only partly answer it, answer that
+  part and list the rest under gaps. If nothing answers it, return no claims and explain the gap.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [answer, gaps]
+sections:
+  - {id: answer, kind: narrative, title: Answer, layers: all, query_hint: "{question}"}
+  - {id: gaps, kind: gaps, title: What the evidence does not cover}

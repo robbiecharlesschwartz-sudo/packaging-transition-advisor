@@ -18,8 +18,8 @@
       "migrations_dir": "migrations"
     }
   ],
-  "vectorize": [{ "binding": "VEC", "index_name": "pta-chunks" }],
-  "ai": { "binding": "AI" },
+  "vectorize": [{ "binding": "VEC", "index_name": "pta-chunks", "remote": true }],
+  "ai": { "binding": "AI", "remote": true },
   "workflows": [
     { "name": "brief-workflow", "binding": "BRIEF", "class_name": "BriefWorkflow" }
   ],
@@ -27,8 +27,8 @@
   "observability": { "enabled": true },
   "vars": {
     "LLM_PROVIDER": "gemini",
-    "GEMINI_MODEL": "gemini-2.5-flash",
-    "GEMINI_FALLBACK_MODELS": "gemini-2.5-flash-lite,gemini-flash-latest",
+    "GEMINI_MODEL": "gemini-3.5-flash",
+    "GEMINI_FALLBACK_MODELS": "gemini-flash-latest,gemini-3.5-flash-lite,gemini-flash-lite-latest",
     "EMBED_MODEL": "@cf/baai/bge-small-en-v1.5",
     "FALLBACK_LLM": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
     "DAILY_RUNS_PER_IP": "8",

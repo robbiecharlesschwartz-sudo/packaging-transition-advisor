@@ -1,0 +1,1652 @@
+[
+  {
+    "id": "aptargroup:0",
+    "supplier_id": "aptargroup",
+    "city": "Crystal Lake",
+    "state": "IL",
+    "lat": 42.233209,
+    "lng": -88.33436,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-aptargroup"
+  },
+  {
+    "id": "ball:0",
+    "supplier_id": "ball",
+    "city": "Westminster",
+    "state": "CO",
+    "lat": 39.880122,
+    "lng": -105.061513,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:1",
+    "supplier_id": "ball",
+    "city": "Bowling Green",
+    "state": "KY",
+    "lat": 36.976832,
+    "lng": -86.433661,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:2",
+    "supplier_id": "ball",
+    "city": "Conroe",
+    "state": "TX",
+    "lat": 30.328717,
+    "lng": -95.4846,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:3",
+    "supplier_id": "ball",
+    "city": "Fairfield",
+    "state": "CA",
+    "lat": 38.26206,
+    "lng": -122.032386,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:4",
+    "supplier_id": "ball",
+    "city": "Findlay",
+    "state": "OH",
+    "lat": 41.047364,
+    "lng": -83.638093,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:5",
+    "supplier_id": "ball",
+    "city": "Fort Atkinson",
+    "state": "WI",
+    "lat": 42.923982,
+    "lng": -88.845488,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:6",
+    "supplier_id": "ball",
+    "city": "Fort Worth",
+    "state": "TX",
+    "lat": 32.781954,
+    "lng": -97.348573,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:7",
+    "supplier_id": "ball",
+    "city": "Glendale",
+    "state": "AZ",
+    "lat": 33.533111,
+    "lng": -112.189901,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:8",
+    "supplier_id": "ball",
+    "city": "Golden",
+    "state": "CO",
+    "lat": 39.742483,
+    "lng": -105.210561,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:9",
+    "supplier_id": "ball",
+    "city": "Goodyear",
+    "state": "AZ",
+    "lat": 33.254031,
+    "lng": -112.366472,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:10",
+    "supplier_id": "ball",
+    "city": "Kapolei",
+    "state": "HI",
+    "lat": 21.339925,
+    "lng": -158.067827,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:11",
+    "supplier_id": "ball",
+    "city": "Monticello",
+    "state": "IN",
+    "lat": 40.745231,
+    "lng": -86.767256,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:12",
+    "supplier_id": "ball",
+    "city": "Pittston",
+    "state": "PA",
+    "lat": 41.32792,
+    "lng": -75.785684,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:13",
+    "supplier_id": "ball",
+    "city": "Rome",
+    "state": "GA",
+    "lat": 34.266133,
+    "lng": -85.186052,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:14",
+    "supplier_id": "ball",
+    "city": "Saratoga Springs",
+    "state": "NY",
+    "lat": 43.067704,
+    "lng": -73.778142,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:15",
+    "supplier_id": "ball",
+    "city": "Tampa",
+    "state": "FL",
+    "lat": 27.970086,
+    "lng": -82.479673,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:16",
+    "supplier_id": "ball",
+    "city": "Williamsburg",
+    "state": "VA",
+    "lat": 37.269481,
+    "lng": -76.708193,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "ball:17",
+    "supplier_id": "ball",
+    "city": "Winter Haven",
+    "state": "FL",
+    "lat": 28.045836,
+    "lng": -81.732743,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-ball"
+  },
+  {
+    "id": "crown:0",
+    "supplier_id": "crown",
+    "city": "Tampa",
+    "state": "FL",
+    "lat": 27.970086,
+    "lng": -82.479673,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:1",
+    "supplier_id": "crown",
+    "city": "Kankakee",
+    "state": "IL",
+    "lat": 41.101654,
+    "lng": -87.86369,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:2",
+    "supplier_id": "crown",
+    "city": "Benton",
+    "state": "AR",
+    "lat": 34.577424,
+    "lng": -92.572583,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:3",
+    "supplier_id": "crown",
+    "city": "Norwalk",
+    "state": "CT",
+    "lat": 41.092739,
+    "lng": -73.419796,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:4",
+    "supplier_id": "crown",
+    "city": "Bowling Green",
+    "state": "KY",
+    "lat": 36.976832,
+    "lng": -86.433661,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:5",
+    "supplier_id": "crown",
+    "city": "Bay Point",
+    "state": "CA",
+    "lat": 38.032254,
+    "lng": -121.962236,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:6",
+    "supplier_id": "crown",
+    "city": "Dubuque",
+    "state": "IA",
+    "lat": 42.498901,
+    "lng": -90.707258,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:7",
+    "supplier_id": "crown",
+    "city": "Mankato",
+    "state": "MN",
+    "lat": 44.171122,
+    "lng": -93.97638,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:8",
+    "supplier_id": "crown",
+    "city": "Bridgeview",
+    "state": "IL",
+    "lat": 41.74028,
+    "lng": -87.806682,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:9",
+    "supplier_id": "crown",
+    "city": "Alsip",
+    "state": "IL",
+    "lat": 41.67027,
+    "lng": -87.737085,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:10",
+    "supplier_id": "crown",
+    "city": "Mesquite",
+    "state": "NV",
+    "lat": 36.81112,
+    "lng": -114.125652,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:11",
+    "supplier_id": "crown",
+    "city": "Brighton",
+    "state": "MI",
+    "lat": 42.529705,
+    "lng": -83.784545,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:12",
+    "supplier_id": "crown",
+    "city": "Nichols",
+    "state": "NY",
+    "lat": 42.020017,
+    "lng": -76.370402,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:13",
+    "supplier_id": "crown",
+    "city": "Cleveland",
+    "state": "OH",
+    "lat": 41.478462,
+    "lng": -81.679435,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:14",
+    "supplier_id": "crown",
+    "city": "Faribault",
+    "state": "MN",
+    "lat": 44.299709,
+    "lng": -93.278946,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:15",
+    "supplier_id": "crown",
+    "city": "Dayton",
+    "state": "OH",
+    "lat": 39.784743,
+    "lng": -84.199632,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:16",
+    "supplier_id": "crown",
+    "city": "Danville",
+    "state": "VA",
+    "lat": 36.583334,
+    "lng": -79.408071,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:17",
+    "supplier_id": "crown",
+    "city": "Owatonna",
+    "state": "MN",
+    "lat": 44.091904,
+    "lng": -93.231715,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:18",
+    "supplier_id": "crown",
+    "city": "Cheraw",
+    "state": "SC",
+    "lat": 34.697894,
+    "lng": -79.913969,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:19",
+    "supplier_id": "crown",
+    "city": "Darlington",
+    "state": "SC",
+    "lat": 34.301383,
+    "lng": -79.867174,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:20",
+    "supplier_id": "crown",
+    "city": "Massillon",
+    "state": "OH",
+    "lat": 40.784483,
+    "lng": -81.525216,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:21",
+    "supplier_id": "crown",
+    "city": "Conroe",
+    "state": "TX",
+    "lat": 30.328717,
+    "lng": -95.4846,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:22",
+    "supplier_id": "crown",
+    "city": "Dixmoor",
+    "state": "IL",
+    "lat": 41.63295,
+    "lng": -87.667233,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:23",
+    "supplier_id": "crown",
+    "city": "Douglasville",
+    "state": "GA",
+    "lat": 33.73678,
+    "lng": -84.701074,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:24",
+    "supplier_id": "crown",
+    "city": "Connellsville",
+    "state": "PA",
+    "lat": 40.015901,
+    "lng": -79.58963,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:25",
+    "supplier_id": "crown",
+    "city": "Martinsville",
+    "state": "VA",
+    "lat": 36.683527,
+    "lng": -79.863647,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:26",
+    "supplier_id": "crown",
+    "city": "East Providence",
+    "state": "RI",
+    "lat": 41.800433,
+    "lng": -71.359258,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:27",
+    "supplier_id": "crown",
+    "city": "Hanover",
+    "state": "PA",
+    "lat": 39.811756,
+    "lng": -76.983605,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:28",
+    "supplier_id": "crown",
+    "city": "Winchester",
+    "state": "VA",
+    "lat": 39.173869,
+    "lng": -78.176356,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:29",
+    "supplier_id": "crown",
+    "city": "Eden",
+    "state": "NC",
+    "lat": 36.503042,
+    "lng": -79.74002,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:30",
+    "supplier_id": "crown",
+    "city": "Olympia",
+    "state": "WA",
+    "lat": 47.040604,
+    "lng": -122.895,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:31",
+    "supplier_id": "crown",
+    "city": "Elkhart",
+    "state": "IN",
+    "lat": 41.691543,
+    "lng": -85.962248,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:32",
+    "supplier_id": "crown",
+    "city": "Trevose",
+    "state": "PA",
+    "lat": 40.150936,
+    "lng": -74.981984,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:33",
+    "supplier_id": "crown",
+    "city": "La Crosse",
+    "state": "WI",
+    "lat": 43.824685,
+    "lng": -91.224616,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:34",
+    "supplier_id": "crown",
+    "city": "Florence",
+    "state": "KY",
+    "lat": 38.993405,
+    "lng": -84.648186,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:35",
+    "supplier_id": "crown",
+    "city": "Spartanburg",
+    "state": "SC",
+    "lat": 34.945627,
+    "lng": -81.925944,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:36",
+    "supplier_id": "crown",
+    "city": "Worland",
+    "state": "WY",
+    "lat": 44.020402,
+    "lng": -107.961653,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:37",
+    "supplier_id": "crown",
+    "city": "Fordyce",
+    "state": "AR",
+    "lat": 33.818236,
+    "lng": -92.416972,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:38",
+    "supplier_id": "crown",
+    "city": "Chippewa Falls",
+    "state": "WI",
+    "lat": 44.934653,
+    "lng": -91.389165,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:39",
+    "supplier_id": "crown",
+    "city": "Forest",
+    "state": "VA",
+    "lat": 37.374934,
+    "lng": -79.277149,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:40",
+    "supplier_id": "crown",
+    "city": "Oshkosh",
+    "state": "WI",
+    "lat": 44.023168,
+    "lng": -88.56226,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:41",
+    "supplier_id": "crown",
+    "city": "Gary",
+    "state": "IN",
+    "lat": 41.59074,
+    "lng": -87.347113,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:42",
+    "supplier_id": "crown",
+    "city": "Greer",
+    "state": "SC",
+    "lat": 34.933286,
+    "lng": -82.230803,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:43",
+    "supplier_id": "crown",
+    "city": "Hazleton",
+    "state": "PA",
+    "lat": 40.95047,
+    "lng": -75.972509,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:44",
+    "supplier_id": "crown",
+    "city": "LaGrange",
+    "state": "GA",
+    "lat": 33.02698,
+    "lng": -85.038261,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:45",
+    "supplier_id": "crown",
+    "city": "Latta",
+    "state": "SC",
+    "lat": 34.33894,
+    "lng": -79.433564,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:46",
+    "supplier_id": "crown",
+    "city": "Loveland",
+    "state": "OH",
+    "lat": 39.26768,
+    "lng": -84.268756,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:47",
+    "supplier_id": "crown",
+    "city": "Monroe",
+    "state": "LA",
+    "lat": 32.518986,
+    "lng": -92.07718,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:48",
+    "supplier_id": "crown",
+    "city": "Newark",
+    "state": "NJ",
+    "lat": 40.72422,
+    "lng": -74.172574,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:49",
+    "supplier_id": "crown",
+    "city": "Orange",
+    "state": "TX",
+    "lat": 30.123528,
+    "lng": -93.754548,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:50",
+    "supplier_id": "crown",
+    "city": "Phoenix",
+    "state": "AZ",
+    "lat": 33.572154,
+    "lng": -112.090132,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:51",
+    "supplier_id": "crown",
+    "city": "Roselle",
+    "state": "IL",
+    "lat": 41.980249,
+    "lng": -88.08591,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:52",
+    "supplier_id": "crown",
+    "city": "Salisbury",
+    "state": "NC",
+    "lat": 35.666161,
+    "lng": -80.492629,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:53",
+    "supplier_id": "crown",
+    "city": "San Antonio",
+    "state": "TX",
+    "lat": 29.462809,
+    "lng": -98.524635,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:54",
+    "supplier_id": "crown",
+    "city": "Sheridan",
+    "state": "AR",
+    "lat": 34.321575,
+    "lng": -92.443067,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:55",
+    "supplier_id": "crown",
+    "city": "Stockton",
+    "state": "CA",
+    "lat": 37.976553,
+    "lng": -121.308598,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "crown:56",
+    "supplier_id": "crown",
+    "city": "Woodland",
+    "state": "WA",
+    "lat": 45.918183,
+    "lng": -122.753502,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-crown"
+  },
+  {
+    "id": "graphic-packaging:0",
+    "supplier_id": "graphic-packaging",
+    "city": "Atlanta",
+    "state": "GA",
+    "lat": 33.762909,
+    "lng": -84.422675,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:1",
+    "supplier_id": "graphic-packaging",
+    "city": "Kalamazoo",
+    "state": "MI",
+    "lat": 42.275163,
+    "lng": -85.588501,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:2",
+    "supplier_id": "graphic-packaging",
+    "city": "Texarkana",
+    "state": "TX",
+    "lat": 33.449204,
+    "lng": -94.085008,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:3",
+    "supplier_id": "graphic-packaging",
+    "city": "Waco",
+    "state": "TX",
+    "lat": 31.557994,
+    "lng": -97.18975,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:4",
+    "supplier_id": "graphic-packaging",
+    "city": "West Monroe",
+    "state": "LA",
+    "lat": 32.51234,
+    "lng": -92.15107,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:5",
+    "supplier_id": "graphic-packaging",
+    "city": "Clemson",
+    "state": "SC",
+    "lat": 34.683564,
+    "lng": -82.810575,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:6",
+    "supplier_id": "graphic-packaging",
+    "city": "Concord",
+    "state": "NH",
+    "lat": 43.232493,
+    "lng": -71.561252,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:7",
+    "supplier_id": "graphic-packaging",
+    "city": "Crosby",
+    "state": "MN",
+    "lat": 46.493267,
+    "lng": -93.94569,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:8",
+    "supplier_id": "graphic-packaging",
+    "city": "Louisville",
+    "state": "CO",
+    "lat": 39.969576,
+    "lng": -105.143271,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:9",
+    "supplier_id": "graphic-packaging",
+    "city": "Menomonee Falls",
+    "state": "WI",
+    "lat": 43.159411,
+    "lng": -88.121548,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:10",
+    "supplier_id": "graphic-packaging",
+    "city": "Carol Stream",
+    "state": "IL",
+    "lat": 41.920346,
+    "lng": -88.133223,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:11",
+    "supplier_id": "graphic-packaging",
+    "city": "Kendallville",
+    "state": "IN",
+    "lat": 41.443361,
+    "lng": -85.258154,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:12",
+    "supplier_id": "graphic-packaging",
+    "city": "Newton",
+    "state": "IA",
+    "lat": 41.696337,
+    "lng": -93.040512,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:13",
+    "supplier_id": "graphic-packaging",
+    "city": "St. Paul",
+    "state": "MN",
+    "lat": 44.948901,
+    "lng": -93.104063,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:14",
+    "supplier_id": "graphic-packaging",
+    "city": "Centralia",
+    "state": "IL",
+    "lat": 38.522066,
+    "lng": -89.123533,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:15",
+    "supplier_id": "graphic-packaging",
+    "city": "Kenton",
+    "state": "OH",
+    "lat": 40.644541,
+    "lng": -83.609951,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:16",
+    "supplier_id": "graphic-packaging",
+    "city": "Portland",
+    "state": "OR",
+    "lat": 45.536951,
+    "lng": -122.649971,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:17",
+    "supplier_id": "graphic-packaging",
+    "city": "Staunton",
+    "state": "VA",
+    "lat": 38.157978,
+    "lng": -79.061876,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:18",
+    "supplier_id": "graphic-packaging",
+    "city": "Chicago",
+    "state": "IL",
+    "lat": 41.837045,
+    "lng": -87.684939,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:19",
+    "supplier_id": "graphic-packaging",
+    "city": "Kingston Springs",
+    "state": "TN",
+    "lat": 36.081868,
+    "lng": -87.108965,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:20",
+    "supplier_id": "graphic-packaging",
+    "city": "Omaha",
+    "state": "NE",
+    "lat": 41.262705,
+    "lng": -96.053475,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:21",
+    "supplier_id": "graphic-packaging",
+    "city": "Stone Mountain",
+    "state": "GA",
+    "lat": 33.804187,
+    "lng": -84.17142,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:22",
+    "supplier_id": "graphic-packaging",
+    "city": "Clarksville",
+    "state": "TN",
+    "lat": 36.56643,
+    "lng": -87.345216,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:23",
+    "supplier_id": "graphic-packaging",
+    "city": "Lancaster",
+    "state": "TX",
+    "lat": 32.596203,
+    "lng": -96.773789,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:24",
+    "supplier_id": "graphic-packaging",
+    "city": "Oroville",
+    "state": "CA",
+    "lat": 39.495423,
+    "lng": -121.560069,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:25",
+    "supplier_id": "graphic-packaging",
+    "city": "Sturgis",
+    "state": "MI",
+    "lat": 41.798252,
+    "lng": -85.418795,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:26",
+    "supplier_id": "graphic-packaging",
+    "city": "Lawrenceburg",
+    "state": "TN",
+    "lat": 35.249713,
+    "lng": -87.332502,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:27",
+    "supplier_id": "graphic-packaging",
+    "city": "Pacific",
+    "state": "MO",
+    "lat": 38.479724,
+    "lng": -90.749453,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:28",
+    "supplier_id": "graphic-packaging",
+    "city": "Elgin",
+    "state": "IL",
+    "lat": 42.038963,
+    "lng": -88.325671,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:29",
+    "supplier_id": "graphic-packaging",
+    "city": "Lebanon",
+    "state": "TN",
+    "lat": 36.199381,
+    "lng": -86.344634,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:30",
+    "supplier_id": "graphic-packaging",
+    "city": "Perry",
+    "state": "GA",
+    "lat": 32.473708,
+    "lng": -83.727809,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:31",
+    "supplier_id": "graphic-packaging",
+    "city": "Tuscaloosa",
+    "state": "AL",
+    "lat": 33.234404,
+    "lng": -87.5283,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:32",
+    "supplier_id": "graphic-packaging",
+    "city": "Lumberton",
+    "state": "NC",
+    "lat": 34.630608,
+    "lng": -79.018601,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:33",
+    "supplier_id": "graphic-packaging",
+    "city": "Pineville",
+    "state": "NC",
+    "lat": 35.093703,
+    "lng": -80.893517,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:34",
+    "supplier_id": "graphic-packaging",
+    "city": "Fort Smith",
+    "state": "AR",
+    "lat": 35.349276,
+    "lng": -94.370883,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:35",
+    "supplier_id": "graphic-packaging",
+    "city": "Marietta",
+    "state": "GA",
+    "lat": 33.953561,
+    "lng": -84.542463,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:36",
+    "supplier_id": "graphic-packaging",
+    "city": "Pittston",
+    "state": "PA",
+    "lat": 41.32792,
+    "lng": -75.785684,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:37",
+    "supplier_id": "graphic-packaging",
+    "city": "Vancouver",
+    "state": "WA",
+    "lat": 45.637156,
+    "lng": -122.596567,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:38",
+    "supplier_id": "graphic-packaging",
+    "city": "Gordonsville",
+    "state": "TN",
+    "lat": 36.186129,
+    "lng": -85.93149,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:39",
+    "supplier_id": "graphic-packaging",
+    "city": "Marion",
+    "state": "OH",
+    "lat": 40.596746,
+    "lng": -83.123185,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:40",
+    "supplier_id": "graphic-packaging",
+    "city": "Prosperity",
+    "state": "SC",
+    "lat": 34.213372,
+    "lng": -81.528386,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:41",
+    "supplier_id": "graphic-packaging",
+    "city": "Visalia",
+    "state": "CA",
+    "lat": 36.32803,
+    "lng": -119.328519,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:42",
+    "supplier_id": "graphic-packaging",
+    "city": "Gresham",
+    "state": "OR",
+    "lat": 45.502319,
+    "lng": -122.441609,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:43",
+    "supplier_id": "graphic-packaging",
+    "city": "Wausau",
+    "state": "WI",
+    "lat": 44.961766,
+    "lng": -89.646538,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:44",
+    "supplier_id": "graphic-packaging",
+    "city": "Groveport",
+    "state": "OH",
+    "lat": 39.857337,
+    "lng": -82.891442,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:45",
+    "supplier_id": "graphic-packaging",
+    "city": "Mitchell",
+    "state": "SD",
+    "lat": 43.727072,
+    "lng": -98.042192,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:46",
+    "supplier_id": "graphic-packaging",
+    "city": "Shelbyville",
+    "state": "IL",
+    "lat": 39.410305,
+    "lng": -88.799666,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:47",
+    "supplier_id": "graphic-packaging",
+    "city": "Monroe",
+    "state": "LA",
+    "lat": 32.518986,
+    "lng": -92.07718,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:48",
+    "supplier_id": "graphic-packaging",
+    "city": "Sioux Falls",
+    "state": "SD",
+    "lat": 43.540696,
+    "lng": -96.731962,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:49",
+    "supplier_id": "graphic-packaging",
+    "city": "Irvine",
+    "state": "CA",
+    "lat": 33.678399,
+    "lng": -117.771254,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:50",
+    "supplier_id": "graphic-packaging",
+    "city": "Solon",
+    "state": "OH",
+    "lat": 41.38599,
+    "lng": -81.440835,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:51",
+    "supplier_id": "graphic-packaging",
+    "city": "New Albany",
+    "state": "IN",
+    "lat": 38.312179,
+    "lng": -85.823987,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "graphic-packaging:52",
+    "supplier_id": "graphic-packaging",
+    "city": "Salem",
+    "state": "NC",
+    "lat": 35.699725,
+    "lng": -81.700298,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-graphic-packaging"
+  },
+  {
+    "id": "greif:0",
+    "supplier_id": "greif",
+    "city": "Delaware",
+    "state": "OH",
+    "lat": 40.286476,
+    "lng": -83.074864,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-greif"
+  },
+  {
+    "id": "o-i-glass:0",
+    "supplier_id": "o-i-glass",
+    "city": "Auburn",
+    "state": "NY",
+    "lat": 42.9338,
+    "lng": -76.567181,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:1",
+    "supplier_id": "o-i-glass",
+    "city": "Los Angeles",
+    "state": "CA",
+    "lat": 34.019394,
+    "lng": -118.410825,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:2",
+    "supplier_id": "o-i-glass",
+    "city": "Bowling Green",
+    "state": "KY",
+    "lat": 36.976832,
+    "lng": -86.433661,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:3",
+    "supplier_id": "o-i-glass",
+    "city": "Muskogee",
+    "state": "OK",
+    "lat": 35.743797,
+    "lng": -95.356405,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:4",
+    "supplier_id": "o-i-glass",
+    "city": "Brockway",
+    "state": "PA",
+    "lat": 41.247102,
+    "lng": -78.792415,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:5",
+    "supplier_id": "o-i-glass",
+    "city": "Crenshaw",
+    "state": "PA",
+    "lat": 41.251665,
+    "lng": -78.754056,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:6",
+    "supplier_id": "o-i-glass",
+    "city": "Tracy",
+    "state": "CA",
+    "lat": 37.727396,
+    "lng": -121.452195,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:7",
+    "supplier_id": "o-i-glass",
+    "city": "Danville",
+    "state": "VA",
+    "lat": 36.583334,
+    "lng": -79.408071,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:8",
+    "supplier_id": "o-i-glass",
+    "city": "Windsor",
+    "state": "CO",
+    "lat": 40.478273,
+    "lng": -104.915053,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:9",
+    "supplier_id": "o-i-glass",
+    "city": "Kalama",
+    "state": "WA",
+    "lat": 46.017142,
+    "lng": -122.841937,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:10",
+    "supplier_id": "o-i-glass",
+    "city": "Winston-Salem",
+    "state": "NC",
+    "lat": 36.102863,
+    "lng": -80.260829,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:11",
+    "supplier_id": "o-i-glass",
+    "city": "Lapel",
+    "state": "IN",
+    "lat": 40.033364,
+    "lng": -85.84056,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:12",
+    "supplier_id": "o-i-glass",
+    "city": "Zanesville",
+    "state": "OH",
+    "lat": 39.955993,
+    "lng": -82.013469,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:13",
+    "supplier_id": "o-i-glass",
+    "city": "Perrysburg",
+    "state": "OH",
+    "lat": 41.538986,
+    "lng": -83.644132,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "o-i-glass:14",
+    "supplier_id": "o-i-glass",
+    "city": "Laredo",
+    "state": "TX",
+    "lat": 27.560379,
+    "lng": -99.489181,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-o-i-glass"
+  },
+  {
+    "id": "sealed-air:0",
+    "supplier_id": "sealed-air",
+    "city": "Charlotte",
+    "state": "NC",
+    "lat": 35.209045,
+    "lng": -80.83099,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-sealed-air"
+  },
+  {
+    "id": "smurfit-westrock:0",
+    "supplier_id": "smurfit-westrock",
+    "city": "Longview",
+    "state": "WA",
+    "lat": 46.145707,
+    "lng": -122.964299,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:1",
+    "supplier_id": "smurfit-westrock",
+    "city": "Fernandina Beach",
+    "state": "FL",
+    "lat": 30.65813,
+    "lng": -81.45152,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:2",
+    "supplier_id": "smurfit-westrock",
+    "city": "West Point",
+    "state": "VA",
+    "lat": 37.552261,
+    "lng": -76.801848,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:3",
+    "supplier_id": "smurfit-westrock",
+    "city": "Stevenson",
+    "state": "AL",
+    "lat": 34.876797,
+    "lng": -85.81435,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:4",
+    "supplier_id": "smurfit-westrock",
+    "city": "Covington",
+    "state": "VA",
+    "lat": 37.78106,
+    "lng": -79.985434,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:5",
+    "supplier_id": "smurfit-westrock",
+    "city": "Hodge",
+    "state": "LA",
+    "lat": 32.270019,
+    "lng": -92.72968,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:6",
+    "supplier_id": "smurfit-westrock",
+    "city": "Solvay",
+    "state": "NY",
+    "lat": 43.057059,
+    "lng": -76.212283,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:7",
+    "supplier_id": "smurfit-westrock",
+    "city": "Florence",
+    "state": "SC",
+    "lat": 34.178923,
+    "lng": -79.792217,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:8",
+    "supplier_id": "smurfit-westrock",
+    "city": "Seminole",
+    "state": "FL",
+    "lat": 27.842735,
+    "lng": -82.785304,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:9",
+    "supplier_id": "smurfit-westrock",
+    "city": "Evadale",
+    "state": "TX",
+    "lat": 30.326641,
+    "lng": -94.052041,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:10",
+    "supplier_id": "smurfit-westrock",
+    "city": "Dublin",
+    "state": "GA",
+    "lat": 32.535471,
+    "lng": -82.928807,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:11",
+    "supplier_id": "smurfit-westrock",
+    "city": "Roanoke Rapids",
+    "state": "NC",
+    "lat": 36.446049,
+    "lng": -77.648586,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:12",
+    "supplier_id": "smurfit-westrock",
+    "city": "Demopolis",
+    "state": "AL",
+    "lat": 32.499744,
+    "lng": -87.826678,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:13",
+    "supplier_id": "smurfit-westrock",
+    "city": "Hopewell",
+    "state": "VA",
+    "lat": 37.29101,
+    "lng": -77.298944,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:14",
+    "supplier_id": "smurfit-westrock",
+    "city": "Cowpens",
+    "state": "SC",
+    "lat": 35.018617,
+    "lng": -81.804121,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:15",
+    "supplier_id": "smurfit-westrock",
+    "city": "Battle Creek",
+    "state": "MI",
+    "lat": 42.299176,
+    "lng": -85.229267,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:16",
+    "supplier_id": "smurfit-westrock",
+    "city": "Dallas",
+    "state": "TX",
+    "lat": 32.793333,
+    "lng": -96.766513,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "smurfit-westrock:17",
+    "supplier_id": "smurfit-westrock",
+    "city": "Stroudsburg",
+    "state": "PA",
+    "lat": 40.983226,
+    "lng": -75.194263,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-smurfit-westrock"
+  },
+  {
+    "id": "sonoco:0",
+    "supplier_id": "sonoco",
+    "city": "Hartsville",
+    "state": "SC",
+    "lat": 34.366003,
+    "lng": -80.083261,
+    "plant_type": "facility listed in 10-K Item 2",
+    "source_doc_id": "sec-10k-sonoco"
+  }
+]

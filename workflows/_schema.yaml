@@ -1,0 +1,18 @@
+# Shared JSON schema that every workflow's output_schema refers to.
+# Kind-specific `data` shapes are defined in worker/src/prompts.ts (KIND_SCHEMAS) and sent to the LLM.
+section:
+  type: object
+  required: [id, takeaway, claims, gaps]
+  properties:
+    id: {type: string}
+    takeaway: {type: string, description: "one-line 'so what' headline built only from cited facts"}
+    claims:
+      type: array
+      items:
+        type: object
+        required: [text, cites]
+        properties:
+          text: {type: string, description: "one factual sentence"}
+          cites: {type: array, items: {type: integer}, description: "passage numbers [n] that support it"}
+    data: {type: object, description: "kind-specific structured content"}
+    gaps: {type: array, items: {type: string}, description: "what the passages could not answer"}

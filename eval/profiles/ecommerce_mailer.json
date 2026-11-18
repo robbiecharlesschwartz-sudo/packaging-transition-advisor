@@ -1,0 +1,13 @@
+{
+  "company_description": "Direct-to-consumer apparel brand shipping orders in poly mailers.",
+  "product_category": "apparel/e-commerce",
+  "package_type": "mailer",
+  "current_material": "LDPE/LLDPE",
+  "dimensions": {"l_cm": 40, "w_cm": 30},
+  "unit_weight_g": 30,
+  "annual_units": 1500000,
+  "sales_states": ["CA", "CO", "OR", "WA", "MN", "ME", "MD"],
+  "functional_needs": ["heavy load"],
+  "candidate_alternatives": ["paper_kraft", "pe_film"],
+  "sourcing_preferences": {"near_sales_states": true, "certifications": ["FSC"]}
+}

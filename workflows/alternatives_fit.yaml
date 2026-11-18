@@ -1,0 +1,27 @@
+id: alternatives_fit
+name: Alternatives fit
+description: >-
+  Shortlist of 2-4 sustainable alternatives rated Strong / Possible / Weak against the package's functional needs,
+  with performance trade-offs.
+needs: {cost: false, sourcing: false}
+top_k: 8
+filters: {layers: [materials, demand, infrastructure, claims_rules], jurisdictions: selected}
+system_prompt: |
+  Rate every alternative against every functional need the user selected. A rating needs a cited reason; if the
+  passages do not say how an alternative performs on a need, rate it "Unknown" and add a gap.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, alternatives, supply_chain, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: alternatives
+    kind: alternatives
+    title: Alternatives shortlist
+    layers: [materials, demand, infrastructure, claims_rules]
+    query_hint: "sustainable alternatives to {current_material} {package_type}: barrier and performance for {functional_needs}; recyclability"
+  - id: supply_chain
+    kind: narrative
+    title: Supply chain and performance
+    layers: [materials, competitor]
+    query_hint: "{alternatives} barrier properties, weight, processing, supply for {package_type}"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}

@@ -1,0 +1,12 @@
+{
+  "company_description": "Mid-size snack brand (chips and crackers), regional distribution through grocery and convenience retail.",
+  "product_category": "food & beverage",
+  "package_type": "flexible pouch/film",
+  "current_material": "multilayer laminate",
+  "dimensions": {"l_cm": 22, "w_cm": 15},
+  "unit_weight_g": 12,
+  "annual_units": 4000000,
+  "sales_states": ["CA", "NY", "TX", "OR"],
+  "functional_needs": ["moisture barrier", "oxygen barrier", "shelf life > 6 months"],
+  "sourcing_preferences": {"us_made": true, "scale": "large"}
+}

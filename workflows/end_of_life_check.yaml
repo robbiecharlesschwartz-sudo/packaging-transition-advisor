@@ -1,0 +1,22 @@
+id: end_of_life_check
+name: End-of-life check
+description: >-
+  Whether each alternative is actually accepted in curbside recycling or composting where the product is sold;
+  flags "technically recyclable but not practically recyclable here".
+needs: {cost: false, sourcing: false}
+top_k: 10
+filters: {layers: [infrastructure, regulation], jurisdictions: selected}
+system_prompt: |
+  Use program acceptance lists and access data. If a program list does not mention a material, say the list is
+  silent rather than inferring acceptance.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, end_of_life, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: end_of_life
+    kind: eol
+    title: End-of-life reality check
+    layers: [infrastructure, regulation]
+    query_hint: "curbside recycling and composting acceptance of {alternatives} {package_type} in {states}: accepted materials list, collection access"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}

@@ -1,0 +1,57 @@
+id: full_transition_brief
+name: Full transition brief
+description: >-
+  The complete brief for "what happens if we move this package to a sustainable alternative": alternatives,
+  US state regulation, end-of-life reality, claims risk, supply chain, cost, sourcing, market context and gaps.
+needs: {cost: true, sourcing: true}
+top_k: 6
+filters: {layers: all, jurisdictions: selected}
+system_prompt: |
+  You are preparing a consulting-grade brief for a client conversation. Lead every section with the single most
+  decision-relevant fact. Be concrete about states, dates, materials and programs. Keep each claim to one sentence.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, alternatives, regulatory, end_of_life, claims, supply_chain, cost, sourcing, market, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: alternatives
+    kind: alternatives
+    title: Alternatives shortlist
+    layers: [materials, demand, infrastructure, claims_rules]
+    query_hint: "sustainable alternatives to {current_material} {package_type}: recyclable mono-material, paper-based, compostable, recycled content, reuse; performance for {functional_needs}"
+  - id: regulatory
+    kind: regulatory
+    title: Regulatory exposure (US first)
+    layers: [regulation, claims_rules, prices]
+    query_hint: "packaging extended producer responsibility law {states}: producer obligations, fees, dates, recycled content mandates, bans on {current_material} {package_type}"
+  - id: end_of_life
+    kind: eol
+    title: End-of-life reality check
+    layers: [infrastructure, regulation]
+    query_hint: "curbside recycling and composting acceptance of {alternatives} {package_type} in {states}: accepted materials list, collection access"
+  - id: claims
+    kind: claims
+    title: Green-claims risk
+    layers: [claims_rules]
+    query_hint: "environmental marketing claims recyclable compostable recycled content {package_type}: substantiation, qualification, recycling symbol rules"
+  - id: supply_chain
+    kind: narrative
+    title: Supply chain and performance
+    layers: [materials, competitor, news]
+    query_hint: "{alternatives} barrier properties moisture oxygen grease shelf life, weight, supply capacity, converter capability for {package_type}"
+  - id: cost
+    kind: cost
+    title: Rough cost comparison
+    layers: [prices, materials]
+    query_hint: "producer fee schedule cents per pound {alternatives} {current_material}; price index; container weight per pound; scrap value"
+  - id: sourcing
+    kind: sourcing
+    title: Sourcing options
+    layers: [competitor, suppliers]
+    query_hint: "manufacturer plants products {alternatives} {package_type} sustainable packaging capacity"
+  - id: market
+    kind: competitor
+    title: Market and competitor context
+    layers: [competitor, news, demand]
+    query_hint: "{product_category} brands and packaging converters moving to recyclable or paper packaging, retailer requirements, consumer perception"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}

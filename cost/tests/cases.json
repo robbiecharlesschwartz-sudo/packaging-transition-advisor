@@ -1,0 +1,76 @@
+{
+  "_comment": "Hand-checked cases shared by cost/tests/test_calculator.py and worker/test/cost.test.ts. Arithmetic is worked in the 'why' fields.",
+  "geometry": [
+    {"package_type": "mailer", "dims": {"l_cm": 30, "w_cm": 40}, "area": 2400, "why": "2 x 30 x 40"},
+    {"package_type": "flexible pouch/film", "dims": {"l_cm": 22, "w_cm": 15, "gusset_cm": 4}, "area": 780, "why": "height L=22, width W=15: 2 x 22 x 15 + 2 x 4 x 15 = 660 + 120"},
+    {"package_type": "corrugated box", "dims": {"l_cm": 10, "w_cm": 10, "h_cm": 10}, "area": 600, "why": "2(100 + 100 + 100)"},
+    {"package_type": "rigid bottle", "dims": {"w_cm": 6, "h_cm": 15}, "area": 339.292, "why": "2 pi 3 15 + 2 pi 9 = 282.743 + 56.549"},
+    {"package_type": "rigid bottle", "dims": {"volume_ml": 250}, "area": 238.527, "why": "r = (250 / (2 pi 2.5))^(1/3) = 2.5154, h = 5r = 12.577; 2 pi r h + 2 pi r^2"},
+    {"package_type": "tray/clamshell", "dims": {"l_cm": 20, "w_cm": 15, "h_cm": 5}, "area": 1300, "why": "2 x (300 + 2 x 5 x 35) = 2 x 650"},
+    {"package_type": "mailer", "dims": {}, "area": null, "why": "no dimensions -> gap"}
+  ],
+  "catalog": {
+    "states_fees_in_effect": ["OR", "CO"],
+    "states_fee_schedule_public": ["OR"],
+    "inputs": [
+      {"id": "pe_film:price", "kind": "price_per_kg", "low": 3.0, "high": 3.5, "ppi_series": "S1", "basis": "PE film", "reliability": "primary"},
+      {"id": "pe_film:density", "kind": "density", "low": 0.92, "high": 0.94, "reliability": "secondary"},
+      {"id": "paper_kraft:price", "kind": "price_per_kg", "low": 2.0, "high": 2.5, "ppi_series": "S2", "basis": "paper sacks", "reliability": "primary"},
+      {"id": "paper_kraft:grammage", "kind": "grammage", "low": 80, "high": 120, "reliability": "secondary"},
+      {"id": "pet:price", "kind": "price_per_kg", "low": 4.0, "high": 5.0, "ppi_series": "S3", "basis": "bottles", "reliability": "primary"},
+      {"id": "pet:container", "kind": "container_weight", "low": 17.0, "high": 17.0, "reliability": "primary"},
+      {"id": "glass:price", "kind": "price_per_kg", "low": 1.2, "high": 1.2, "ppi_series": "S4", "basis": "glass containers", "reliability": "primary"},
+      {"id": "glass:container", "kind": "container_weight", "low": 253.4, "high": 253.4, "reliability": "primary"}
+    ],
+    "materials": {
+      "pe_film": {"price": "pe_film:price", "density": "pe_film:density"},
+      "paper_kraft": {"price": "paper_kraft:price", "grammage": "paper_kraft:grammage"},
+      "pet": {"price": "pet:price", "container": "pet:container"},
+      "glass": {"price": "glass:price", "container": "glass:container"},
+      "pla_film": {}
+    },
+    "epr_fees": [
+      {"id": "OR:film", "state": "OR", "material_category": "Film", "material_keys": ["pe_film"], "fee_per_kg_low": 1.212542, "fee_per_kg_high": 1.212542, "reliability": "primary"},
+      {"id": "OR:kraft", "state": "OR", "material_category": "Kraft Paper", "material_keys": ["paper_kraft"], "fee_per_kg_low": 0.088185, "fee_per_kg_high": 0.088185, "reliability": "primary"},
+      {"id": "OR:pet", "state": "OR", "material_category": "PET", "material_keys": ["pet"], "fee_per_kg_low": 0.264555, "fee_per_kg_high": 0.264555, "reliability": "primary"},
+      {"id": "OR:glass", "state": "OR", "material_category": "Glass", "material_keys": ["glass"], "fee_per_kg_low": 0.242508, "fee_per_kg_high": 0.242508, "reliability": "primary"}
+    ]
+  },
+  "laws": [
+    {"state": "OR", "law_type": "epr", "status": "fees_in_effect"},
+    {"state": "CO", "law_type": "epr", "status": "fees_in_effect"},
+    {"state": "CA", "law_type": "epr", "status": "enacted"}
+  ],
+  "estimates": [
+    {
+      "name": "poly mailer -> paper mailer, sold in OR, 1M units",
+      "profile": {"package_type": "mailer", "dimensions": {"l_cm": 30, "w_cm": 40}, "unit_weight_g": 30, "sales_states": ["OR"], "annual_units": 1000000},
+      "options": [{"key": "pe_film", "label": "Poly mailer", "is_current": true}, {"key": "paper_kraft", "label": "Paper mailer"}],
+      "ppi": {"S1": 1.0, "S2": 1.0},
+      "expect": {
+        "pe_film": {"weight": [30, 30], "material": [0.09, 0.105], "epr_OR": [0.036376, 0.036376], "total": [0.126376, 0.141376], "annual": [126376, 141376]},
+        "paper_kraft": {"weight": [19.2, 28.8], "material": [0.0384, 0.072], "epr_OR": [0.001693, 0.00254], "total": [0.040093, 0.07454]}
+      },
+      "why": "PE: 0.030 kg x $3.00-3.50 = $0.090-0.105; fee 0.030 x 1.212542 = $0.036376. Paper: 0.24 m2 x 80-120 g/m2 = 19.2-28.8 g; 0.0192 x 2.0 = 0.0384, 0.0288 x 2.5 = 0.072; fee 0.0192 x 0.088185 = 0.001693, 0.0288 x 0.088185 = 0.002540"
+    },
+    {
+      "name": "PPI adjustment applies to the price",
+      "profile": {"package_type": "mailer", "unit_weight_g": 30, "sales_states": ["CA"]},
+      "options": [{"key": "pe_film", "label": "Poly mailer", "is_current": true}],
+      "ppi": {"S1": 1.1},
+      "expect": {"pe_film": {"material": [0.099, 0.1155], "total": [0.099, 0.1155], "epr_status_CA": "law enacted; fees not yet in effect"}},
+      "why": "0.090 x 1.1 = 0.099; 0.105 x 1.1 = 0.1155; CA has no fees in effect, so total = material"
+    },
+    {
+      "name": "PET bottle -> glass via container-weight ratio; CO fees not public; PLA price gap",
+      "profile": {"package_type": "rigid bottle", "unit_weight_g": 28, "sales_states": ["CO"]},
+      "options": [{"key": "pet", "label": "PET bottle", "is_current": true}, {"key": "glass", "label": "Glass bottle"}, {"key": "pla_film", "label": "PLA"}],
+      "ppi": {},
+      "expect": {
+        "glass": {"weight": [417.365, 417.365], "material": [0.500838, 0.500838], "epr_status_CO": "fees in effect; fee schedule not public"},
+        "pla_film": {"weight": [null, null], "material": null}
+      },
+      "why": "ratio 253.4 / 17.0 = 14.906; 28 x 14.906 = 417.365 g; 0.417365 x 1.2 = 0.500838"
+    }
+  ]
+}

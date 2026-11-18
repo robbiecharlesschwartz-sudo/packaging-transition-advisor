@@ -1,0 +1,30 @@
+id: market_entry_overview
+name: Market entry overview
+description: For a new market or packaging format, size signals, main players, and regulatory or infrastructure barriers.
+needs: {cost: false, sourcing: false}
+top_k: 8
+filters: {layers: all, jurisdictions: selected}
+system_prompt: |
+  Treat "market" as the packaging format or material segment the user names (e.g. paper mailers, rPET bottles) in the
+  selected jurisdictions. Report only sizes and figures that appear in passages.
+output_schema:
+  $ref: "_schema.yaml#/section"
+  sections_required: [summary, size, players, barriers, gaps]
+sections:
+  - {id: summary, kind: summary, title: Summary}
+  - id: size
+    kind: narrative
+    title: Size and growth signals
+    layers: [infrastructure, demand, news, competitor]
+    query_hint: "{alternatives} {package_type} generation recycling rates market volume growth demand"
+  - id: players
+    kind: competitor
+    title: Main players
+    layers: [competitor, news]
+    query_hint: "companies producing {alternatives} {package_type} plants capacity sustainability programs"
+  - id: barriers
+    kind: narrative
+    title: Barriers to entry
+    layers: [regulation, infrastructure, claims_rules]
+    query_hint: "regulatory requirements, recycling infrastructure, labeling rules affecting {alternatives} {package_type} in {states}"
+  - {id: gaps, kind: gaps, title: Evidence gaps and next questions}
