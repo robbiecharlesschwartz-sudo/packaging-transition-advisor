@@ -1,0 +1,27 @@
+{
+  "name": "pta-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "migrate:local": "wrangler d1 migrations apply pta-db --local",
+    "migrate:remote": "wrangler d1 migrations apply pta-db --remote"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261118.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "wrangler": "^4.164.0"
+  },
+  "dependencies": {
+    "yaml": "^2.9.1"
+  },
+  "allowScripts": {
+    "workerd@1.20261117.1": true,
+    "esbuild@0.28.2": true,
+    "sharp@0.35.5": true
+  }
+}

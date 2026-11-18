@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "packaging-transition-advisor",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "../app/dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pta-db",
+      "database_id": "aaabc161-552e-45d7-bed3-868abdeca05c",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vectorize": [{ "binding": "VEC", "index_name": "pta-chunks" }],
+  "ai": { "binding": "AI" },
+  "workflows": [
+    { "name": "brief-workflow", "binding": "BRIEF", "class_name": "BriefWorkflow" }
+  ],
+  "triggers": { "crons": ["0 6 * * 1"] },
+  "observability": { "enabled": true },
+  "vars": {
+    "LLM_PROVIDER": "gemini",
+    "GEMINI_MODEL": "gemini-2.5-flash",
+    "GEMINI_FALLBACK_MODELS": "gemini-2.5-flash-lite,gemini-flash-latest",
+    "EMBED_MODEL": "@cf/baai/bge-small-en-v1.5",
+    "FALLBACK_LLM": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "DAILY_RUNS_PER_IP": "8",
+    "DAILY_RUNS_GLOBAL": "150"
+  },
+  "rules": [{ "type": "Text", "globs": ["**/*.yaml"], "fallthrough": true }]
+}

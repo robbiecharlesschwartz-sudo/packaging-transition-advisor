@@ -1,0 +1,32 @@
+# Secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+.wrangler/
+*.tsbuildinfo
+npm-debug.log*
+
+# Corpus working files (re-creatable from corpus/sources.csv)
+corpus/raw/*
+!corpus/raw/.gitkeep
+corpus/processed/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
