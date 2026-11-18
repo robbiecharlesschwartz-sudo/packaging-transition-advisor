@@ -1,0 +1,11 @@
+{
+  "doc_id": "ftc-green-guides",
+  "status": "ok",
+  "ext": "html",
+  "bytes": 96159,
+  "final_url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-16?chapter=I&subchapter=B&part=260",
+  "content_type": "text/html; charset=utf-8",
+  "fetched_date": "2026-11-18",
+  "sha256": "1ee136626e1f9034c6140e443f5809a91aa14c95dab95164511388e7547aa218",
+  "changed": true
+}

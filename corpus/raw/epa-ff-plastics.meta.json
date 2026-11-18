@@ -1,0 +1,11 @@
+{
+  "doc_id": "epa-ff-plastics",
+  "status": "ok",
+  "ext": "html",
+  "bytes": 71422,
+  "final_url": "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/plastics-material-specific-data",
+  "content_type": "text/html; charset=UTF-8",
+  "fetched_date": "2026-11-18",
+  "sha256": "b50dfbc040edb7444210c8461e6b4571132af208a32a4bcf6eeaf7a4e6d4d7ba",
+  "changed": true
+}

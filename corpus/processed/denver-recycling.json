@@ -1,0 +1,81 @@
+{
+  "doc_id": "denver-recycling",
+  "blocks": [
+    {
+      "page": null,
+      "section": "Recycling Service",
+      "text": "To learn more about Denver’s residential recycling program, check out the frequently asked questions below. More questions? Reach out to us at denvercartsmart@denvergov.org."
+    },
+    {
+      "page": null,
+      "section": "What should I recycle?",
+      "text": "Learn what is accepted in Denver's recycling program by visiting the Accepted for Recycling page, or searching the Waste Directory. Please prevent *wishcycling* and know before you throw!\n\n**Remember to keep all recycling items LOOSE in your curbside cart. Do not bag them!**"
+    },
+    {
+      "page": null,
+      "section": "Why should I recycle?",
+      "text": "Recycling offers numerous benefits, such as resource conservation, preventing environmental damage, and supporting a circular economy. Recycling prolongs the life of the landfill by keeping valuable materials in the production cycle."
+    },
+    {
+      "page": null,
+      "section": "What is recycling?",
+      "text": "Recycling is the process of turning items or materials into new items. Recycling is based on supply and demand. While many items can be physically recycled, not all items are accepted in Denver’s purple carts. Denver accepts items that are recyclable, can be safely collected, transported and processed, and have reliable end markets for manufacturing.\n\nLearn more about Denver’s Recycle Cycle here!"
+    },
+    {
+      "page": null,
+      "section": "How can I look up my recycling day?",
+      "text": "Recycling is collected every other week, on the same day as trash and compost.\n\n- Visit the Schedules and Reminders page or download the FREE Denver Trash and Recycling app; enter in your address to find your schedule. Sign up for email, phone, or push notification to receive collection reminders and service alerts.\n\n- Use the Solid Waste Service Finder or reference the 2026 Wastewise Newsletter to determine if your collection is A or B week. You can also find more about set out locations, and the scheduled day for Large Item Pickup week.\n- Download 2026 Wastewise Newsletter:"
+    },
+    {
+      "page": null,
+      "section": "Where does my recycling go?",
+      "text": "Items travel on a conveyor belt through a combination of manual, mechanical, and automated processes, including screens, magnets, blowers, and optical sorters that identify different material types. Contamination, or residue, is removed and sent to the landfill. The commodities are then baled by material type and transported to manufacturers."
+    },
+    {
+      "page": null,
+      "section": "What is contamination?",
+      "text": "Contamination is non-recyclable material that is put into the recycling stream. It can be placed in carts intentionally or unintentionally but can cause significant challenges for collection crews and at the Materials Recovery Facility.\n\nContamination in the recycling may include plastic bags, trash, pet waste, non-recyclable plastics, yard trimmings, hazardous waste, or electronics.\n\nContaminated carts cannot be collected, and carts that are repeatedly contaminated may be subject to removal."
+    },
+    {
+      "page": null,
+      "section": "Why can't I put my recycling in plastic bags?",
+      "text": "Plastic bags and other soft, filmy plastic are Denver’s #1 recycling contaminant. Plastic bags are NOT accepted in the purple carts, even if the bag is labeled as “recyclable.” There are two main reasons:\n\n- Plastic bags and soft plastics can get tangled in the processing and sorting equipment at the Materials Recovery Facility, causing production delays and safety issues.\n\n- For safety and efficiency reasons, it is not possible for staff to open all the plastic bags that come through the Materials Recovery Facility to see if there are good recyclables inside, so most are pulled from the recycling stream as “residue” and sent to the landfill."
+    },
+    {
+      "page": null,
+      "section": "Why do I have to empty out bottles, cans, and jars?",
+      "text": "Recycling sorting and processing cannot handle food residue and liquid. Please ensure all containers are empty and free of food and liquid. Thicker residue like peanut butter may need a quick rinse before recycling."
+    },
+    {
+      "page": null,
+      "section": "Do I need to look at #1-7 when recycling plastics?",
+      "text": "Maybe! Denver accepts plastic containers labeled #1-6, including bottles, tubs, jugs, jars, and cups. If it is not a container, it should not go in the recycling.That means that a plastic fork with a #5 label is not accepted, because it’s not a container."
+    },
+    {
+      "page": null,
+      "section": "Should I crush plastic bottles or cans?",
+      "text": "Do not crush items like plastic bottles or aluminum cans before placing them in your cart. Crushing or leaving liquids in containers can lead to misreading and improper sorting."
+    },
+    {
+      "page": null,
+      "section": "Can I recycle pizza boxes?",
+      "text": "Yes, non-greasy pizza boxes are recyclable. A small amount of grease is acceptable, but all food and small plastic items should be removed. You can remove any sections of the box that has significant food and grease residue and dispose of it in the black trashcart, and recycle the clean portion. Remember to use your best judgement, and “when in doubt, throw it out!”"
+    },
+    {
+      "page": null,
+      "section": "I live in an apartment, can I recycle?",
+      "text": "Solid Waste Management collects recycling from residential buildings, including multi-family buildings up to 7 units. If you live in a building with 8+ units or are interested in recycling at your business, please visit the Universal Recycling and Composting Ordinance page to learn more about commercial recycling and composting in Denver."
+    },
+    {
+      "page": null,
+      "section": "How can I maximize space in my recycling cart?",
+      "text": "Breaking down and flattening cardboard saves a lot of space in the recycling cart, and makes it easier for the recycling facility to process. If the box is larger than 2ft x 2ft, it also helps to cut the cardboard into smaller pieces. If you're still running out of space, Solid Waste can provide a second recycling cart, at no additional cost. Request a second recycling cart by using your Denver Utilities Online account or by calling 311."
+    }
+  ],
+  "meta": {
+    "title": "Recycling Service",
+    "date": "2026-01-01",
+    "description": "Learn more about the Denver Solid Waste Management Recycling Services."
+  },
+  "words": 784
+}

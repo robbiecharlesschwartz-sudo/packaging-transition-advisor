@@ -1,0 +1,11 @@
+{
+  "doc_id": "houston-recycling",
+  "status": "ok",
+  "ext": "html",
+  "bytes": 35006,
+  "final_url": "https://www.houstontx.gov/solidwaste/recycling.html",
+  "content_type": "text/html; charset=UTF-8",
+  "fetched_date": "2026-11-18",
+  "sha256": "ce7c64d6ca7613a8507f7dfa2b4424994288f9ec21a4288c69b8e0850d371527",
+  "changed": true
+}

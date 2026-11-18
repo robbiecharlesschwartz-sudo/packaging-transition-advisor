@@ -1,0 +1,11 @@
+{
+  "doc_id": "co-epr-cdphe",
+  "status": "ok",
+  "ext": "html",
+  "bytes": 108353,
+  "final_url": "https://cdphe.colorado.gov/hm/epr-program",
+  "content_type": "text/html; charset=UTF-8",
+  "fetched_date": "2026-11-18",
+  "sha256": "19b7b455b7331450df8ef65b3ce20709ce64d440d89480b9c890d17130854cee",
+  "changed": true
+}

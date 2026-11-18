@@ -1,0 +1,77 @@
+{
+  "doc_id": "ref-material-properties",
+  "blocks": [
+    {
+      "page": null,
+      "section": null,
+      "text": "Material property reference excerpts (density, grammage) from Wikipedia articles, retrieved via the Wikimedia REST API. Text is CC BY-SA 4.0; each section names its article."
+    },
+    {
+      "page": null,
+      "section": "PET (Wikipedia: Polyethylene terephthalate, https://en.wikipedia.org/wiki/Polyethylene_terephthalate)",
+      "text": "- ard 100.121.858 UNII 5YSH70HE6K Y CompTox Dashboard (EPA) DTXSID10872790 Properties Chemical formula (C10H8O4)n[1] Molar mass 10–50 kg/mol, varies Density 1.38 g/cm3, 20 °C[2] 1.370 g/cm3,[1] amorphous 1.455 g/cm3,[1] single crystal Melting point > 250 °C (482 °F; 523 K)[2] 260 °C[1]"
+    },
+    {
+      "page": null,
+      "section": "HDPE (Wikipedia: High-density polyethylene, https://en.wikipedia.org/wiki/High-density_polyethylene)",
+      "text": "- paque material than lower density PE. Properties PE's are often classified by their densities.[2] Polyethylene (PE) densities and structure[1] PE type density (g/cm3) structure LDPE ca. 0.924 highly branched LLDPE 0.916-0.940[3] contains comonomers HDPE ca. 0.961 no branching In 2008,\n- the global HDPE market reached a volume of more than 30 million tons.[4] Thermophysical properties of high density polyethylene (HDPE)[5] Density 961 kg/m3 Melting point 131.8 °C (269.24 °F) Temperature of crystallization 121.9 °C (251.42 °F) Latent heat of fusion 188.6 kJ/k\n- kg-K Specific heat (solid) 2.9 kJ/kg. °C. Crystallinity 61% HDPE is known for its high strength-to-density ratio.[6] The density of HDPE ranges from 930 to 970 kg/m3.[7] Although the density of HDPE is only marginally higher than that of low-density polyethylene, HDPE has little branc"
+    },
+    {
+      "page": null,
+      "section": "LDPE (Wikipedia: Low-density polyethylene, https://en.wikipedia.org/wiki/Low-density_polyethylene)",
+      "text": "- a catalysis). Properties LDPE is a thermoplastic. PEs are often classified by their densities.[3] Polyethylene (PE) densities and structure[1] PE type density (g/cm3) structure LDPE 0.924 highly branch, some cross-links LLDPE 0.922 some short branches HDPE 0.961 no branching LDPE has"
+    },
+    {
+      "page": null,
+      "section": "LLDPE (Wikipedia: Linear low-density polyethylene, https://en.wikipedia.org/wiki/Linear_low-density_polyethylene)",
+      "text": "- ignificant numbers of short branches. Properties PE's are often classified by their densities.[2] Polyethylene (PE) densities and structure[1] PE type density (g/cm3) structure LDPE ca. 0.924 highly branched LLDPE 0.916-0.940[3] contains comonomers HDPE ca. 0.961 no branching LLDPE ha\n- ium-based). LLDPE that is manufactured by using metallocenes is sometimes labeled as mLLDPE. Such catalysts can produce polymers with densities even below 0.91 g/cm3. These are sometimes called \"very low density polyethylene\" (VLDPE) or \"ultra low density polyethylene\" (ULDPE). Howeve\n- ynthesis of LLDPE polymers with high levels of comonomers and a \"common\" Ziegler-Natta catalyst has also been shown to yield polymers with a density below 0.91 g/cm3.[3] Comonomers It is commonly made by copolymerization of ethylene with alpha-olefins such as butene, hexene, or octene"
+    },
+    {
+      "page": null,
+      "section": "PP (Wikipedia: Polypropylene, https://en.wikipedia.org/wiki/Polypropylene)",
+      "text": "- -07-0 Y ChemSpider N N ECHA InfoCard 100.117.813 UNII 1ASA949VIC Y CompTox Dashboard (EPA) DTXSID00872805 Properties Chemical formula is (C3H6)n Density 0.8550 g/cm3, amorphous 0.946 g/cm3, crystalline Melting point 130 to 171 °C (266 to 340 °F; 403 to 444 K) Except where otherwise no\n- material that is more resistant to creep than both atactic polypropylene and polyethylene.[7] Mechanical properties The density of PP is between 0.895 and 0.93 g/cm3. Therefore, PP is the commodity plastic with the lowest density. With lower density, moldings parts with lower weight a"
+    },
+    {
+      "page": null,
+      "section": "PS (Wikipedia: Polystyrene, https://en.wikipedia.org/wiki/Polystyrene)",
+      "text": "- 003-53-6 Abbreviations PS ChemSpider none ECHA InfoCard 100.105.519 CompTox Dashboard (EPA) DTXSID5031925 Properties Chemical formula (C8H8)n Density 0.96–1.05 g/cm3 Melting point ~ 240 °C (464 °F; 513 K)[1] for isotactic polystyrene Solubility in water Insoluble Solubility Soluble in\n- ated aliphatic hydrocarbons, chloroform, cyclohexanone, dioxane, ethyl acetate, ethylbenzene, MEK, NMP, THF[2] Thermal conductivity 0.033 W/(m·K) (foam, ρ 0.05 g/cm3)[3] Refractive index (nD) 1.6; dielectric constant 2.6 (1 kHz – 1 GHz)[4] Related compounds Related compounds Styrene (\n- be readily softened and molded upon heating. Extruded polystyrene is about as strong as an unalloyed aluminium but much more flexible and much less dense (1.05 g/cm3 for polystyrene vs. 2.70 g/cm3 for aluminium).[24] Production Polystyrene is an addition polymer that results when styr\n- ne foam. It is worthy to note the polystyrene must undergo pyrolysis to turn into styrene oil.[citation needed] Forms produced Properties Density of EPS 16–640 kg/m3[39] Young's modulus (E) 3000–3600 MPa Tensile strength (st) 46–60 MPa Elongation at break 3–4% Charpy impact test 2–5 k\n- yrene. Expanded polystyrene (EPS) (commonly called \"styrofoam\" in North America) is a rigid and tough, closed-cell foam with a normal density range of 11 to 32 kg/m3.[50] It is usually white and made of pre-expanded polystyrene beads. The manufacturing process for EPS conventionally b\n- ccording to EN 12667. Typical values range from 0.032 to 0.038 W/(m⋅K) depending on the density of the EPS board. The value of 0.038 W/(m⋅K) was obtained at 15 kg/m3 while the value of 0.032 W/(m⋅K) was obtained at 40 kg/m3 according to the datasheet of K-710 from StyroChem Finland. A\n- organization, the typical density of EPS used for insulated concrete forms (expanded polystyrene concrete) is 1.35 to 1.80 pounds per cubic foot (21.6 to 28.8 kg/m3). This is either Type II or Type IX EPS according to ASTM C578. EPS blocks or boards used in building construction are\n- foam (XPS) consists of closed cells. It offers improved surface roughness, higher stiffness and reduced thermal conductivity. The density range is about 28–34 kg/m3.[59][60] Extruded polystyrene material is also used in crafts and model building, in particular architectural models. B"
+    },
+    {
+      "page": null,
+      "section": "PLA (Wikipedia: Polylactic acid, https://en.wikipedia.org/wiki/Polylactic_acid)",
+      "text": "- AC name Poly[oxy(1-methyl-2-oxoethylene)] Identifiers CAS Number 26100-51-6 ChemSpider None CompTox Dashboard (EPA) DTXSID20904011 Properties Density 1210–1430 kg/m3[1] Melting point 150 to 160 °C (302 to 320 °F; 423 to 433 K)[1] Solubility in water 0 mg/ml [2] Hazards NFPA 704 (fire"
+    },
+    {
+      "page": null,
+      "section": "glass (Wikipedia: Soda–lime glass, https://en.wikipedia.org/wiki/Soda–lime_glass)",
+      "text": "- ransition temperature, Tg 573 °C (1,063 °F) 564 °C (1,047 °F) Coefficient of thermal expansion, ppm/K, ~100–300 °C (212–572 °F) 9 9.5 Density at 20 °C (68 °F), g/cm3 2.52 2.53 Refractive index nD at 20 °C (68 °F) 1.518 1.520 Dispersion at 20 °C (68 °F), 104 × (nF − nC) 86.7 87.7 Young"
+    },
+    {
+      "page": null,
+      "section": "aluminum (Wikipedia: Aluminium, https://en.wikipedia.org/wiki/Aluminium)",
+      "text": "- 3 Physical properties Phase at STP solid Melting point 933.47 K (660.32 °C, 1220.58 °F) Boiling point 2743[4] K (2470 °C, 4478 °F) Density (at 20 °C) 2.699 g/cm3[5] when liquid (at m.p.) 2.375 g/cm3 Heat of fusion 10.71 kJ/mol Heat of vaporization 284 kJ/mol Molar heat capacity 24\n- y of the metal;[16] this may be prevented if aluminium is anodized, which adds a protective layer of oxide on the surface.[18] The density of aluminium is 2.70 g/cm3, about one-third that of steel, much lower than other commonly encountered metals, making aluminium parts easily identi"
+    },
+    {
+      "page": null,
+      "section": "kraft paper (Wikipedia: Kraft paper, https://en.wikipedia.org/wiki/Kraft_paper)",
+      "text": "- an be used in the kraft process.[5] Qualities Normal kraft paper is strong and relatively coarse. It has high tensile strength. The grammage is normally 40–135 g/m2. Sack kraft paper, or just sack paper, is a porous kraft paper with high elasticity and high tear resistance, designed\n- rdwood kraft and has to have a good uniformity and formation. Spinning kraft paper is an especially strong type of kraft paper with relatively low grammage (40 g/m2). This paper requires the best possible machine direction strength and cross machine elongation. This is done by high f\n- oss direction, the cartridge is supported by the gun-pipe, but a sufficient elongation is needed. The body of the cartridge is wound of a kraft paper of 80–120 g/m2, which is further covered by an outer sheet of 60–80 g/m2 with color and printing. Candy wrapping paper and twisting pa\n- per are thin 30–40 g/m2 kraft papers and are mostly flexo or offset printed. These papers require a good strength, with highly oriented fibers."
+    },
+    {
+      "page": null,
+      "section": "paperboard (Wikipedia: Paperboard, https://en.wikipedia.org/wiki/Paperboard)",
+      "text": "- rugated fiberboard made from paperboard Paperboard is a thick paper-based material. According to ISO standards, paperboard is a paper with a grammage above 250 g/m2, but there are exceptions. Paperboard can be single- or multi-ply. The related term box board dates at least to the 179\n- s) than paper and has certain superior attributes such as foldability and rigidity. According to ISO standards, paperboard is a paper with a grammage above 250 g/m2, but there are exceptions.[1] Paperboard can be single- or multi-ply. Paperboard can be easily cut and formed, is light\n- es and not blue whites. Grammage The grammage of the paperboard is assessed in accordance ISO 536.[15] Grammage expresses mass per unit area and is measured in g/m2.[14] PH Surface pH is measured on a water extract and is on a scale of 0–14. 0 is acidic, 7 is neutral and 14 is alkali\n- xpressed in thousandths of an inch (0.001\") or points, where a sheet of paperboard with a thickness of 0.024\" would be 24 points. In Europe it is often sold in g/m2, however the thickness of the board is measured in micron (μm). Paperboard also tends to be referred to with thickness\n- o foodstuffs (BfR Opinion No. 008/2010 of 2009-12-09)\" (PDF). Retrieved 2010-04-21. ↑ Bundesinstitut für Risikobewertung. \"Übergänge von Mineralöl aus Verpackungsmaterialien auf Lebensmittel\" (PDF). Retrieved 2010-04-21. 1 2 Kirwan, Mark J. (1998). Paper and paperboard packaging tec"
+    },
+    {
+      "page": null,
+      "section": "corrugated (Wikipedia: Corrugated fiberboard, https://en.wikipedia.org/wiki/Corrugated_fiberboard)",
+      "text": "- Bending resistance Impact resistance Cushioning, shock absorption[6] Tear resistance Grammage is the weight per meter square of any material. It is reported in g/m2 Corrugated fiberboard is anisotropic; many of its properties are highly directional. For example, edge crush, bending s\n- bottom by hot plates. On the top, various pressures are applied by a load system on the belt. The corrugated medium is often 0.026 pounds per square foot (130 grams per square metre) basis weight in the US; in the UK, a 90 grams per square metre (0.018 lb/sq ft) fluting paper is common. At the sing\n- face, singlewall, doublewall, etc.), flute size, burst strength, edge crush strength, flat crush, basis weights of components (pounds per thousand square feet, grams per square meter, etc.), surface treatments and coatings, etc. TAPPI and ASTM test methods for these are standardized. The choice of c"
+    },
+    {
+      "page": null,
+      "section": "paper grammage (Wikipedia: Grammage, https://en.wikipedia.org/wiki/Grammage)",
+      "text": "- e area density of a paper product, that is, its mass per unit of area. Two common ways of expressing the area density of a paper product are used: Expressed in grams per square metre (g/m2), regardless of its thickness (caliper)[1] (known as grammage). This is the measure used in most parts of the w\n- orld. It is often notated as gsm on paper product labels and spec sheets. Expressed in terms of the mass per number of sheets of a specific paper size (\n- weight in kilograms (kg) per 1,000 sheets. Grammage In the metric system, the mass per unit area of all types of paper and paperboard is expressed in terms of grams per square metre (g/m2). This quantity is commonly called grammage in both English and French,[2] though printers in most English-spea\n- king countries still refer to the \"weight\" of paper. Grammage=mass (g)length (m)×width (m) Typical office paper has 80 g/m2 (0.26 oz/sq ft), therefore a typical A4 sheet (⁠1/16⁠ of a square metre) weighs 5 g (0.18 oz). The abbreviation gsm ins\n- tead of the standard g/m2 symbol is also widely encountered in English-speaking countries. Typically, grammage is measured in paper mill on-line\n- s weight of paper (rounded to the nearest quarter) (a common American basis for cross‑category comparison) 11lb large post 480 11⁠1/2⁠lb large post 13lb demy 46gsm 12⁠1/4⁠lb bond 11lb large post 500 11lb large post 12⁠1/2⁠lb demy 45gsm 11⁠3/4⁠lb bond 12lb large post 500 12lb large p\n- ost 13⁠1/2⁠lb demy 49gsm 13lb bond 14lb large post 480 14⁠1/2⁠lb large post 16⁠1/2⁠lb demy 59gsm 15⁠3/4⁠lb bond 15lb large post 480 15⁠3/4⁠lb large post 17⁠3/4⁠lb demy 63gsm 16⁠3/4⁠lb bond 15lb large post 500 15lb la\n- rge post 17lb demy 61gsm 16⁠1/4⁠lb bond 15lb large post 504 15lb large post 17lb demy 60gsm 16lb bond 17lb large post 480 17⁠3/4⁠lb large post 20lb demy 72gsm 19lb bond 18lb large post 480 18⁠3/4⁠lb large post 21⁠1/2⁠lb demy 76gsm 20⁠1/4⁠lb bond 18lb large post 500 18lb large p"
+    }
+  ],
+  "meta": {},
+  "words": 1901
+}

@@ -1,0 +1,26 @@
+{
+  "doc_id": "epa-ff-plastics",
+  "blocks": [
+    {
+      "page": null,
+      "section": "Plastics: Material-Specific Data",
+      "text": "Plastics are a rapidly growing segment of municipal solid waste (MSW). While plastics are found in all major MSW categories, the containers and packaging category had the most plastic tonnage at over 14.5 million tons in 2018. This category includes bags, sacks and wraps; other packaging; polyethylene terephthalate (PET) bottles and jars; high-density polyethylene (HDPE) natural bottles; and other containers. Manufacturers also use plastic in durable goods, such as appliances, furniture, casings of lead-acid batteries and other products. EPA does not include plastics in transportation products, other than lead-acid batteries, in this analysis.\n\nPlastics are found in nondurable products, such as disposable diapers, trash bags, cups, utensils, medical devices and household items such as shower curtains. The plastic food service items are generally made of clear or foamed polystyrene, while trash bags are made of high-density polyethylene (HDPE) or low-density polyethylene (LDPE). A wide variety of other resins are used in other nondurable goods. Refer to the definitions of durable goods, nondurable goods, and containers and packaging.\n\nPlastic resins are also used in a variety of container and packaging products, such as PET beverage bottles, HDPE bottles for milk and water, and a wide variety of other resin types used in other plastic containers, bags, sacks, wraps and lids.\n\nThis web page is a brief summary of plastic materials-specific data. For more comprehensive information, refer to the 2018 Data Tables on the Advancing Sustainable Materials Management: Facts and Figures Report page.\n\n**On this page:**"
+    },
+    {
+      "page": null,
+      "section": "Overview",
+      "text": "EPA measures the generation, recycling, composting, combustion with energy recovery and landfilling of plastic materials in municipal solid waste.\n\nThe primary data source on the generation of plastics is the American Chemistry Council. In 2018, plastics generation was 35.7 million tons in the United States, which was 12.2 percent of MSW generation.\n\nEPA used data from the American Chemistry Council, the National Association for PET Container Resources, and the Association of Plastic Recyclers to measure the recycling of plastic. While overall the amount of recycled plastics is relatively small—three million tons for a 8.7 percent recycling rate in 2018—the recycling of some specific types of plastic containers is more significant. The recycling rate of PET bottles and jars was 29.1 percent in 2018, and the rate for HDPE natural bottles was 29.3 percent in 2018.\n\nThe total amount of plastics combusted in MSW in 2018 was 5.6 million tons. This was 16.3 percent of all MSW combusted with energy recovery that year.\n\nIn 2018, landfills received 27 million tons of plastic. This was 18.5 percent of all MSW landfilled.\n\nPlease refer to the EPA Methodology Document for further information on estimating the generation and management of plastics."
+    },
+    {
+      "page": null,
+      "section": "Plastics Table and Graph",
+      "text": "The data below are from 1960 to 2018, relating to the total number of tons of plastics generated, recycled, composted, combusted with energy recovery and landfilled.\n\n| 1960-2018 Data on Plastics in MSW by Weight (in thousands of U.S. tons) | | | | | | | | | | | \n|---|---|---|---|---|---|---|---|---|---|---|\n| Management Pathway | 1960 | 1970 | 1980 | 1990 | 2000 | 2005 | 2010 | 2015 | 2017 | 2018 | \n|---|---|---|---|---|---|---|---|---|---|---|\n| **Generation** | 390 | 2,900 | 6,830 | 17,130 | 25,550 | 29,380 | 31,400 | 34,480 | 35,410 | 35,680 | \n| **Recycled** | - | - | 20 | 370 | 1,480 | 1,780 | 2,500 | 3,120 | 3,000 | 3,090 | \n| **Composted** | - | - | - | - | - | - | - | - | - | - | \n| **Combustion with Energy Recovery** | - | - | 140 | 2,980 | 4,120 | 4,330 | 4,530 | 5,330 | 5,590 | 5,620 | \n| **Landfilled** | 390 | 2,900 | 6,670 | 13,780 | 19,950 | 23,270 | 24,370 | 26,030 | 26,820 | 26,970 | \n\nSources: Plastics information is from the American Chemistry Council, the National Association for PET Container Resources and The Association of Plastic Recyclers.\n\nA dash in the table means that data is not available."
+    }
+  ],
+  "meta": {
+    "title": "Plastics: Material-Specific Data | US EPA",
+    "date": "2017-09-12",
+    "description": "This page describes the generation, recycling, combustion with energy recovery, and landfilling of plastic materials, and explains how EPA classifies such material."
+  },
+  "words": 669
+}

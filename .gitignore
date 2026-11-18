@@ -20,10 +20,44 @@ dist/
 *.tsbuildinfo
 npm-debug.log*
 
-# Corpus working files (re-creatable from corpus/sources.csv)
-corpus/raw/*
-!corpus/raw/.gitkeep
-corpus/processed/
+# Corpus raw files are committed except link-only (copyrighted) pages and the Census gazetteer zip.
+# Re-create any of them with scripts/fetch.py.
+corpus/raw/geo/*.zip
+corpus/raw/ftc-kohls-walmart-bamboo.*
+corpus/raw/ca-sb54-text.*
+corpus/raw/ca-sb343-text.*
+corpus/raw/nj-recycled-content.*
+corpus/raw/nj-plastic-ban.*
+corpus/raw/ny-eps-ban.*
+corpus/raw/ny-bottle-bill.*
+corpus/raw/psi-epr-tracker.*
+corpus/raw/apr-design-guide.*
+corpus/raw/how2recycle.*
+corpus/raw/bpi-certification.*
+corpus/raw/trp-state-of-recycling.*
+corpus/raw/iso-14021.*
+corpus/raw/or-fee-setting-explained.*
+corpus/raw/co-caa-page.*
+corpus/raw/chicago-recycling.*
+corpus/raw/la-recycling.*
+corpus/raw/walmart-packaging-playbook.*
+corpus/raw/amazon-packaging-req.*
+corpus/raw/emf-global-commitment.*
+corpus/raw/spc-csar.*
+corpus/raw/uscc-compostables.*
+corpus/raw/news-packagingdive-c4915a9c10.*
+corpus/raw/news-packagingdive-e4465c213c.*
+corpus/raw/news-packagingdive-847f39d643.*
+corpus/raw/news-packagingdive-ff4fb3abff.*
+corpus/raw/news-packagingdive-e4de8851d3.*
+corpus/raw/news-wastedive-5a07dd31aa.*
+corpus/raw/news-wastedive-1b1fdbee76.*
+corpus/raw/news-wastedive-2900d5c804.*
+corpus/raw/news-wastedive-d67af84437.*
+corpus/raw/news-wastedive-9013cc3ea2.*
+corpus/raw/news-resource-recycling-e0d448e5a5.*
+corpus/raw/news-resource-recycling-4a07a5f90a.*
+corpus/raw/news-resource-recycling-5f91c53231.*
 
 # OS / editor
 .DS_Store

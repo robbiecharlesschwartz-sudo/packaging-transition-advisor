@@ -1,0 +1,11 @@
+{
+  "doc_id": "oa-pmc8424513",
+  "status": "ok",
+  "ext": "xml",
+  "bytes": 160005,
+  "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8424513/fullTextXML",
+  "content_type": "application/xml",
+  "fetched_date": "2026-11-18",
+  "sha256": "9a77b028cb43cad3d8a9a3d2c519dc95cbfd83c013c0ddc8d8ca5014c9d55df6",
+  "changed": true
+}

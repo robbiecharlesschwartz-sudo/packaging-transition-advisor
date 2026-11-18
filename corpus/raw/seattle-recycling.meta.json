@@ -1,0 +1,11 @@
+{
+  "doc_id": "seattle-recycling",
+  "status": "ok",
+  "ext": "html",
+  "bytes": 243345,
+  "final_url": "https://www.seattle.gov/utilities/your-services/collection-and-disposal/recycling",
+  "content_type": "text/html; charset=utf-8",
+  "fetched_date": "2026-11-18",
+  "sha256": "6f1822a21f1a38fffd3e45c3904aa2b5786546490f8ffff9ae8d788b68e5320e",
+  "changed": true
+}

@@ -1,0 +1,11 @@
+{
+  "doc_id": "uk-plastic-tax",
+  "status": "ok",
+  "ext": "html",
+  "bytes": 79369,
+  "final_url": "https://www.gov.uk/guidance/check-if-you-need-to-register-for-plastic-packaging-tax",
+  "content_type": "text/html; charset=utf-8",
+  "fetched_date": "2026-11-18",
+  "sha256": "c66f7265aa5ff0353170e752c99acf6db1c0a6cca8f5f2a71be08a7feb5ac242",
+  "changed": true
+}

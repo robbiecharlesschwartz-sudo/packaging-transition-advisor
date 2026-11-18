@@ -1,0 +1,67 @@
+US general imports by HS6 code, monthly, from the UN Comtrade database (US data as reported by the US Census Bureau), retrieved through the Comtrade public preview API. Import unit value = customs value (CIF, USD) divided by net weight (kg). These are border prices for traded goods (resin, film, finished packaging articles), not supplier quotes. Low/high = 10th/90th percentile of the monthly unit values.
+
+## HS 390110 Polyethylene, specific gravity < 0.94 (LDPE/LLDPE resin), primary forms
+US import unit value 2025-07 to 2026-05: median $1.05/kg, 10th-90th percentile range $0.85-$1.24/kg (7 months). Monthly: 2025-07: $1.12/kg; 2025-08: $1.04/kg; 2025-09: $1.04/kg; 2025-12: $0.88/kg; 2026-01: $1.11/kg; 2026-02: $1.05/kg; 2026-05: $1.22/kg.
+
+## HS 390120 Polyethylene, specific gravity >= 0.94 (HDPE resin), primary forms
+US import unit value 2025-08 to 2026-06: median $1.01/kg, 10th-90th percentile range $0.89-$1.40/kg (7 months). Monthly: 2025-08: $1.01/kg; 2025-09: $0.94/kg; 2025-10: $0.89/kg; 2025-11: $0.91/kg; 2026-04: $1.05/kg; 2026-05: $1.30/kg; 2026-06: $1.38/kg.
+
+## HS 390210 Polypropylene resin, primary forms
+US import unit value 2025-07 to 2026-04: median $1.04/kg, 10th-90th percentile range $0.99-$1.19/kg (10 months). Monthly: 2025-07: $1.15/kg; 2025-08: $1.09/kg; 2025-09: $1.04/kg; 2025-10: $1.01/kg; 2025-11: $1.10/kg; 2025-12: $1.20/kg; 2026-01: $1.04/kg; 2026-02: $1.04/kg; 2026-03: $0.99/kg; 2026-04: $1.02/kg.
+
+## HS 390311 Expansible polystyrene, primary forms
+US import unit value 2025-07 to 2026-06: median $1.80/kg, 10th-90th percentile range $1.77-$2.20/kg (9 months). Monthly: 2025-07: $1.88/kg; 2025-08: $1.90/kg; 2025-09: $1.90/kg; 2025-10: $1.77/kg; 2025-11: $1.79/kg; 2026-01: $1.78/kg; 2026-02: $1.79/kg; 2026-03: $1.80/kg; 2026-06: $2.20/kg.
+
+## HS 390761 PET resin, viscosity number >= 78 ml/g (bottle grade)
+US import unit value 2025-07 to 2026-04: median $1.10/kg, 10th-90th percentile range $1.08-$1.17/kg (10 months). Monthly: 2025-07: $1.17/kg; 2025-08: $1.16/kg; 2025-09: $1.11/kg; 2025-10: $1.09/kg; 2025-11: $1.11/kg; 2025-12: $1.13/kg; 2026-01: $1.08/kg; 2026-02: $1.09/kg; 2026-03: $1.09/kg; 2026-04: $1.09/kg.
+
+## HS 392010 Plates, sheets, film of polymers of ethylene, non-cellular, not reinforced
+US import unit value 2025-07 to 2026-06: median $3.20/kg, 10th-90th percentile range $3.05-$3.47/kg (12 months). Monthly: 2025-07: $3.23/kg; 2025-08: $3.30/kg; 2025-09: $3.23/kg; 2025-10: $3.23/kg; 2025-11: $3.28/kg; 2025-12: $3.14/kg; 2026-01: $3.15/kg; 2026-02: $3.10/kg; 2026-03: $3.06/kg; 2026-04: $3.05/kg; 2026-05: $3.18/kg; 2026-06: $3.54/kg.
+
+## HS 392020 Plates, sheets, film of polymers of propylene, non-cellular, not reinforced
+US import unit value 2025-07 to 2026-06: median $3.48/kg, 10th-90th percentile range $3.25-$3.72/kg (11 months). Monthly: 2025-07: $3.48/kg; 2025-08: $3.63/kg; 2025-10: $3.59/kg; 2025-11: $3.47/kg; 2025-12: $3.38/kg; 2026-01: $3.27/kg; 2026-02: $3.25/kg; 2026-03: $3.51/kg; 2026-04: $3.31/kg; 2026-05: $3.55/kg; 2026-06: $3.74/kg.
+
+## HS 392190 Other plates, sheets, film, foil and strip of plastics (incl. laminates), not cellular
+US import unit value 2025-07 to 2026-06: median $5.46/kg, 10th-90th percentile range $5.02-$5.77/kg (12 months). Monthly: 2025-07: $5.64/kg; 2025-08: $5.01/kg; 2025-09: $5.03/kg; 2025-10: $5.11/kg; 2025-11: $5.44/kg; 2025-12: $5.40/kg; 2026-01: $5.48/kg; 2026-02: $5.37/kg; 2026-03: $5.57/kg; 2026-04: $5.62/kg; 2026-05: $5.72/kg; 2026-06: $5.79/kg.
+
+## HS 481159 Paper and paperboard coated, impregnated or covered with plastics (other)
+US import unit value 2025-07 to 2026-06: median $3.63/kg, 10th-90th percentile range $3.40-$3.76/kg (12 months). Monthly: 2025-07: $3.63/kg; 2025-08: $3.61/kg; 2025-09: $3.71/kg; 2025-10: $3.53/kg; 2025-11: $3.54/kg; 2025-12: $3.62/kg; 2026-01: $3.77/kg; 2026-02: $3.75/kg; 2026-03: $3.74/kg; 2026-04: $3.34/kg; 2026-05: $3.74/kg; 2026-06: $3.57/kg.
+
+## HS 731021 Iron or steel cans closed by soldering or crimping, capacity < 50 litres
+US import unit value 2025-07 to 2026-06: median $4.13/kg, 10th-90th percentile range $4.09-$4.13/kg (12 months). Monthly: 2025-07: $4.07/kg; 2025-08: $4.13/kg; 2025-09: $4.13/kg; 2025-10: $4.13/kg; 2025-11: $4.13/kg; 2025-12: $4.13/kg; 2026-01: $4.13/kg; 2026-02: $4.13/kg; 2026-03: $4.13/kg; 2026-04: $4.13/kg; 2026-05: $4.13/kg; 2026-06: $4.13/kg.
+
+## HS 392321 Sacks and bags (including cones) of polymers of ethylene
+US import unit value 2025-07 to 2026-06: median $3.52/kg, 10th-90th percentile range $3.52-$3.53/kg (12 months). Monthly: 2025-07: $3.54/kg; 2025-08: $3.52/kg; 2025-09: $3.52/kg; 2025-10: $3.52/kg; 2025-11: $3.52/kg; 2025-12: $3.52/kg; 2026-01: $3.52/kg; 2026-02: $3.52/kg; 2026-03: $3.52/kg; 2026-04: $3.52/kg; 2026-05: $3.52/kg; 2026-06: $3.52/kg.
+
+## HS 392330 Carboys, bottles, flasks and similar articles of plastics
+US import unit value 2025-07 to 2026-06: median $4.77/kg, 10th-90th percentile range $4.46-$5.05/kg (12 months). Monthly: 2025-07: $4.72/kg; 2025-08: $4.88/kg; 2025-09: $4.84/kg; 2025-10: $4.77/kg; 2025-11: $4.69/kg; 2025-12: $4.91/kg; 2026-01: $4.78/kg; 2026-02: $4.37/kg; 2026-03: $4.74/kg; 2026-04: $4.71/kg; 2026-05: $4.88/kg; 2026-06: $5.11/kg.
+
+## HS 480411 Kraftliner, uncoated, unbleached, in rolls or sheets
+US import unit value 2025-07 to 2026-06: median $0.96/kg, 10th-90th percentile range $0.80-$1.09/kg (12 months). Monthly: 2025-07: $1.12/kg; 2025-08: $0.86/kg; 2025-09: $1.00/kg; 2025-10: $1.02/kg; 2025-11: $0.80/kg; 2025-12: $0.80/kg; 2026-01: $1.00/kg; 2026-02: $1.00/kg; 2026-03: $0.88/kg; 2026-04: $1.01/kg; 2026-05: $0.93/kg; 2026-06: $0.91/kg.
+
+## HS 480439 Other uncoated kraft paper and paperboard weighing 150 g/m2 or less
+US import unit value 2025-07 to 2026-06: median $1.97/kg, 10th-90th percentile range $1.81-$2.08/kg (12 months). Monthly: 2025-07: $2.03/kg; 2025-08: $2.09/kg; 2025-09: $2.05/kg; 2025-10: $2.04/kg; 2025-11: $1.88/kg; 2025-12: $1.80/kg; 2026-01: $1.99/kg; 2026-02: $1.93/kg; 2026-03: $1.85/kg; 2026-04: $2.01/kg; 2026-05: $1.96/kg; 2026-06: $1.89/kg.
+
+## HS 481092 Multi-ply coated paper and paperboard
+US import unit value 2025-07 to 2026-06: median $1.09/kg, 10th-90th percentile range $0.92-$1.12/kg (12 months). Monthly: 2025-07: $1.04/kg; 2025-08: $1.11/kg; 2025-09: $1.09/kg; 2025-10: $1.11/kg; 2025-11: $1.09/kg; 2025-12: $1.12/kg; 2026-01: $1.07/kg; 2026-02: $1.05/kg; 2026-03: $1.10/kg; 2026-04: $1.09/kg; 2026-05: $0.98/kg; 2026-06: $0.89/kg.
+
+## HS 481910 Cartons, boxes and cases of corrugated paper or paperboard
+US import unit value 2025-08 to 2026-06: median $2.18/kg, 10th-90th percentile range $2.03-$2.55/kg (9 months). Monthly: 2025-08: $2.55/kg; 2025-09: $2.25/kg; 2025-10: $2.14/kg; 2025-12: $2.17/kg; 2026-01: $2.03/kg; 2026-02: $2.08/kg; 2026-04: $2.18/kg; 2026-05: $2.18/kg; 2026-06: $2.18/kg.
+
+## HS 481920 Folding cartons, boxes and cases of non-corrugated paper or paperboard
+US import unit value 2025-07 to 2026-06: median $3.49/kg, 10th-90th percentile range $3.25-$3.65/kg (12 months). Monthly: 2025-07: $3.40/kg; 2025-08: $3.25/kg; 2025-09: $3.33/kg; 2025-10: $3.25/kg; 2025-11: $3.37/kg; 2025-12: $3.53/kg; 2026-01: $3.47/kg; 2026-02: $3.68/kg; 2026-03: $3.59/kg; 2026-04: $3.50/kg; 2026-05: $3.51/kg; 2026-06: $3.54/kg.
+
+## HS 481940 Other sacks and bags of paper, including cones
+US import unit value 2025-07 to 2026-06: median $2.47/kg, 10th-90th percentile range $2.30-$2.77/kg (10 months). Monthly: 2025-07: $2.62/kg; 2025-08: $2.71/kg; 2025-10: $2.78/kg; 2025-11: $2.61/kg; 2025-12: $2.39/kg; 2026-01: $2.29/kg; 2026-02: $2.45/kg; 2026-03: $2.33/kg; 2026-04: $2.49/kg; 2026-06: $2.45/kg.
+
+## HS 482370 Moulded or pressed articles of paper pulp
+US import unit value 2025-07 to 2026-06: median $2.61/kg, 10th-90th percentile range $2.48-$2.76/kg (12 months). Monthly: 2025-07: $2.62/kg; 2025-08: $2.76/kg; 2025-09: $2.66/kg; 2025-10: $2.75/kg; 2025-11: $2.57/kg; 2025-12: $2.61/kg; 2026-01: $2.52/kg; 2026-02: $2.60/kg; 2026-03: $2.51/kg; 2026-04: $2.54/kg; 2026-05: $2.74/kg; 2026-06: $2.46/kg.
+
+## HS 701090 Glass carboys, bottles, jars, pots and similar containers
+US import unit value 2025-07 to 2026-06: median $1.21/kg, 10th-90th percentile range $1.17-$1.21/kg (12 months). Monthly: 2025-07: $1.15/kg; 2025-08: $1.21/kg; 2025-09: $1.21/kg; 2025-10: $1.21/kg; 2025-11: $1.21/kg; 2025-12: $1.21/kg; 2026-01: $1.21/kg; 2026-02: $1.21/kg; 2026-03: $1.21/kg; 2026-04: $1.21/kg; 2026-05: $1.21/kg; 2026-06: $1.21/kg.
+
+## HS 760711 Aluminum foil, not backed, rolled but not further worked, <= 0.2 mm
+US import unit value 2025-08 to 2026-06: median $5.37/kg, 10th-90th percentile range $5.03-$6.21/kg (10 months). Monthly: 2025-08: $5.02/kg; 2025-09: $5.07/kg; 2025-10: $5.18/kg; 2025-12: $5.22/kg; 2026-01: $5.30/kg; 2026-02: $5.45/kg; 2026-03: $5.56/kg; 2026-04: $5.97/kg; 2026-05: $5.90/kg; 2026-06: $6.24/kg.
+
+## HS 761290 Aluminum casks, drums, cans, boxes and similar containers <= 300 litres
+US import unit value 2025-07 to 2026-06: median $9.43/kg, 10th-90th percentile range $9.14-$9.43/kg (12 months). Monthly: 2025-07: $9.02/kg; 2025-08: $9.43/kg; 2025-09: $9.43/kg; 2025-10: $9.43/kg; 2025-11: $9.43/kg; 2025-12: $9.43/kg; 2026-01: $9.43/kg; 2026-02: $9.43/kg; 2026-03: $9.43/kg; 2026-04: $9.43/kg; 2026-05: $9.43/kg; 2026-06: $9.43/kg.

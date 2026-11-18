@@ -1,0 +1,131 @@
+{
+  "doc_id": "epa-composting",
+  "blocks": [
+    {
+      "page": null,
+      "section": "Approaches to Composting",
+      "text": "**On this page:**"
+    },
+    {
+      "page": null,
+      "section": "Composting Process",
+      "text": "Organic materials, such as wasted food, dry leaves, and untreated wood chips, are separated from other materials such as packaging, and collected to be composted. These materials are known as **feedstocks** in the composting process. The feedstocks are mixed in a composting system, or pile, to begin the decomposition process. Composting requires a specific **carbon-to-nitrogen ratio** of the materials added, as well as adequate **oxygen** and **moisture**, so that the microorganisms in the system can thrive as they digest and break down the organic materials. The **structure** of the compost pile also contributes to the success of the composting process as factors like particle size and pile density affect oxygen and moisture levels. As materials decompose, the **temperature** of the pile rises and then falls. The natural decomposition process results in a dark, crumbly, earthy-smelling material called compost."
+    },
+    {
+      "page": null,
+      "section": "Feedstocks and Nutrient Balance",
+      "text": "Composting requires a certain balance of carbon-rich materials (“browns”), such as dry leaves and untreated wood chips, to nitrogen-rich materials (“greens”), such as food scraps. The ideal ratio is roughly three parts browns to one part greens by volume. (This translates to roughly 30:1 in terms of elemental carbon to nitrogen or C:N.) The microbes in a compost pile convert carbohydrates from the carbon-rich material into energy for metabolization and respiration, and use proteins from the nitrogen-rich materials for growth and reproduction. A mismatched ratio of carbon to nitrogen may lead to odors, pests, or incomplete decomposition of materials in the pile."
+    },
+    {
+      "page": null,
+      "section": "Pile Structure",
+      "text": "The size of particles in a compost pile and the size of the pile itself impact how oxygen, water and microorganisms move through the pile. Chopping, chipping, or shredding materials into smaller pieces before adding them to a compost pile increases the surface area on which microorganisms can feed. Smaller particles produce a more homogeneous compost mixture and improve pile insulation to help maintain optimum temperatures. Larger particles decrease the density of the compost, creating space for air and water to flow through the pile. A balanced distribution of large and small particle sizes supports optimal density and porosity. Finished compost is often screened to remove large particles or items that did not fully decompose and which can be added into the next round of composting."
+    },
+    {
+      "page": null,
+      "section": "Moisture Content",
+      "text": "Microorganisms living in a compost pile need enough moisture to survive. Water is the key element that helps transport substances within the compost pile and makes the nutrients in the organic material accessible to microbes. Feedstocks such as food scraps contain some moisture in varying amounts, but moisture may also come in the form of rainfall or intentional watering. It is important to prevent too much water from entering the system to avoid anaerobic or low or no oxygen conditions."
+    },
+    {
+      "page": null,
+      "section": "Oxygen Flow",
+      "text": "Composting is an aerobic process. Aerating the pile aids the decomposition process by providing oxygen that microorganisms need to breathe. Turning the pile, blowing air into the pile through pipes or vents, and adding bulking agents such as wood chips and dry leaves to the pile all help increase aeration."
+    },
+    {
+      "page": null,
+      "section": "Temperature",
+      "text": "Beneficial microorganisms in a compost pile require a certain temperature range for optimal activity – 131 to 160 degrees Fahrenheit. Pile conditions within that range will promote rapid decomposition and destroy pathogens and weed seeds. Above that temperature range, beneficial microorganisms cannot survive. Below that range, decomposition will occur more slowly, and pathogens and weed seeds may remain in the final compost. Pile temperatures must remain at 131 degrees Fahrenheit or above for several days to meet standards for reducing pathogens. The exact amount of time depends on the method of composting. Controlling the oxygen, moisture, pile structure, and nutrient balance helps achieve the optimal temperature range in a compost pile."
+    },
+    {
+      "page": null,
+      "section": "Models of Composting",
+      "text": "Composting can take place at a range of scales and locations. Site and facility management can be public, private, or a combination. Materials arrive at composting sites through different collection programs.\n\nThe fundamentals of composting are the same no matter the size or scale of an operation. However, the volume of materials composted, the types of feedstock, and the composting methods and equipment used may differ. Composting operations that handle large volumes of materials and certain feedstocks - such as biosolids or manures - may have additional permitting or zoning requirements, depending on state and local regulations."
+    },
+    {
+      "page": null,
+      "section": "Backyard/Home Composting",
+      "text": "Backyard/home composting occurs in residential settings – often in a backyard pile or a small, enclosed bin. Vermicomposting, or worm composting, is also an option for home composters. Home composting systems mostly handle food scraps (except for meat, bones, and dairy products) and yard trimmings. By composting at home, households reduce their trash going to the landfill or incinerator and use the compost they produce in their garden, yard, or house plants. To learn more, visit EPA’s Home Composting webpage."
+    },
+    {
+      "page": null,
+      "section": "Community Composting",
+      "text": "Community composting takes place at the neighborhood or community level and may be located at schools, universities, community gardens, farms, parks, faith-based institutions, and other spaces in urban, rural, and suburban areas. The distinguishing feature of community composting is keeping the composting process and product (compost) as local as possible while engaging the community through participation and education. The compost generated from locally sourced materials is seen as a community asset and is used in the same community it is produced. The benefits of community composting include improved local soils, enhanced food security, local jobs, greener neighborhoods, and community engagement. Community composting supports a community’s social, economic, and environmental well-being. To learn more, visit EPA’s Community Composting webpage."
+    },
+    {
+      "page": null,
+      "section": "On-site Composting",
+      "text": "On-site composting is dedicated to composting materials generated at a specific location. A business, school, or other institution may compost materials they generate such as food scraps from a cafeteria or yard trimmings from around the campus. Composting on-site cuts down on costs of hauling organic materials off-site for processing or disposal, helps meet sustainability goals, and produces a valuable soil amendment for use in gardens and landscaping."
+    },
+    {
+      "page": null,
+      "section": "Municipal Composting",
+      "text": "Municipal composting describes local government programs, sometimes known as curbside collection, in which yard trimmings or food scraps are collected from homes and businesses or at drop-off sites. These programs may be managed, funded, and operated at the level of a town, city, county, solid waste district, or a combination, and may involve contracts with private compost haulers or producers. Municipal composting programs can tie into other local waste management programs such as recycling, biosolids management, and municipal solid waste disposal. A municipality may have its own composting capacity or may transport the collected materials to a large-scale centralized composting facility. The compost created may be made available for residents and used at municipal buildings, schools, parks, along roadways, and in tree beds."
+    },
+    {
+      "page": null,
+      "section": "Commercial and Industrial Composting",
+      "text": "Commercial and industrial composting happen at large-scale composting facilities designed to handle a high volume of organic materials. These facilities may provide composting services to the residential, commercial, and institutional sectors. They can divert significant quantities of organic materials from disposal facilities. The facilities may be centralized, drawing feedstocks from a wide, regional geographic area, or they may be located at and serve an individual industrial site. Commercial composting facilities often rely on tipping fees, contracts with local governments and compost sales to support their operations."
+    },
+    {
+      "page": null,
+      "section": "On-farm Composting",
+      "text": "On-farm composting takes place in the agricultural sector and may use a combination of crop residues, manure, straw, and other feedstocks generated on the farm to create compost. Farms may also choose to take in materials from residents or businesses in the surrounding community to increase their compost production or generate revenue in tipping fees. The compost produced can be used on the farm and reduce the need to purchase soil amendments and fertilizers. Selling compost can diversify a farm’s revenue streams."
+    },
+    {
+      "page": null,
+      "section": "Collection Programs",
+      "text": "Collecting organic materials for composting can take place at different scales and through different methods. Some cities and towns offer curbside collection of yard trimmings or food scraps, or both, as part of their residential trash and recycling collection services. Private haulers also offer collection services.\n\nOrganic materials can also be collected at drop-off sites - locations with dedicated bins where people bring food scraps to be composted. Locations are often at community gardens, farmers markets, schools, parks, or municipal buildings."
+    },
+    {
+      "page": null,
+      "section": "Pre-Processing Technologies",
+      "text": "Organic materials are sometimes pre-processed before being composted. For example, yard trimmings, brush, and wood are often chipped or ground into smaller pieces at a composting facility, helping to accelerate their decomposition. With food scraps, pre-processing usually takes place prior to collection, often in the kitchen where food scraps are generated. Commercial pre-processing technologies include grinders, which grind food scraps into smaller pieces; pulpers, which squeeze liquid out of food scraps; and dehydrators, which dry food scraps using heat, often after pulping or grinding. Pulpers and dehydrators both remove liquid from food scraps, reducing the weight and volume and making them easier to manage. Two other types of commercial pre-processors, biodigesters and liquefiers, use biological and mechanical processes to turn food scraps into a liquid that is too wet to be composted and is sent down the drain or into a holding tank.\n\nThere are also residential-scale food scraps grinders/dehydrators, some small enough to fit on a kitchen countertop. These appliances do not produce compost but rather a dried food scraps mixture that can then be further processed, e.g., through composting. As with the output of commercial grinders, pulpers and dehydrators, the material from residential food scrap pre-processing technologies is not biologically stable, and it should be composted, cured, or otherwise further treated before use.\n\nLearn more in EPA’s report on commercial food scrap pre-processing technologies (pdf) (3.5 MB)."
+    },
+    {
+      "page": null,
+      "section": "Methods of Composting",
+      "text": "Various methods for composting have different requirements in terms of labor, energy, land use, time, and volume of materials. Choosing the right method is key to a composting program's success. The methods described below are common in the U.S. but not representative of all composting methods in use."
+    },
+    {
+      "page": null,
+      "section": "Static Pile/Bin with Passive Aeration",
+      "text": "Passively aerated static piles – freestanding or contained in bins – can be used to process smaller volumes of compostable materials, such as in home, community, and on-site composting. These piles rely on passive aeration rather than active aeration to maintain optimal temperature and oxygen levels. Passive aeration is caused by warm air heated by microbial activity rising to the top of the pile as cool air is drawn in through the sides and bottom of the pile to replace it, known as the “chimney effect.” When mixing organic materials in the pile, it is important to ensure there is enough free air space throughout the pile to support aeration. Adding bulking agents such as wood chips creates a less dense pile for oxygen to flow. Also, turning the pile occasionally is recommended to encourage even decomposition. This method usually does not get the pile hot enough to break down materials such as meat, bones, and dairy products.\n\nBins to contain compost can be constructed from materials such as wire, wood, and cinder blocks; enclosed barrels or tumblers for small volumes are also available for purchase. Three-bin systems are a common model, with each bin containing compost at a different stage of the process, from freshly added organic materials to finished compost."
+    },
+    {
+      "page": null,
+      "section": "Static Pile with Active Aeration",
+      "text": "Actively aerated static piles use blower systems to move air through the pile. “Positive” aeration is when air is blown through pipes beneath or inside the pile; “negative” aeration draws air down through the pile. Air blower systems can be activated by a timer or a temperature sensor and piles may be covered to help control the pile temperature and moisture level. This method of composting speeds up the composting process by carefully controlling the pile conditions and works with large quantities and all types of materials."
+    },
+    {
+      "page": null,
+      "section": "Windrow",
+      "text": "Windrow composting consists of forming long, narrow rows or “windrows” roughly twice as wide as they are high and as long as space allows. Windrows are the most common method of composting in the United States. Windrows can be turned periodically or have perforated pipes underneath them to allow air flow. Small to large volumes and a wide variety of materials can be composted using this method, which makes it adaptable to many scales and sites for composting. Windrow composting often requires equipment such as front-end loaders, excavators, or windrow turners."
+    },
+    {
+      "page": null,
+      "section": "In-Vessel",
+      "text": "In-vessel composting can process a variety of organic materials without taking up much space. This method involves feeding materials into a vessel, such as a drum, silo, concrete-lined trench, or similar enclosed equipment. The materials are then mechanically turned or mixed in the vessel with bulking agents like wood chips to ensure aeration. Vessels, also known as bioreactors, vary in size and capacity. A similar composting method that takes place in an enclosed area is an agitated bay system where mixing and aerating equipment moves compost along walled bays or beds as it decomposes and stabilizes."
+    },
+    {
+      "page": null,
+      "section": "Worm Composting (Vermicomposting)",
+      "text": "Worm composting, or vermicomposting, relies on earthworms and microorganisms to break down organic materials into vermicompost, or worm castings, a high-quality soil amendment. A vermicomposting system can be indoors or outdoors in the shade and sized to match the volume of food scraps put into the system. Vermicomposting can used by households, schools, farms, institutions, and businesses. A properly maintained vermicomposting system does not produce odors or attract pests.\n\nIt is essential to use a suitable worm species, such as red wrigglers (*Eisenia fetida*). Worms are kept in a closed bin or system that should be shielded from light and rain, with sufficient air flow, and a way to drain excess liquid. The ideal temperature for a vermicomposting system is 55 to 80 degrees Fahrenheit. Earthworms survive at 32 to 95 degrees Fahrenheit with at least four inches of bedding and insulation around the bin during colder months."
+    },
+    {
+      "page": null,
+      "section": "Composting Biosolids",
+      "text": "Biosolids are a product of the wastewater treatment process. At the end of the process, liquids are separated from solids. The wastewater solids are then treated physically, biologically, or chemically to reduce pathogens, stabilize organic compounds, and reduce the volume of material. Composting is a highly effective treatment to stabilize and prepare biosolids for use as a soil amendment or mulch in landscaping, horticulture, agriculture, and land remediation. Biosolids management and use is determined by the federal regulation Title 40 of the Code of Federal Regulations Part 503. Individual states may have more stringent requirements and additional biosolids regulations. More information can be found on EPA’s Biosolids website."
+    },
+    {
+      "page": null,
+      "section": "Additional Resources",
+      "text": "More resources are available on other EPA composting webpages:\n\nVisit the webpages below for more composting information:\n\n- The Composting Handbook (Compost Research and Education Foundation).\n- Toolkit for Adding Food Waste to a Yard Trimmings Compost Facility (pdf) (8.4 MB) (Center for EcoTechnology and BioCycle).\n- Best Management Practices for Incorporating Food Residuals into Existing Yard Waste Composting Operations (pdf) (2.8 MB) (U.S. Composting Council).\n- Curb to Compost Toolkit – how to include food scrap collection in an existing yard debris program (Compost Education and Research Foundation).\n- Cornell Waste Management Institute.\n- On-Farm Composting Toolkit (Composting Association of Vermont)"
+    }
+  ],
+  "meta": {
+    "title": "Approaches to Composting | US EPA",
+    "date": "2015-08-19",
+    "description": "EPA compiled information on the composting process including basics about the process and the various types of composting."
+  },
+  "words": 2466
+}

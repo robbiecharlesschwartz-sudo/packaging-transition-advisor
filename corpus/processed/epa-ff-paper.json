@@ -1,0 +1,26 @@
+{
+  "doc_id": "epa-ff-paper",
+  "blocks": [
+    {
+      "page": null,
+      "section": "Paper and Paperboard: Material-Specific Data",
+      "text": "In 2018, paper and paperboard (cardboard) materials comprised the largest component of municipal solid waste (MSW). For this analysis, EPA classified products made of paper and paperboard materials as either nondurable goods or as containers and packaging. Nondurable goods include products such as office papers, newspapers, tissue paper, and paper plates and cups. Containers and packaging include products such as corrugated boxes, milk cartons, and bags and sacks (See the definitions of nondurable goods and containers and packaging for more information).\n\nThis web page is a brief summary of paper and paperboard material-specific data.\n\n**On this page:**"
+    },
+    {
+      "page": null,
+      "section": "Overview",
+      "text": "EPA measures the generation, recycling, composting, combustion with energy recovery and landfilling of paper and paperboard products.\n\nEPA used statistics from the American Forest & Paper Association (AF&PA) to estimate post-consumer paper and paperboard generation in 2018. The total generation of paper and paperboard in MSW was 67.4 million tons in 2018, which was 23.1 percent of total MSW generation that year.\nApproximately 46 million tons of paper and paperboard were recycled in 2018 for a recycling rate of 68.2 percent, which was the highest compared to other materials in MSW.\n\nNondurable goods made of paper, excluding newspapers, had a recycling rate of 43.1 percent, while newspapers had a recycling rate of 64.8 percent. Paper containers and packaging, excluding corrugated boxes, had a recycling rate of 20.8 percent, while corrugated boxes had a recycling rate of 96.5 percent in 2018.\n\nThe total amount of paper and paperboard combusted in 2018 was 4.2 million tons. This was 12.2 percent of all MSW combusted that year.\n\nIn 2018, landfills received 17.2 million tons of MSW paper and paperboard. This was 11.8 percent of MSW landfilled in 2018.\n\nPlease see the EPA Methodology Document for further information on estimating the generation and management of paper and paperboard."
+    },
+    {
+      "page": null,
+      "section": "Summary Table and Graph",
+      "text": "The data below are from 1960 to 2018, relating to the total number of tons of paper and paperboard generated, recycled, composted, combusted with energy recovery and landfilled.\n\n| 1960-2018 Data on Paper and Paperboard in MSW by Weight (in thousands of U.S. tons) | | | | | | | | | | | \n|---|---|---|---|---|---|---|---|---|---|---|\n| Management Pathway | 1960 | 1970 | 1980 | 1990 | 2000 | 2005 | 2010 | 2015 | 2017 | 2018 | \n|---|---|---|---|---|---|---|---|---|---|---|\n| **Generated** | 29,990 | 44,310 | 55,160 | 72,730 | 87,740 | 84,840 | 71,310 | 68,050 | 67,010 | 67,390 | \n| **Recycled** | 5,080 | 6,770 | 11,740 | 20,230 | 37,560 | 41,960 | 44,570 | 45,320 | 44,170 | 45,970 | \n| **Composted** | - | - | - | - | - | - | - | - | - | - | \n| **Combustion with Energy Recovery** | - | 150 | 860 | 8,930 | 9,730 | 7,800 | 4,740 | 4,450 | 4,490 | 4,200 | \n| **Landfilled** | 24,910 | 37,390 | 42,560 | 43,570 | 40,450 | 35,080 | 22,000 | 18,280 | 18,350 | 17,220 | \n\nSource: Paper and Paperboard information is from the American Forest & Paper Association.\n\nA dash in the table means that data is not available."
+    }
+  ],
+  "meta": {
+    "title": "Paper and Paperboard: Material-Specific Data | US EPA",
+    "date": "2017-09-07",
+    "description": "This page describes the generation, recycling, combustion with energy recovery, and landfilling of paper and paperboard materials, and explains how EPA classifies such material."
+  },
+  "words": 524
+}

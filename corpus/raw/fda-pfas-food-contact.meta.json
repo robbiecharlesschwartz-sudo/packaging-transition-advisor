@@ -1,0 +1,11 @@
+{
+  "doc_id": "fda-pfas-food-contact",
+  "status": "ok",
+  "ext": "html",
+  "bytes": 47365,
+  "final_url": "https://www.fda.gov/food/process-contaminants-food/authorized-uses-pfas-food-contact-applications",
+  "content_type": "text/html; charset=UTF-8",
+  "fetched_date": "2026-11-18",
+  "sha256": "d05a839cc09aa8fbcf76d6c524dd505d7a1b22477f9fca038198f5e1f2bc5b7d",
+  "changed": true
+}

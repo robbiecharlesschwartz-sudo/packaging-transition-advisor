@@ -1,0 +1,11 @@
+{
+  "doc_id": "nyc-dsny-recycling",
+  "status": "ok",
+  "ext": "html",
+  "bytes": 26182,
+  "final_url": "https://www.nyc.gov/site/dsny/collection/residents/recycling.page",
+  "content_type": "text/html;charset=UTF-8",
+  "fetched_date": "2026-11-18",
+  "sha256": "6aea7e68afc43afdaea5ea710878a6249b30ac5a0b6383940409215a2c05e8e7",
+  "changed": true
+}
