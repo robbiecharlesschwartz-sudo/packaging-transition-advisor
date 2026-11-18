@@ -1,0 +1,494 @@
+{
+ "date": "2026-11-18",
+ "summary": {
+  "Questions run": "45",
+  "Answer correctness: exact": "44/45 (98%)",
+  "Answer correctness: exact or partial": "44/45 (98%)",
+  "Citation precision (lexical check)": "73/111 cited claims (66%)",
+  "Retrieval recall (expected source retrieved)": "29/29 (100%)",
+  "Gap honesty (trick questions)": "5/5",
+  "Cost math (worker = hand-checked calculator)": "6/6"
+ },
+ "results": {
+  "regulatory": [
+   {
+    "id": "R1",
+    "q": "Which US states have enacted packaging extended producer responsibility (EPR) laws?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "7/7",
+    "recall": true,
+    "cite_ok": 1,
+    "cite_total": 1
+   },
+   {
+    "id": "R2",
+    "q": "When did Oregon's packaging producer responsibility program start, and for what period was the first producer fee schedule set?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 2
+   },
+   {
+    "id": "R3",
+    "q": "When must producers first pay producer responsibility dues under Colorado's packaging program?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 1,
+    "cite_total": 1
+   },
+   {
+    "id": "R4",
+    "q": "By what date must a producer responsibility organization submit its stewardship plan under Minnesota's Packaging Waste and Cost Reduction Act?",
+    "status": "Partial",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 1,
+    "cite_total": 1
+   },
+   {
+    "id": "R5",
+    "q": "When do statewide, consistent curbside recycling services begin under Washington's Recycling Reform Act?",
+    "status": "Partial",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 2
+   },
+   {
+    "id": "R6",
+    "q": "What does Oregon's Senate Bill 543 prohibit?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 3,
+    "cite_total": 3
+   },
+   {
+    "id": "R7",
+    "q": "Which expanded polystyrene foam products are banned in Washington, and since when?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 2
+   },
+   {
+    "id": "R8",
+    "q": "What minimum post-consumer recycled content must covered product packaging in Washington contain by 2036?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 1,
+    "cite_total": 1
+   },
+   {
+    "id": "R9",
+    "q": "Under California SB 343, when may a product or package display the chasing arrows recycling symbol?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 0,
+    "cite_total": 1
+   },
+   {
+    "id": "R10",
+    "q": "What flat fee may a low-volume producer pay under Maine's packaging stewardship program?",
+    "status": "Evidence Gap",
+    "correct": "wrong",
+    "matched": "0/1",
+    "recall": true,
+    "cite_ok": 0,
+    "cite_total": 0
+   }
+  ],
+  "end_of_life": [
+   {
+    "id": "E1",
+    "q": "Does New York City's curbside composting program accept products labeled compostable?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 1,
+    "cite_total": 1
+   },
+   {
+    "id": "E2",
+    "q": "Can plastic bags labeled recyclable go in Denver's recycling cart?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 4,
+    "cite_total": 4
+   },
+   {
+    "id": "E3",
+    "q": "Does Houston's curbside recycling program accept film and flexible plastics such as cracker bags?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 0,
+    "cite_total": 1
+   },
+   {
+    "id": "E4",
+    "q": "What does EPA report as the recycling rate for containers and packaging in the United States?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 2
+   },
+   {
+    "id": "E5",
+    "q": "What does EPA report about recycling of PET bottles and jars?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 3,
+    "cite_total": 3
+   },
+   {
+    "id": "E6",
+    "q": "How much corrugated packaging is recycled in the United States according to EPA?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 2
+   }
+  ],
+  "claims": [
+   {
+    "id": "C1",
+    "q": "When can a marketer make an unqualified \"recyclable\" claim under the FTC Green Guides?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 3,
+    "cite_total": 3
+   },
+   {
+    "id": "C2",
+    "q": "How should a compostable claim be handled if municipal or institutional composting facilities are not available to a substantial majority of consumers?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 2
+   },
+   {
+    "id": "C3",
+    "q": "What did the SEC charge Keurig with regarding its K-Cup pods?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 2
+   },
+   {
+    "id": "C4",
+    "q": "How should a multi-layer package with only one recyclable layer qualify a \"recyclable\" claim under the Green Guides?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 3,
+    "cite_total": 3
+   },
+   {
+    "id": "C5",
+    "q": "What does the EU directive on empowering consumers for the green transition say about generic environmental claims?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 1,
+    "cite_total": 1
+   }
+  ],
+  "alternatives": [
+   {
+    "id": "A1",
+    "q": "Why is multilayer flexible food packaging hard to recycle, and what redesign direction is proposed?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 3,
+    "cite_total": 3
+   },
+   {
+    "id": "A2",
+    "q": "Can paper packaging be coated to improve its water or grease barrier, and with what?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 3
+   },
+   {
+    "id": "A3",
+    "q": "Is PLA compostable, and under what conditions does it degrade?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "2/2",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 3
+   },
+   {
+    "id": "A4",
+    "q": "What are the main challenges of bottle-to-bottle PET recycling for food-contact use?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 3,
+    "cite_total": 3
+   },
+   {
+    "id": "A5",
+    "q": "What are PFAS used for in food packaging, and what has FDA said about grease-proofing uses?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 4,
+    "cite_total": 4
+   }
+  ],
+  "competitor": [
+   {
+    "id": "P1",
+    "q": "What is Ball Corporation's largest product line?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 1,
+    "cite_total": 1
+   },
+   {
+    "id": "P2",
+    "q": "How many corrugated products plants does Packaging Corporation of America operate?",
+    "status": "Grounded",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 2,
+    "cite_total": 2
+   },
+   {
+    "id": "P3",
+    "q": "What material does Graphic Packaging make its cups and bowls from?",
+    "status": "Partial",
+    "correct": "exact",
+    "matched": "1/1",
+    "recall": true,
+    "cite_ok": 1,
+    "cite_total": 1
+   }
+  ],
+  "trick": [
+   {
+    "id": "T1",
+    "q": "What is the 2026 EPR fee per pound for PET bottles in Texas?",
+    "status": "Evidence Gap",
+    "correct": "exact",
+    "gap_honest": true,
+    "recall": null,
+    "cite_ok": 0,
+    "cite_total": 0
+   },
+   {
+    "id": "T2",
+    "q": "What was Amcor's 2026 revenue from compostable packaging?",
+    "status": "Evidence Gap",
+    "correct": "exact",
+    "gap_honest": true,
+    "recall": null,
+    "cite_ok": 0,
+    "cite_total": 0
+   },
+   {
+    "id": "T3",
+    "q": "What are Japan's packaging extended producer responsibility fee rates?",
+    "status": "Evidence Gap",
+    "correct": "exact",
+    "gap_honest": true,
+    "recall": null,
+    "cite_ok": 0,
+    "cite_total": 0
+   },
+   {
+    "id": "T4",
+    "q": "What will California's SB 54 producer fee per pound for paper packaging be in 2030?",
+    "status": "Evidence Gap",
+    "correct": "exact",
+    "gap_honest": true,
+    "recall": null,
+    "cite_ok": 0,
+    "cite_total": 0
+   },
+   {
+    "id": "T5",
+    "q": "What does a 10 x 13 inch paper mailer cost from Uline?",
+    "status": "Evidence Gap",
+    "correct": "exact",
+    "gap_honest": true,
+    "recall": null,
+    "cite_ok": 0,
+    "cite_total": 0
+   }
+  ],
+  "cost": [
+   {
+    "id": "K1",
+    "q": "poly mailer vs paper mailer, 7 EPR states",
+    "status": "Partial",
+    "correct": "exact",
+    "math": "match",
+    "note": "",
+    "confidence": "Medium",
+    "cite_ok": 4,
+    "cite_total": 5
+   },
+   {
+    "id": "K2",
+    "q": "PET bottle vs rPET / glass / aluminum / refill, nationwide",
+    "status": "Partial",
+    "correct": "exact",
+    "math": "match",
+    "note": "",
+    "confidence": "Low",
+    "cite_ok": 4,
+    "cite_total": 10
+   },
+   {
+    "id": "K3",
+    "q": "multilayer pouch vs mono-material film / coated paper",
+    "status": "Partial",
+    "correct": "exact",
+    "math": "match",
+    "note": "",
+    "confidence": "Low",
+    "cite_ok": 3,
+    "cite_total": 9
+   },
+   {
+    "id": "K4",
+    "q": "OR fee on a 28 g PET bottle = 0.028 kg x 12 cents/lb x 2.2046 = $0.0074",
+    "status": "Partial",
+    "correct": "exact",
+    "math": "match",
+    "note": "OR fee/unit 0.0074 (expected 0.0074)",
+    "confidence": "Medium",
+    "cite_ok": 4,
+    "cite_total": 10
+   },
+   {
+    "id": "K5",
+    "q": "no unit weight or thickness; current weight must be reported as a gap, not invented",
+    "status": "Evidence Gap",
+    "correct": "exact",
+    "math": "match",
+    "note": "current weight correctly reported as a gap",
+    "confidence": "Low",
+    "cite_ok": 4,
+    "cite_total": 8
+   },
+   {
+    "id": "K6",
+    "q": "OR fee applies, CA enacted but no fees yet",
+    "status": "Partial",
+    "correct": "exact",
+    "math": "match",
+    "note": "",
+    "confidence": "Medium",
+    "cite_ok": 0,
+    "cite_total": 11
+   }
+  ],
+  "sourcing": [
+   {
+    "id": "S1",
+    "q": "expect ['O-I Glass']",
+    "status": "Grounded",
+    "correct": "exact",
+    "found": [
+     "O-I Glass, Inc."
+    ],
+    "all_rows_cited": true
+   },
+   {
+    "id": "S2",
+    "q": "expect ['Ball', 'Crown']",
+    "status": "Grounded",
+    "correct": "exact",
+    "found": [
+     "Ball Corporation",
+     "Crown Holdings, Inc.",
+     "Silgan Holdings Inc.",
+     "Sonoco Products Company"
+    ],
+    "all_rows_cited": true
+   },
+   {
+    "id": "S3",
+    "q": "expect ['Smurfit Westrock', 'Packaging Corporation of America']",
+    "status": "Grounded",
+    "correct": "exact",
+    "found": [
+     "Greif, Inc.",
+     "International Paper Company",
+     "Packaging Corporation of America",
+     "Smurfit Westrock plc"
+    ],
+    "all_rows_cited": true
+   },
+   {
+    "id": "S4",
+    "q": "expect ['Graphic Packaging']",
+    "status": "Grounded",
+    "correct": "exact",
+    "found": [
+     "Graphic Packaging Holding Company",
+     "Greif, Inc.",
+     "International Paper Company",
+     "Smurfit Westrock plc",
+     "Sonoco Products Company"
+    ],
+    "all_rows_cited": true
+   },
+   {
+    "id": "S5",
+    "q": "expect no suppliers (gap)",
+    "status": "Evidence Gap",
+    "correct": "exact",
+    "found": [],
+    "all_rows_cited": true
+   }
+  ]
+ }
+}

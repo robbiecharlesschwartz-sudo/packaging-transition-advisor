@@ -383,11 +383,22 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
           if (hasSummary) summary = { id: 'summary', kind: 'summary', title: 'Summary', takeaway: 'Summary could not be generated; see the sections below.', claims: [], gaps: [String(e).slice(0, 200)], status: 'Evidence Gap', passages: [] };
         }
         // takeaways must also obey the number rule; drop numbers that are not in cited passages
+        // A section can be fully supported by verified structured content (table rows, ratings, examples)
+        // even when the writer returned no narrative bullets; only call it a gap when it has neither.
+        const hasData = (s: SectionOut) => {
+          const d = s.data ?? {};
+          return !!((d.rows ?? []).length || (d.options ?? []).length || (d.safe ?? []).length || (d.risky ?? []).length || (d.examples ?? []).length);
+        };
         for (const s of [...sections, ...(summary ? [summary] : [])]) {
-          const hay = s.claims.flatMap((c) => c.cites).map((n) => byN.get(n)?.content ?? '').join(' ') + ' ' + (calcText ?? '') + ' ' + profileNums;
+          const hay = [...new Set([...s.claims.flatMap((c) => c.cites), ...(s.passages ?? [])])].map((n) => byN.get(n)?.content ?? '').join(' ') + ' ' + (calcText ?? '') + ' ' + profileNums;
           const bad = significantNumbers(s.takeaway).filter((n) => !numberAppears(n, hay));
-          if (bad.length || !s.claims.length) s.takeaway = s.claims.length ? (s.claims[0].text) : s.status === 'Evidence Gap' || !s.claims.length ? `The corpus does not support an answer for ${s.title.toLowerCase()}.` : s.takeaway;
-          if (!s.claims.length && s.kind !== 'cost' && s.kind !== 'sourcing') s.status = 'Evidence Gap';
+          const content = s.claims.length > 0 || hasData(s) || s.kind === 'cost' || s.kind === 'sourcing';
+          if (!content) {
+            s.takeaway = s.id === 'answer' ? 'The documents in the corpus do not support an answer to this question.' : `The corpus does not support an answer for ${s.title.toLowerCase()}.`;
+            s.status = 'Evidence Gap';
+          } else if (bad.length || !s.takeaway.trim()) {
+            s.takeaway = s.claims[0]?.text ?? s.takeaway.replace(/\s*\$?\d[\d,.]*%?/g, '').trim();
+          }
         }
         if (summary) final.push(summary);
         final.push(...sections);

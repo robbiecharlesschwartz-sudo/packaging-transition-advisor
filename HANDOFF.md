@@ -8,19 +8,17 @@ Status as of 2026-11-18 (end of the Windows session). Give this file to Claude C
 - Front end (React + Vite, dark app shell, neutral accent), workflow canvas, product & current-packaging section, exports, replay mode, embed route.
 - Acceptance suite + self-check, eval harness (45 questions), CI / refresh / uptime / eval / selfcheck GitHub Actions, docs.
 
-## Not done yet (in order)
-1. **Remote D1 migration + deploy.** D1's free read limit was exhausted on 2026-11-18 and resets at 00:00 UTC. Then:
-   `cd worker && npx wrangler d1 migrations apply pta-db --remote` (applies `0002_fts_rowid.sql`), then
-   `curl -X POST -H "Authorization: Bearer $ADMIN_TOKEN" $WORKER_URL/api/admin/recount`, then
-   `npm run build --prefix ../app && npx wrangler deploy`.
-2. **Regenerate the 3 replay examples** (they predate the product section; only `snack-pouch.json` exists):
-   `for x in snack-pouch:snack_pouch cosmetics-bottle:cosmetics_bottle ecommerce-mailer:ecommerce_mailer; do python scripts/run_brief.py full_transition_brief --url $WORKER_URL --profile eval/profiles/${x#*:}.json --save app/public/examples/${x%%:*}.json; done`
-   Optionally mark them in D1: `POST /api/admin/mark-example {"run_id": "...", "slug": "..."}`.
-3. **Eval**: `python eval/run_eval.py --url $WORKER_URL --sleep 4` (writes `eval/results/<date>.md` and `docs/EVALUATION.md`).
-4. **Baseline comparison + case study**: add an admin endpoint that asks the LLM the 3 example profiles with no retrieval; put both outputs side by side in `docs/CASE_STUDY.md` (brief section 16 outline).
-5. **Screenshots**: `npm run preview:built --prefix app` then `node app/scripts/screenshots.mjs`; review desktop + mobile; fix anything off.
-6. **Acceptance**: `python scripts/acceptance.py --live --repair`; fix failures until it passes; commit `docs/ACCEPTANCE.md`.
-7. **GitHub repo secrets** (Settings → Secrets and variables → Actions): `WORKER_URL` = `https://packaging-transition-advisor.pta-worker.workers.dev`, `ADMIN_TOKEN` = the admin token (below).
+## Done since the first handoff (local, before the D1 reset)
+- 3 replay examples regenerated with the product section (all sections Grounded/Partial).
+- 45-question eval: 44/45 exact, recall 100%, gap honesty 5/5, cost math 6/6, citation precision 66% (`docs/EVALUATION.md`).
+- No-retrieval baseline + `docs/CASE_STUDY.md`; final screenshots; static acceptance 26/26.
+
+## Remaining (needs the D1 read limit reset at 00:00 UTC = 7:00 PM ET)
+1. `cd worker && npx wrangler d1 migrations apply pta-db --remote` (applies `0002_fts_rowid.sql`)
+2. `curl -X POST -H "Authorization: Bearer $ADMIN_TOKEN" $WORKER_URL/api/admin/recount`
+3. `npm run build --prefix ../app && npx wrangler deploy`
+4. `python scripts/acceptance.py --live --repair` and fix anything that fails.
+5. GitHub repo secrets `WORKER_URL` and `ADMIN_TOKEN` (Settings → Secrets and variables → Actions).
 
 ## Secrets on the new machine (never committed)
 - `cd worker && npx wrangler login` (Cloudflare OAuth in the browser).
