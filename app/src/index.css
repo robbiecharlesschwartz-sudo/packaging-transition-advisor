@@ -10,18 +10,18 @@
   --raised: 27 27 31;
   --muted: 33 33 38;
   --line: 44 44 50;
-  --strong: 47 111 237;
+  --strong: 236 236 240;
   --ink: 236 236 240;
   --sub: 150 150 160;
-  --primary: 47 111 237;
-  --primary-soft: 28 42 74;
-  --accent: 47 111 237;
-  --accent-soft: 28 42 74;
+  --primary: 236 236 240;
+  --primary-soft: 38 38 44;
+  --accent: 236 236 240;
+  --accent-soft: 38 38 44;
   --ok: 52 199 120;
   --warn: 232 170 60;
   --danger: 239 98 98;
-  --g1: 47 111 237;
-  --g2: 120 160 240;
+  --g1: 228 228 232;
+  --g2: 170 170 178;
   --g3: 112 112 122;
   --g4: 70 70 80;
   --g5: 38 38 44;
@@ -37,6 +37,11 @@
   --sub: 98 98 110;
   --primary-soft: 228 236 253;
   --accent-soft: 228 236 253;
+  --strong: 20 20 24;
+  --primary: 20 20 24;
+  --accent: 20 20 24;
+  --g1: 30 30 34;
+  --g2: 100 100 110;
   --ok: 22 140 76;
   --warn: 166 104 0;
   --danger: 196 48 48;
@@ -57,20 +62,20 @@ body { font-family: Inter, system-ui, sans-serif; font-size: 13.5px; line-height
   .pill-warn { @apply border-warn/40 bg-warn/10 text-warn; }
   .pill-gap { @apply border-dashed border-line text-sub; }
   .btn { @apply inline-flex h-8 items-center justify-center gap-1.5 rounded-[6px] border px-3 text-[12.5px] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40; }
-  .btn-primary { @apply btn border-primary bg-primary text-white hover:brightness-110; }
+  .btn-primary { @apply btn border-primary bg-primary text-bg hover:opacity-90; }
   .btn-ghost { @apply btn border-line bg-raised text-ink hover:border-sub; }
-  .field { @apply h-8 w-full rounded-[6px] border border-line bg-raised px-2.5 text-[13px] text-ink placeholder:text-sub focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary/50; }
+  .field { @apply h-8 w-full rounded-[6px] border border-line bg-raised px-2.5 text-[13px] text-ink placeholder:text-sub focus:border-sub focus:outline-none; }
   textarea.field { @apply h-auto py-1.5; }
   .label { @apply mb-1 block text-[10.5px] font-semibold uppercase tracking-[0.06em] text-sub; }
   .kicker { @apply text-[10.5px] font-semibold uppercase tracking-[0.06em] text-sub; }
-  .cite { @apply mx-px inline-flex h-[15px] min-w-[15px] cursor-pointer items-center justify-center rounded-[3px] bg-primary/15 px-[3px] align-[1px] text-[9.5px] font-semibold leading-none text-primary hover:bg-primary hover:text-white; }
+  .cite { @apply mx-px inline-flex h-[15px] min-w-[15px] cursor-pointer items-center justify-center rounded-[3px] border border-line bg-raised px-[3px] align-[1px] text-[9.5px] font-semibold leading-none text-sub hover:border-ink hover:text-ink; }
   .tbl { @apply w-full border-collapse text-[12.5px]; }
   .tbl th { @apply border-b border-line px-2.5 py-2 text-left text-[10.5px] font-semibold uppercase tracking-[0.06em] text-sub; }
   .tbl td { @apply border-b border-line/70 px-2.5 py-2 align-top; }
   .tbl tbody tr:hover td { @apply bg-raised; }
   .num { @apply text-right; }
   .nav-item { @apply flex w-full items-center gap-2 rounded-[6px] px-2.5 py-1.5 text-left text-[13px] text-ink hover:bg-raised; }
-  .nav-item-active { @apply bg-primary text-white hover:bg-primary; }
+  .nav-item-active { @apply bg-primary text-bg hover:bg-primary; }
 }
 
 ::-webkit-scrollbar { width: 8px; height: 8px; }

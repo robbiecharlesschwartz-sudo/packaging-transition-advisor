@@ -49,3 +49,27 @@ No paid plan, no payment method, no server. Result: **$0/month**.
 **D15. News items are individual `link_only` documents** (headline + RSS summary + link only), so each claim can cite the exact item. They are excluded from the "documents in corpus" count used against the 60–120 target.
 
 **D16. Price inputs without a Census API key.** The Census trade API now requires a key (free, emailed). `fetch_special.py trade` runs when `CENSUS_API_KEY` is in `.env`; without it, the calculator uses CalRecycle published rates (container weights from containers-per-pound; recycled-material scrap values per ton), the Oregon PRO fee schedule, and BLS PPI trends, and reports virgin-material $/kg as an Evidence Gap rather than inventing it.
+
+## Cost, sourcing and generation
+
+**D17. Prices are US import unit values from UN Comtrade's public preview API** (US data reported by the Census Bureau): value / net weight per HS6 code, 10th–90th percentile over the last 12 months. Primary, official, free, no key. Where a finished-article code exists (bottles, sacks, boxes) it is used, because it includes conversion; resin codes are a fallback and are labelled. Proxy codes (laminates, coated paper) are labelled "proxy". PLA has no reported weights, so its price is an Evidence Gap.
+
+**D18. Container weights come from CalRecycle's published containers-per-pound rates** (Jan 1 2026). Alternative bottle/can weights use the ratio of average container weights, labelled as an assumption (average beverage containers, not same-size).
+
+**D19. EPR fees: only Oregon publishes a fee schedule** (CAA 2025 annual report, pp. 59–60; 18 categories mapped to material keys by hand). Colorado's dues are in effect but confidential: the calculator says so instead of estimating. Freight $/kg is not in any primary source in the corpus, so freight shows the weight difference only.
+
+**D20. The calculator exists twice** (Python for review/tests, TypeScript in the worker); both are tested against the same hand-checked cases in `cost/tests/cases.json`, so the site cannot drift from the reviewed math.
+
+**D21. Suppliers come from SEC 10-K filings only** (product lines from verbatim quotes; plant locations from Item 2, geocoded with the Census Gazetteer; distances to Census state population centers). Certification registries (BPI, FSC, USDA BioPreferred) are JavaScript applications or have restrictive terms, so they are link-only next steps. The shortlist is accurate but short, and the sourcing section says so.
+
+**D22. Verification is two-layered.** Code checks that every citation exists and every significant number appears in a cited passage, the calculator output or the user's profile; then an LLM fact-checker labels each claim supported / partial / unsupported. Unsupported claims are removed and listed under the section.
+
+**D23. Quota-aware LLM routing** (FIXED_BY_HAND #15–16): writing tries the main model; planning and verification try the lite model first; a 429 cools a model down for 10 minutes; Workers AI is the final fallback.
+
+**D24. No shadcn/ui.** Its CLI scaffolding assumes a different project layout; the small component set here is built with Tailwind on one token file, which is also the shared design system for future RAG tools (dark app shell, neutral accent, tinted status pills).
+
+**D25. Replay examples are bundled as static JSON** (`app/public/examples`) as well as stored in D1, so the public demo works with no API key, no LLM quota, and even if D1 is unavailable.
+
+**D26. Self-check.** `scripts/acceptance.py` tests the Definition of done; a weekly GitHub Action runs it with `--repair` (recount, re-embed drifted documents, reload tables) and opens an issue for anything still failing.
+
+**D27. "Product and current packaging" section.** Every profile-based workflow opens with what was extracted from the profile, how the current package is treated today (cited), its producer-fee category, and what the analysis keyed on (functional needs, material tags, chosen alternatives), because every downstream answer depends on those inputs.

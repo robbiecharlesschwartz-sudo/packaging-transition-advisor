@@ -11,9 +11,14 @@ system_prompt: |
   passages do not say how an alternative performs on a need, rate it "Unknown" and add a gap.
 output_schema:
   $ref: "_schema.yaml#/section"
-  sections_required: [summary, alternatives, supply_chain, gaps]
+  sections_required: [summary, current, alternatives, supply_chain, gaps]
 sections:
   - {id: summary, kind: summary, title: Summary}
+  - id: current
+    kind: current
+    title: Product and current packaging
+    layers: [infrastructure, regulation, materials, prices]
+    query_hint: "{current_material} {package_type} for {product_category}: curbside recyclability, producer fee category, regulations and bans that apply today"
   - id: alternatives
     kind: alternatives
     title: Alternatives shortlist

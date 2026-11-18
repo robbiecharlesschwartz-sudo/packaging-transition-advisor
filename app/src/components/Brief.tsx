@@ -13,9 +13,64 @@ const PPI_LABELS: Record<string, string> = {
   PCU331315331315: 'Aluminum sheet & foil', PCU332431332431: 'Metal cans', PCU484121484121: 'Truckload freight',
 };
 
+/** What the system extracted about the product and its current package, and what the analysis keyed on. */
+function ProductPanel({ d }: { d: any }) {
+  const f = d.facts;
+  if (!f) return null;
+  const dims = f.dimensions ? [f.dimensions.l_cm && `${f.dimensions.l_cm} cm`, f.dimensions.w_cm && `${f.dimensions.w_cm} cm`, f.dimensions.h_cm && `${f.dimensions.h_cm} cm`].filter(Boolean).join(' × ') + (f.dimensions.volume_ml ? `${f.dimensions.l_cm ? ' · ' : ''}${f.dimensions.volume_ml} ml` : '') + (f.dimensions.gusset_cm ? ` · gusset ${f.dimensions.gusset_cm} cm` : '') : '';
+  const weight = f.unit_weight_g ? `${f.unit_weight_g} g (given)` : f.weight_estimate?.low != null ? `${f.weight_estimate.low.toFixed(1)}–${f.weight_estimate.high.toFixed(1)} g (estimated)` : '—';
+  const rows: [string, string][] = [
+    ['Product', [f.product_category, f.company].filter(Boolean).join(' · ') || '—'],
+    ['Package', f.package_type ?? '—'],
+    ['Current material', `${f.current_material ?? '—'}${f.material_label && f.material_label !== f.current_material ? ` → modeled as ${f.material_label}` : ''}`],
+    ['Size', dims || '—'],
+    ['Unit weight', weight],
+    ['Annual volume', f.annual_units ? `${Number(f.annual_units).toLocaleString('en-US')} units` : '—'],
+    ['Sold in', (f.sales_states ?? []).join(', ') + ((f.other_markets ?? []).length ? ` + ${f.other_markets.join(', ')}` : '')],
+  ];
+  const k = d.keyed_on ?? {};
+  return (
+    <div className="grid gap-3 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+      <div className="rounded-[8px] border border-line bg-raised p-3">
+        <div className="label">Extracted from the profile</div>
+        <dl className="grid grid-cols-[120px_minmax(0,1fr)] gap-x-3 gap-y-1.5 text-[12.5px]">
+          {rows.flatMap(([a, b]) => [<dt key={`${a}-t`} className="text-sub">{a}</dt>, <dd key={`${a}-d`} className="font-medium">{b}</dd>])}
+        </dl>
+        {(f.components ?? []).length > 0 && <div className="mt-2 text-[12px] text-sub">Components: {f.components.map((c: any) => `${c.name}${c.material ? ` (${c.material})` : ''}`).join(', ')}</div>}
+        {d.current_cost?.total && <div className="mt-2 text-[12px]"><span className="text-sub">Current cost / unit (calculator): </span><span className="font-medium tabular">{range(d.current_cost.total)}</span>{d.current_cost.annual ? <span className="text-sub"> · {range(d.current_cost.annual, 0)} / yr</span> : null}</div>}
+        {(d.missing ?? []).length > 0 && <div className="mt-2 text-[11.5px] text-warn">Not provided (limits some estimates): {d.missing.join(', ')}</div>}
+      </div>
+      <div className="space-y-3">
+        <div className="rounded-[8px] border border-line bg-raised p-3">
+          <div className="label">What the analysis keyed on</div>
+          <div className="mb-2 flex flex-wrap gap-1">
+            {(k.functional_needs ?? []).map((n: string) => <span key={n} className="chip border-line bg-raised text-ink">{n}</span>)}
+            {(k.material_tags ?? []).map((n: string) => <span key={n} className="chip">{n}</span>)}
+            {!(k.functional_needs ?? []).length && <span className="text-[12px] text-sub">No functional needs given; alternatives judged on recyclability and cost only.</span>}
+          </div>
+          <div className="text-[12px] text-sub">Alternatives {k.forced ? 'chosen by the user' : 'proposed by the planner'}:</div>
+          <div className="mt-1 flex flex-wrap gap-1">{(k.alternatives ?? []).map((a: any) => <span key={a.material_key} className="chip">{a.name}</span>)}</div>
+        </div>
+        {(d.fee_categories ?? []).length > 0 && (
+          <div className="rounded-[8px] border border-line bg-raised p-3">
+            <div className="label">Producer-fee category for the current material</div>
+            <ul className="space-y-1 text-[12.5px]">
+              {d.fee_categories.map((c: any, i: number) => (
+                <li key={i}><span className="font-medium">{c.state}</span> · {c.category}: <span className="tabular">{c.cents_per_lb[0] === c.cents_per_lb[1] ? c.cents_per_lb[0] : `${c.cents_per_lb[0]}–${c.cents_per_lb[1]}`} ¢/lb</span>{c.n ? <Cites ns={[c.n]} /> : null}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function SectionVisual({ s, o }: { s: Section; o: Output }) {
   const d = s.data ?? {};
   switch (s.kind) {
+    case 'current':
+      return <ProductPanel d={d} />;
     case 'alternatives':
       return <FitMatrix options={d.options ?? []} needs={o.profile?.functional_needs ?? []} />;
     case 'regulatory':
@@ -53,7 +108,7 @@ function SectionVisual({ s, o }: { s: Section; o: Output }) {
       return (
         <>
           <div className="mb-3 flex flex-wrap items-center gap-2 text-sm2">
-            <span className={`chip ${d.confidence === 'Medium' ? 'border-strong bg-primary text-white' : 'border-strong'}`}>Confidence: {d.confidence}</span>
+            <span className={`chip ${d.confidence === 'Medium' ? 'border-strong bg-primary text-bg' : 'border-strong'}`}>Confidence: {d.confidence}</span>
             <span className="text-sub">{d.note}</span>
           </div>
           <CostTable d={d} inputN={inputN} />
@@ -104,16 +159,16 @@ function SectionVisual({ s, o }: { s: Section; o: Output }) {
   }
 }
 
-const WIDE = new Set(['summary', 'regulatory', 'cost', 'sourcing', 'alternatives', 'gaps']);
+const WIDE = new Set(['summary', 'current', 'regulatory', 'cost', 'sourcing', 'alternatives', 'gaps']);
 
 export function SectionCard({ s, o, index }: { s: Section; o: Output; index: number }) {
   const { show } = useContext(EvidenceCtx);
   return (
     <section id={`sec-${s.id}`} className={`card print-page scroll-mt-16 p-4 ${WIDE.has(s.kind) ? 'xl:col-span-2' : ''}`}>
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2 border-b border-line pb-2">
-        <div className="kicker"><span className="mr-1.5 text-primary">{String(index).padStart(2, '0')}</span>{s.title}</div>
+        <div className="kicker"><span className="mr-1.5 text-sub">{String(index).padStart(2, '0')}</span>{s.title}</div>
         <div className="flex items-center gap-2">
-          {s.passages?.length > 0 && <button className="no-print text-[11px] font-medium text-primary hover:underline" onClick={() => show(s.passages, undefined, s.title)}>{s.passages.length} passages</button>}
+          {s.passages?.length > 0 && <button className="no-print text-[11px] font-medium text-ink underline decoration-line underline-offset-2 hover:decoration-ink" onClick={() => show(s.passages, undefined, s.title)}>{s.passages.length} passages</button>}
           <StatusBadge s={s.status} />
         </div>
       </div>

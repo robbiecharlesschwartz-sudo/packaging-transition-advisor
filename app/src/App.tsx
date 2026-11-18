@@ -116,7 +116,7 @@ export function App({ embed = false }: { embed?: boolean }) {
               {!embed && (
                 <div className="flex gap-1 rounded-[8px] border border-line bg-surface p-1" role="tablist" aria-label="Mode">
                   {(['replay', 'live'] as const).map((m) => (
-                    <button key={m} role="tab" aria-selected={mode === m} className={`h-7 rounded-[6px] px-3 text-[12px] font-medium ${mode === m ? 'bg-primary text-white' : 'text-sub hover:bg-raised hover:text-ink'}`} onClick={() => setMode(m)}>
+                    <button key={m} role="tab" aria-selected={mode === m} className={`h-7 rounded-[6px] px-3 text-[12px] font-medium ${mode === m ? 'bg-primary text-bg' : 'text-sub hover:bg-raised hover:text-ink'}`} onClick={() => setMode(m)}>
                       {m === 'replay' ? 'Replay examples' : 'Live run'}
                     </button>
                   ))}
@@ -144,7 +144,7 @@ export function App({ embed = false }: { embed?: boolean }) {
                 <div className="space-y-2">
                   <p className="text-sm2 text-sub">Saved, complete runs of the real pipeline. Replaying uses no LLM quota.</p>
                   {EXAMPLES.map((e) => (
-                    <button key={e.slug} className={`w-full border p-2.5 text-left text-[13px] ${example === e.slug ? 'border-strong bg-primary text-white' : 'border-line hover:border-strong'}`} onClick={() => loadExample(e.slug)}>
+                    <button key={e.slug} className={`w-full border p-2.5 text-left text-[13px] ${example === e.slug ? 'border-strong bg-primary text-bg' : 'border-line hover:border-strong'}`} onClick={() => loadExample(e.slug)}>
                       <div className="font-semibold">{e.label}</div>
                     </button>
                   ))}
@@ -171,7 +171,7 @@ export function App({ embed = false }: { embed?: boolean }) {
                 <div className="no-print flex flex-wrap items-center gap-2">
                   <div className="flex gap-1 rounded-[8px] border border-line bg-surface p-1" role="tablist">
                     {([['brief', 'Brief'], ['how', 'How this answer was made'], ['sources', 'Sources']] as const).map(([t, l]) => (
-                      <button key={t} role="tab" aria-selected={tab === t} className={`h-8 rounded-[6px] px-3 text-[12.5px] font-medium ${tab === t ? 'bg-primary text-white' : 'text-sub hover:bg-raised hover:text-ink'}`} onClick={() => setTab(t)}>{l}</button>
+                      <button key={t} role="tab" aria-selected={tab === t} className={`h-8 rounded-[6px] px-3 text-[12.5px] font-medium ${tab === t ? 'bg-primary text-bg' : 'text-sub hover:bg-raised hover:text-ink'}`} onClick={() => setTab(t)}>{l}</button>
                     ))}
                   </div>
                   <div className="ml-auto flex gap-2">

@@ -3,15 +3,15 @@
 Generated 2026-11-18 by `scripts/chunk.py`.
 
 - Documents: **122**
-- Chunks: **3883** (~1,373,500 tokens)
+- Chunks: **3882** (~1,373,352 tokens)
 - Duplicate chunks dropped: 0
-- Vector capacity used: 1,491,072 of 5,000,000 stored dimensions (Vectorize free tier)
+- Vector capacity used: 1,490,688 of 5,000,000 stored dimensions (Vectorize free tier)
 
 ## Documents by layer
 
 | Layer | Documents | Chunks |
 |---|---:|---:|
-| claims_rules | 11 | 440 |
+| claims_rules | 11 | 439 |
 | competitor | 13 | 375 |
 | demand | 7 | 147 |
 | infrastructure | 21 | 131 |

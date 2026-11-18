@@ -12,13 +12,13 @@ import { Icon } from './ui';
 // What each node is, in workflow-builder terms (type line under the node name).
 const KIND: Record<string, { type: string; tone: string }> = {
   input: { type: 'Trigger · form / question', tone: 'bg-ok/15 text-ok' },
-  plan: { type: 'LLM · Gemini (lite)', tone: 'bg-primary/15 text-primary' },
+  plan: { type: 'LLM · Gemini (lite)', tone: 'bg-raised text-ink border border-line' },
   retrieve: { type: 'Vectorize + D1 FTS5 · RRF', tone: 'bg-warn/15 text-warn' },
   passages: { type: 'Code · dedupe + number', tone: 'bg-raised text-sub' },
   cost: { type: 'Code · cited calculator', tone: 'bg-raised text-sub' },
   sourcing: { type: 'Code · suppliers table', tone: 'bg-raised text-sub' },
-  write: { type: 'LLM · Gemini', tone: 'bg-primary/15 text-primary' },
-  verify: { type: 'Code + LLM · fact-check', tone: 'bg-primary/15 text-primary' },
+  write: { type: 'LLM · Gemini', tone: 'bg-raised text-ink border border-line' },
+  verify: { type: 'Code + LLM · fact-check', tone: 'bg-raised text-ink border border-line' },
   report: { type: 'Output · cited brief', tone: 'bg-ok/15 text-ok' },
 };
 
@@ -57,10 +57,10 @@ function flowLabel(id: string, s: any = {}): string {
 function StepNode({ data, selected }: NodeProps<Node<Data>>) {
   const st = data.step?.status;
   const k = KIND[data.def.id];
-  const badge = !data.active ? ['skipped', 'pill-gap'] : st === 'done' ? ['success', 'pill-ok'] : st === 'running' ? ['running', 'border-primary/50 bg-primary/10 text-primary animate-pulse'] : st === 'error' ? ['error', 'border-danger/40 bg-danger/10 text-danger'] : ['waiting', 'pill-gap'];
+  const badge = !data.active ? ['skipped', 'pill-gap'] : st === 'done' ? ['success', 'pill-ok'] : st === 'running' ? ['running', 'border-sub text-ink animate-pulse'] : st === 'error' ? ['error', 'border-danger/40 bg-danger/10 text-danger'] : ['waiting', 'pill-gap'];
   const trigger = data.def.id === 'input';
   return (
-    <div className={`w-[228px] rounded-[10px] border bg-surface shadow-[0_6px_24px_-12px_rgba(0,0,0,0.6)] transition-all ${selected ? 'border-primary ring-2 ring-primary/40' : st === 'error' ? 'border-danger/60' : 'border-line'} ${data.active ? '' : 'opacity-35'}`}>
+    <div className={`w-[228px] rounded-[10px] border bg-surface shadow-[0_6px_24px_-12px_rgba(0,0,0,0.6)] transition-all ${selected ? 'border-ink' : st === 'error' ? 'border-danger/60' : 'border-line'} ${data.active ? '' : 'opacity-35'}`}>
       {!trigger && <Handle id="l" type="target" position={Position.Left} className="!h-3 !w-3 !border-2 !border-surface !bg-sub" />}
       {data.def.id === 'write' && <Handle id="t" type="target" position={Position.Top} className="!h-3 !w-3 !border-2 !border-surface !bg-sub" />}
       <div className="flex items-center gap-2.5 p-2.5">

@@ -14,7 +14,7 @@ function Multi({ options, value, onChange, labels }: { options: string[]; value:
         const on = value.includes(o);
         return (
           <button key={o} type="button" aria-pressed={on} onClick={() => onChange(on ? value.filter((x) => x !== o) : [...value, o])}
-            className={`rounded-[4px] border px-1.5 py-0.5 text-[11px] ${on ? 'border-primary bg-primary text-white' : 'border-line bg-raised text-ink hover:border-sub'}`}>
+            className={`rounded-[4px] border px-1.5 py-0.5 text-[11px] ${on ? 'border-primary bg-primary text-bg' : 'border-line bg-raised text-ink hover:border-sub'}`}>
             {labels?.[o] ?? o}
           </button>
         );

@@ -1,0 +1,45 @@
+name: selfcheck
+# Weekly acceptance check against the brief's Definition of done. Applies safe automatic repairs first
+# (recount, re-embed drifted documents, reload tables); anything still failing opens (or updates) an issue.
+on:
+  schedule: [{ cron: '0 9 * * 1' }]
+  workflow_dispatch:
+    inputs:
+      live:
+        description: 'Also run the core agent and all 10 workflows (uses LLM quota)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      WORKER_URL: ${{ secrets.WORKER_URL || 'https://packaging-transition-advisor.pta-worker.workers.dev' }}
+      ADMIN_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -r requirements.txt
+      - name: Acceptance suite (with safe repairs)
+        id: acc
+        continue-on-error: true
+        run: |
+          ARGS=""
+          if [ -n "$ADMIN_TOKEN" ]; then ARGS="--repair"; fi
+          if [ "${{ inputs.live }}" = "true" ]; then ARGS="$ARGS --live"; fi
+          python scripts/acceptance.py $ARGS
+      - name: Open or update an issue when checks fail
+        if: steps.acc.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="Self-check failed: acceptance suite"
+          NUM=$(gh issue list --state open --search "$TITLE in:title" --json number -q '.[0].number')
+          if [ -n "$NUM" ]; then gh issue comment "$NUM" --body-file docs/ACCEPTANCE.md; else gh issue create --title "$TITLE" --body-file docs/ACCEPTANCE.md; fi
+          exit 1

@@ -14,7 +14,7 @@ export function EvidenceDrawer({ passages, ns, focus, label, onClose }: { passag
       <div className="flex items-center justify-between border-b border-line px-4 py-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-white"><Icon name="file" /></span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-bg"><Icon name="file" /></span>
             <div>
               <div className="text-[13px] font-semibold">Evidence</div>
               <div className="flex items-center gap-1 text-[11px] text-sub"><span className="h-1.5 w-1.5 rounded-full bg-ok" />{label ?? (list.length ? `${list.length} passage${list.length > 1 ? 's' : ''}` : 'Retrieved passages')}</div>
@@ -26,10 +26,10 @@ export function EvidenceDrawer({ passages, ns, focus, label, onClose }: { passag
       <div ref={ref} className="flex-1 space-y-3 overflow-y-auto p-4">
         {!list.length && <p className="text-sm2 text-sub">Every sentence in the brief carries numbered citations. Click one to see the exact passage it came from, with publisher, date and reliability tier.</p>}
         {list.map((p) => (
-          <article key={p.n} data-n={p.n} className={`rounded-[8px] border bg-raised p-3 text-[12.5px] ${p.n === focus ? 'border-primary ring-1 ring-primary/40' : 'border-line'}`}>
+          <article key={p.n} data-n={p.n} className={`rounded-[8px] border bg-raised p-3 text-[12.5px] ${p.n === focus ? 'border-sub' : 'border-line'}`}>
             <div className="mb-1 flex items-start gap-2">
               <span className="cite">{p.n}</span>
-              <a href={p.source_url} target="_blank" rel="noreferrer" className="font-semibold text-primary hover:underline">{p.title}</a>
+              <a href={p.source_url} target="_blank" rel="noreferrer" className="font-semibold text-ink underline decoration-line underline-offset-2 hover:decoration-ink">{p.title}</a>
             </div>
             <div className="mb-2 text-xs2 text-sub">
               {p.publisher} · {dateLabel(p.doc_date)} · {p.jurisdiction} · <span className="font-semibold">{p.reliability}</span>
@@ -72,10 +72,10 @@ export function ProgressStrip({ steps, status }: { steps: Step[]; status: string
     <ol className="flex flex-wrap items-center gap-2" aria-live="polite">
       {PROGRESS.map((p, i) => {
         const st = by.get(p.id)?.status;
-        const tone = st === 'done' ? 'pill-ok' : st === 'running' ? 'border-primary/50 bg-primary/10 text-primary animate-pulse' : st === 'error' ? 'border-danger/40 bg-danger/10 text-danger' : 'pill-gap';
+        const tone = st === 'done' ? 'border-line text-ink' : st === 'running' ? 'border-sub text-ink animate-pulse' : st === 'error' ? 'border-danger/40 bg-danger/10 text-danger' : 'pill-gap';
         return (
           <li key={p.id} className="flex items-center gap-2">
-            <span className={`rounded-full border px-2.5 py-0.5 text-[11px] font-medium ${tone}`}>{p.label}{text(p.id) ? ` · ${text(p.id)}` : ''}</span>
+            <span className={`rounded-full border px-2.5 py-0.5 text-[11px] font-medium ${tone}`}>{st === 'done' && <span className="mr-1 text-ok">✓</span>}{p.label}{text(p.id) ? ` · ${text(p.id)}` : ''}</span>
             {i < PROGRESS.length - 1 && <Icon name="chevron" className="h-3 w-3 text-sub" />}
           </li>
         );

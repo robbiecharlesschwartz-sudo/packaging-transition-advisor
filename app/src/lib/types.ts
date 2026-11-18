@@ -4,7 +4,7 @@ export interface Claim { text: string; cites: number[]; verdict?: 'supported' | 
 
 export interface Section {
   id: string;
-  kind: 'summary' | 'narrative' | 'alternatives' | 'regulatory' | 'eol' | 'claims' | 'cost' | 'sourcing' | 'competitor' | 'gaps';
+  kind: 'summary' | 'current' | 'narrative' | 'alternatives' | 'regulatory' | 'eol' | 'claims' | 'cost' | 'sourcing' | 'competitor' | 'gaps';
   title: string;
   takeaway: string;
   claims: Claim[];

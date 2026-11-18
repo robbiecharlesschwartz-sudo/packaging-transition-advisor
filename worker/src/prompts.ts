@@ -15,6 +15,7 @@ export const RULES = `Rules (follow all of them):
 export const KIND_SCHEMAS: Record<SectionDef['kind'], string> = {
   summary: `{"id","takeaway","claims":[{"text","cites":[n]}],"gaps":[]}  (4-6 claims)`,
   narrative: `{"id","takeaway","claims":[{"text","cites":[n]}],"gaps":["..."]}`,
+  current: `{"id","takeaway","claims":[{"text","cites":[n]}],"gaps":[]}  (describe the CURRENT package as it is today for THIS product: whether its material is accepted for recycling where it is sold, which fee or ban rules already apply to it, and what its functional role is for this product; 3-5 claims; do not discuss alternatives here)`,
   gaps: `{"id","takeaway","claims":[],"gaps":["what the corpus could not answer"],"data":{"next_questions":["research to-do"],"documents_needed":["document that would answer it"]}}`,
   alternatives: `{"id","takeaway","claims":[{"text","cites"}],"gaps":[],
   "data":{"options":[{"name","material_key","fit":"Strong|Possible|Weak","reasons":[{"text","cites":[n]}],

@@ -1,6 +1,6 @@
 import { WorkflowEntrypoint, type WorkflowEvent, type WorkflowStep } from 'cloudflare:workers';
 import { MATERIAL_KEYS, currentMaterialKey, materialByKey } from './catalog';
-import { costDigest, LAWS, runCost } from './cost/run';
+import { CATALOG, costDigest, LAWS, runCost } from './cost/run';
 import type { Env } from './env';
 import { llmJson } from './llm';
 import { plannerPrompt, profileText, summaryPrompt, writerPrompt } from './prompts';
@@ -301,6 +301,34 @@ export class BriefWorkflow extends WorkflowEntrypoint<Env, { runId: string }> {
             s.data = sourcing;
             const n = sourcing ? Object.values<any[]>(sourcing.by_alternative).flat().length : 0;
             s.status = n ? (s.status === 'Evidence Gap' ? 'Partial' : s.status) : 'Evidence Gap';
+          }
+          if (s.kind === 'current' && ctx.profile) {
+            const p = ctx.profile;
+            const key = currentMaterialKey(p.current_material, p.package_type);
+            const cur = cost?.options?.find((o: any) => o.is_current);
+            const st = (p.sales_states ?? []).filter((x) => x !== 'nationwide');
+            const fees = (CATALOG.epr_fees as any[]).filter((f) => key && f.material_keys.includes(key));
+            s.data = {
+              facts: {
+                company: p.company_description ?? null, product_category: p.product_category ?? null, package_type: p.package_type ?? null,
+                current_material: p.current_material ?? null, material_key: key, material_label: key ? materialByKey(key)?.label : null,
+                dimensions: p.dimensions ?? null, thickness: p.thickness ?? null, unit_weight_g: p.unit_weight_g ?? null,
+                weight_estimate: cur ? { low: cur.weight_g.low, high: cur.weight_g.high, method: cur.weight_g.method } : null,
+                annual_units: p.annual_units ?? null, components: p.components ?? [], sales_states: st.length ? st : ['nationwide'],
+                other_markets: p.other_markets ?? [], functional_needs: p.functional_needs ?? [],
+              },
+              fee_categories: fees.map((f) => ({ state: f.state, category: f.material_category, cents_per_lb: [f.cents_per_lb_low, f.cents_per_lb_high], n: passages.find((x) => x.chunk_id === f.chunk_id)?.n ?? null })),
+              current_cost: cur ? { material: cur.material_cost, total: cur.total_per_unit, annual: cur.annual } : null,
+              keyed_on: {
+                functional_needs: p.functional_needs ?? [],
+                material_tags: key ? materialByKey(key)?.tags ?? [] : [],
+                alternatives: plan.alternatives,
+                queries: plan.queries.filter((q) => q.section !== 'current').slice(0, 8).map((q) => q.query),
+                forced: (p.candidate_alternatives ?? []).length > 0,
+              },
+              missing: [!p.unit_weight_g && 'unit weight', !p.dimensions?.l_cm && !p.dimensions?.volume_ml && 'dimensions', !p.annual_units && 'annual units',
+                !(p.sales_states ?? []).length && 'sales states', !(p.functional_needs ?? []).length && 'functional needs'].filter(Boolean),
+            };
           }
           if (s.kind === 'regulatory') {
             const st = (ctx.profile?.sales_states ?? []).filter((x) => x !== 'nationwide');

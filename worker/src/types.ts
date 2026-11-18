@@ -38,7 +38,7 @@ export interface Profile {
 
 export interface SectionDef {
   id: string;
-  kind: 'summary' | 'narrative' | 'alternatives' | 'regulatory' | 'eol' | 'claims' | 'cost' | 'sourcing' | 'competitor' | 'gaps';
+  kind: 'summary' | 'current' | 'narrative' | 'alternatives' | 'regulatory' | 'eol' | 'claims' | 'cost' | 'sourcing' | 'competitor' | 'gaps';
   title: string;
   layers?: string[] | 'all';
   query_hint?: string;
