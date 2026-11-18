@@ -196,7 +196,7 @@ export function App({ embed = false }: { embed?: boolean }) {
                   <div className="space-y-3">
                     {o.question && <div className="card p-3"><span className="label">Question</span><div className="text-[16px] font-semibold">{o.question}</div></div>}
                     {o.sections.length > 2 && <div className="print-page"><KpiTiles o={o} /></div>}
-                    <div className="print-grid grid gap-3 xl:grid-cols-2">
+                    <div className="print-grid grid min-w-0 grid-cols-1 gap-3 xl:grid-cols-2">
                       {o.sections.map((s, i) => <SectionCard key={s.id} s={s} o={o} index={i + 1} />)}
                       <SourcesList o={o} />
                     </div>

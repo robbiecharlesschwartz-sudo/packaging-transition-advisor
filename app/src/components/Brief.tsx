@@ -164,7 +164,7 @@ const WIDE = new Set(['summary', 'current', 'regulatory', 'cost', 'sourcing', 'a
 export function SectionCard({ s, o, index }: { s: Section; o: Output; index: number }) {
   const { show } = useContext(EvidenceCtx);
   return (
-    <section id={`sec-${s.id}`} className={`card print-page scroll-mt-16 p-4 ${WIDE.has(s.kind) ? 'xl:col-span-2' : ''}`}>
+    <section id={`sec-${s.id}`} className={`card print-page min-w-0 scroll-mt-16 p-4 ${WIDE.has(s.kind) ? 'xl:col-span-2' : ''}`}>
       <div className="mb-2 flex flex-wrap items-center justify-between gap-2 border-b border-line pb-2">
         <div className="kicker"><span className="mr-1.5 text-sub">{String(index).padStart(2, '0')}</span>{s.title}</div>
         <div className="flex items-center gap-2">
@@ -210,7 +210,7 @@ export function KpiTiles({ o }: { o: Output }) {
 export function SourcesList({ o }: { o: Output }) {
   const cited = o.passages.filter((p) => p.cited);
   return (
-    <section id="sec-sources" className="card print-page p-4 xl:col-span-2">
+    <section id="sec-sources" className="card print-page min-w-0 p-4 xl:col-span-2">
       <div className="kicker mb-2 border-b border-line pb-2">Sources</div>
       <h2 className="mb-3 text-h2 font-semibold">{cited.length} cited passages from {new Set(cited.map((p) => p.document_id)).size} documents</h2>
       <EvidenceCharts passages={o.passages} />
